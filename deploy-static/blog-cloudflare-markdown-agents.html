@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>Cloudflare's "Markdown for Agents": Is Your Site Ready for AI Crawlers?</title>
+  <meta name="description" content="Cloudflare just launched Markdown for Agents — sites can now serve AI-optimized markdown via content negotiation. Here's what it means for your AEO score and how to prepare." />
+  <meta name="keywords" content="cloudflare markdown for agents, ai crawlers, content negotiation, text/markdown, aeo optimization, ai agent crawling, cloudflare crawl api, ai search optimization 2026" />
+  <meta property="og:title" content="Cloudflare's Markdown for Agents: Is Your Site Ready?" />
+  <meta property="og:description" content="Cloudflare sites can now serve markdown to AI agents automatically. The infrastructure layer for AI discoverability just changed." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://extensions-tags-administered-fighter.trycloudflare.com/blog-cloudflare-markdown-agents.html" />
+  <link rel="canonical" href="https://extensions-tags-administered-fighter.trycloudflare.com/blog-cloudflare-markdown-agents.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cloudflare's Markdown for Agents: Is Your Site Ready for AI Crawlers?",
+    "description": "Cloudflare launched Markdown for Agents — sites can serve AI-optimized markdown via content negotiation. What this means for AEO and AI discoverability.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://extensions-tags-administered-fighter.trycloudflare.com"},
+    "datePublished": "2026-03-12",
+    "dateModified": "2026-03-12",
+    "mainEntityOfPage": "https://extensions-tags-administered-fighter.trycloudflare.com/blog-cloudflare-markdown-agents.html"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-2: #1a1a25;
+      --border: #2a2a3a;
+      --text: #e8e8f0;
+      --text-dim: #8888a0;
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.15);
+      --green: #00d26a;
+      --orange: #f39c12;
+      --red: #ff4757;
+      --code-bg: #161625;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.85rem; }
+    .nav-links a { color: var(--text-dim); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center;
+      font-size: 0.8rem; color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+    .article-tag {
+      background: var(--accent-glow);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .article-lead {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--accent);
+    }
+    p { margin-bottom: 1.25rem; }
+    ul, ol {
+      margin: 0 0 1.25rem 1.5rem;
+    }
+    li { margin-bottom: 0.5rem; }
+
+    /* Code */
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: var(--green);
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* Callout boxes */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout-accent {
+      border-left: 3px solid var(--accent);
+    }
+    .callout-green {
+      border-left: 3px solid var(--green);
+    }
+    .callout-orange {
+      border-left: 3px solid var(--orange);
+    }
+    .callout h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .comparison-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table tr:hover td {
+      background: var(--surface);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    .cta-section h2 { margin-top: 0; }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Timeline */
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .timeline-dot {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+    .timeline-dot.green { background: var(--green); }
+    .timeline-dot.orange { background: var(--orange); }
+
+    @media (max-width: 640px) {
+      .article-container { padding: 2rem 1rem 4rem; }
+      .nav { padding: 0.75rem 1rem; }
+      .nav-links { display: none; }
+      .cta-section { padding: 1.5rem; }
+    }
+  </style>
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand"><span>AEO</span> CHECKER</a>
+  <div class="nav-links">
+    <a href="/">Tool</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/blog-llms-txt-new-robots-txt.html">llms.txt Guide</a>
+    <a href="/blog-aeo-case-studies-10-sites.html">Case Studies</a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-meta">
+    <span class="article-tag">Breaking</span>
+    <span>March 12, 2026</span>
+    <span>·</span>
+    <span>6 min read</span>
+  </div>
+
+  <h1>Cloudflare's "Markdown for Agents": The Infrastructure Layer for AI Discoverability Just Changed</h1>
+
+  <p class="article-lead">
+    On March 11, 2026, Cloudflare quietly launched something that will reshape how AI agents interact with the web: sites behind Cloudflare can now serve clean markdown via a simple HTTP header. No code changes needed. If you care about AI discoverability, pay attention.
+  </p>
+
+  <h2>What Cloudflare Actually Launched</h2>
+
+  <p>Two things happened simultaneously:</p>
+
+  <div class="callout callout-accent">
+    <h4>1. The /crawl Endpoint</h4>
+    <p>A new API that lets anyone crawl entire Cloudflare-hosted sites programmatically — returning HTML, cleaned markdown, structured JSON, or screenshot data. Think of it as Cloudflare saying: "Here, AI builders, take the web in whatever format you need."</p>
+  </div>
+
+  <div class="callout callout-green">
+    <h4>2. Markdown Content Negotiation</h4>
+    <p>Any Cloudflare site can now respond to <code>Accept: text/markdown</code> headers with a clean markdown version of the page. No plugin. No configuration. It just works — Cloudflare strips the HTML and serves agent-friendly content automatically.</p>
+  </div>
+
+  <p>As one Hacker News commenter put it (the story hit 262 upvotes in hours):</p>
+
+  <div class="callout">
+    <p><em>"It's like Cloudflare is building the robots.txt-for-AI infrastructure layer."</em></p>
+  </div>
+
+  <p>That's exactly what's happening. And the implications for anyone who cares about how AI agents find and understand their site are massive.</p>
+
+  <h2>Why This Matters for Your Business</h2>
+
+  <p>Today, when ChatGPT, Claude, Perplexity, or any AI agent visits your website, it sees the same thing as a web browser: a mess of HTML, CSS, JavaScript, navigation menus, cookie banners, and ads. The actual content — the stuff the agent wants — is buried in noise.</p>
+
+  <p>Markdown for Agents changes this. Here's what an AI agent gets now:</p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Before (HTML)</th>
+        <th>After (Markdown)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cookie consent popups</td>
+        <td>Clean, structured text</td>
+      </tr>
+      <tr>
+        <td>Navigation menus in every response</td>
+        <td>Just the content</td>
+      </tr>
+      <tr>
+        <td>JavaScript that needs rendering</td>
+        <td>Instant, parseable text</td>
+      </tr>
+      <tr>
+        <td>~50KB+ per page</td>
+        <td>~5KB of pure signal</td>
+      </tr>
+      <tr>
+        <td>Agents guess what matters</td>
+        <td>Structure tells them</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The business implication is straightforward: <strong>sites that serve clean, structured content to AI agents will be easier to understand, more accurately represented, and more likely to be recommended.</strong></p>
+
+  <h2>How Content Negotiation Works</h2>
+
+  <p>The mechanism is elegant — it uses the same HTTP standard that's powered the web since the 1990s:</p>
+
+  <pre><code># Standard request — returns HTML as always
+curl https://example.com/pricing
+
+# Agent request — returns clean markdown
+curl -H "Accept: text/markdown" https://example.com/pricing</code></pre>
+
+  <p>That's it. One header. The site doesn't need to know it's talking to an AI agent. The server (Cloudflare, in this case) handles the transformation automatically.</p>
+
+  <h3>What the markdown response looks like</h3>
+
+  <pre><code># Pricing
+
+## Starter Plan — $29/month
+- 1,000 API calls
+- Basic analytics
+- Email support
+
+## Pro Plan — $99/month
+- 10,000 API calls
+- Advanced analytics
+- Priority support
+- Custom integrations</code></pre>
+
+  <p>Compare that to the 200 lines of HTML the same page typically returns. An AI agent can parse this in milliseconds and extract exactly what it needs.</p>
+
+  <h2>The Bigger Picture: An Emerging Stack</h2>
+
+  <p>Cloudflare's move doesn't exist in isolation. A clear stack for AI discoverability is crystallizing:</p>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div>
+      <strong>robots.txt</strong> — Still essential. Tells agents what they <em>can't</em> access. The "no trespassing" sign.
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot green"></div>
+    <div>
+      <strong>llms.txt</strong> — The newcomer. Tells AI agents what your site <em>is</em> and where to find key content. The welcome mat. (<a href="/blog-llms-txt-new-robots-txt.html">Our deep dive →</a>)
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot orange"></div>
+    <div>
+      <strong>Markdown for Agents</strong> — The new layer. Serves your content in a format AI agents can actually <em>use</em>. The conversation itself.
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div>
+      <strong>Structured data (JSON-LD)</strong> — Machine-readable metadata about your pages, products, pricing, and organization.
+    </div>
+  </div>
+
+  <p>Each layer serves a different purpose. Together, they form what we're calling the <strong>AEO Stack</strong> — the set of signals that determine how well AI agents can discover, understand, and recommend your business.</p>
+
+  <h2>What You Should Do Right Now</h2>
+
+  <h3>1. Check if your site already supports it</h3>
+
+  <p>If your site is behind Cloudflare, it might already work. Test it:</p>
+
+  <pre><code>curl -s -H "Accept: text/markdown" https://yoursite.com/ | head -20</code></pre>
+
+  <p>If you get markdown back, you're already serving agent-friendly content. If you get HTML, your CDN or host doesn't support it yet.</p>
+
+  <h3>2. Audit your AI discoverability</h3>
+
+  <p>Markdown is one signal of many. Your full AEO profile includes:</p>
+
+  <ul>
+    <li><strong>robots.txt</strong> — Are you blocking AI crawlers? (Many sites accidentally do)</li>
+    <li><strong>llms.txt</strong> — Do you have one? Does it accurately describe your site?</li>
+    <li><strong>Sitemap.xml</strong> — Can agents find all your important pages?</li>
+    <li><strong>Structured data</strong> — Is your business info machine-readable?</li>
+    <li><strong>Markdown support</strong> — Can agents get clean content?</li>
+    <li><strong>Meta descriptions</strong> — Are they informative or keyword-stuffed?</li>
+  </ul>
+
+  <h3>3. Don't wait for your competitors</h3>
+
+  <p>The window for early adopters is narrow. Right now, fewer than 5% of websites have any AEO optimization. By the time this becomes mainstream knowledge, the advantage will be gone.</p>
+
+  <div class="callout callout-orange">
+    <h4>The SEO Parallel</h4>
+    <p>Remember when "having a mobile-friendly site" went from competitive advantage to table stakes in 18 months? AI discoverability is on the same trajectory, but faster. The companies optimizing now will be the ones AI agents recommend when your customers ask "what's the best [your category]?"</p>
+  </div>
+
+  <h2>What This Means for AEO Checker</h2>
+
+  <p>We're adding <strong>Markdown for Agents</strong> as a new check in AEO Checker. Soon you'll be able to see:</p>
+
+  <ul>
+    <li>Whether your site responds to <code>Accept: text/markdown</code></li>
+    <li>The quality and completeness of the markdown response</li>
+    <li>How it compares to your HTML content</li>
+    <li>Actionable steps to enable it if your host supports it</li>
+  </ul>
+
+  <p>This joins our existing checks for robots.txt, llms.txt, sitemap.xml, structured data, and meta tags — giving you the most comprehensive AI discoverability audit available.</p>
+
+  <div class="cta-section">
+    <h2>How AI-Ready Is Your Site?</h2>
+    <p>Check your AEO score in 30 seconds. Free. No signup required.</p>
+    <a href="/" class="cta-button">Check Your AEO Score →</a>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-dim);">
+      Audits robots.txt, llms.txt, sitemap.xml, structured data, meta tags, and more.
+    </p>
+  </div>
+
+  <h2>Further Reading</h2>
+
+  <ul>
+    <li><a href="/blog-llms-txt-new-robots-txt.html">llms.txt: The New robots.txt — Why AI Agents Need a Different Sitemap</a></li>
+    <li><a href="/blog-aeo-case-studies-10-sites.html">AEO in Practice: We Audited 10 Real Sites (Stripe, GitHub, Anthropic...)</a></li>
+    <li><a href="/">AEO Checker — Free AI Discoverability Audit</a></li>
+  </ul>
+</article>
+
+<footer class="footer">
+  <p>© 2026 AEO Check. Built for the AI-first web.</p>
+  <p style="margin-top: 0.5rem;">
+    <a href="/">Home</a> · <a href="/pricing">Pricing</a> · <a href="/blog-llms-txt-new-robots-txt.html">Blog</a>
+  </p>
+</footer>
+
+</body>
+</html>

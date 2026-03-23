@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>llms.txt: The New robots.txt — Why AI Agents Need a Different Kind of Sitemap</title>
+  <meta name="description" content="robots.txt tells bots what NOT to do. llms.txt tells AI agents what your site IS. Learn why this paradigm shift matters for your AI search visibility in 2026." />
+  <meta name="keywords" content="llms.txt vs robots.txt, llms.txt, robots.txt for ai, ai agent optimization, aeo, generative engine optimization, ai search visibility, llms.txt standard" />
+  <meta property="og:title" content="llms.txt: The New robots.txt — Why AI Needs a Different Sitemap" />
+  <meta property="og:description" content="robots.txt blocks bots. llms.txt informs AI agents. The web's biggest paradigm shift since 1994." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-llms-txt-new-robots-txt.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-llms-txt-new-robots-txt.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "llms.txt: The New robots.txt — Why AI Agents Need a Different Kind of Sitemap",
+    "description": "robots.txt tells bots what NOT to do. llms.txt tells AI agents what your site IS. Why this paradigm shift matters for AI search visibility.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-check.netlify.app"},
+    "datePublished": "2026-03-09",
+    "dateModified": "2026-03-09",
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-llms-txt-new-robots-txt.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between robots.txt and llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "robots.txt tells crawlers what NOT to access (blocking rules). llms.txt tells AI agents what your site IS (context and understanding). robots.txt is defensive; llms.txt is informative."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need both robots.txt and llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. robots.txt controls crawler access (still essential for SEO). llms.txt provides context for AI agents that are already allowed to access your site. They serve complementary purposes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will llms.txt replace robots.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. llms.txt adds a new layer on top of robots.txt. robots.txt handles access control. llms.txt handles understanding. Both are needed as the web shifts from pure search to AI-mediated discovery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI agents read llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As of 2026, llms.txt is supported by Anthropic's Claude, various AI coding assistants, and a growing number of AI agents. ChatGPT and Perplexity primarily use traditional crawling but are expected to adopt the standard."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check if my site is optimized for AI agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use AEO Check (aeo-check.netlify.app) to scan your site for free. It checks llms.txt, robots.txt AI bot rules, structured data, and other factors that determine your visibility to AI agents."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav a:hover { color: var(--accent2); }
+    .logo { font-family: var(--mono); font-weight: 600; font-size: 1rem; color: var(--accent2); }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent2); }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 40px; }
+    h2 { font-size: 1.5rem; font-weight: 600; margin: 48px 0 16px; color: var(--text); }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+    p { margin-bottom: 16px; color: #c8c8e0; }
+    a { color: var(--accent2); }
+    ul, ol { margin: 0 0 16px 24px; color: #c8c8e0; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 0.9rem; }
+    .comparison-table th, .comparison-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .comparison-table th { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .comparison-table td { color: #c8c8e0; }
+    .comparison-table tr:hover td { background: rgba(99,102,241,0.04); }
+    .col-old { color: var(--red); }
+    .col-new { color: var(--green); }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+      margin: 16px 0 24px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #a5b4fc;
+    }
+    code { font-family: var(--mono); font-size: 0.9em; background: rgba(99,102,241,0.1); padding: 2px 6px; border-radius: 4px; }
+    .callout {
+      background: rgba(99,102,241,0.06);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .paradigm-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    @media (max-width: 500px) { .paradigm-box { grid-template-columns: 1fr; } }
+    .paradigm-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .paradigm-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .paradigm-card.old h4 { color: var(--red); }
+    .paradigm-card.new h4 { color: var(--green); }
+    .paradigm-card code { display: block; margin-top: 8px; font-size: 0.85rem; }
+    .timeline { margin: 24px 0 32px; padding-left: 24px; border-left: 2px solid var(--border); }
+    .timeline-item { position: relative; padding: 0 0 24px 20px; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .timeline-item .year { font-family: var(--mono); font-size: 0.85rem; color: var(--accent2); font-weight: 600; }
+    .timeline-item p { margin: 4px 0 0; font-size: 0.9rem; }
+    .faq-item { margin: 24px 0; }
+    .faq-item h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(129,140,248,0.08));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .cta-box h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.3); }
+    .related { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .related h3 { margin-top: 0; }
+    .related ul { list-style: none; margin-left: 0; }
+    .related li { margin-bottom: 8px; }
+    .related a { text-decoration: none; }
+    .related a:hover { text-decoration: underline; }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+    footer p { color: var(--text-dim); font-size: 0.8rem; }
+    footer a { color: var(--text-muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">AEO Check</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/pricing.html">Pricing</a>
+    </nav>
+
+    <div class="breadcrumb"><a href="/">Home</a> → <a href="/#blog">Blog</a> → llms.txt: The New robots.txt</div>
+
+    <article>
+      <h1>llms.txt: The New robots.txt</h1>
+      <p class="meta">March 9, 2026 · 8 min read · Updated March 2026</p>
+
+      <p>In 1994, Martijn Koster proposed <code>robots.txt</code> — a simple text file that told web crawlers what <em>not</em> to do. It became one of the most important files on the internet. Every website has one. Every search engine respects it.</p>
+
+      <p>Thirty-two years later, the web has a new problem. <strong>AI agents don't just crawl your site — they try to understand it.</strong> And <code>robots.txt</code> was never designed for understanding. It was designed for blocking.</p>
+
+      <p>Enter <code>llms.txt</code>: a file that tells AI agents what your site <em>is</em>.</p>
+
+      <h2>The Paradigm Shift: Blocking → Informing</h2>
+
+      <p>Here's the fundamental difference between the two files:</p>
+
+      <div class="paradigm-box">
+        <div class="paradigm-card old">
+          <h4>🚫 robots.txt (1994)</h4>
+          <p>"Here's what you <strong>can't</strong> access."</p>
+          <code>User-agent: *<br/>Disallow: /admin/<br/>Disallow: /private/</code>
+        </div>
+        <div class="paradigm-card new">
+          <h4>✅ llms.txt (2024)</h4>
+          <p>"Here's what we <strong>are</strong> and what matters."</p>
+          <code># Acme Corp<br/>&gt; B2B analytics platform<br/>- Docs: /docs<br/>- API: /api-reference</code>
+        </div>
+      </div>
+
+      <p><code>robots.txt</code> is a bouncer. <code>llms.txt</code> is a tour guide.</p>
+
+      <p>This isn't a subtle shift. For three decades, the relationship between websites and bots was adversarial: "Stay away from these areas." Now, with AI agents making purchasing recommendations, answering questions, and writing code, the relationship needs to be collaborative: "Here's how to understand us."</p>
+
+      <h2>Why robots.txt Isn't Enough for AI</h2>
+
+      <p>Consider what happens when someone asks ChatGPT, Claude, or Perplexity: <em>"What's the best project management tool for remote teams?"</em></p>
+
+      <p>The AI agent doesn't just crawl URLs. It needs to:</p>
+
+      <ol>
+        <li><strong>Understand</strong> what your product does</li>
+        <li><strong>Categorize</strong> it against competitors</li>
+        <li><strong>Evaluate</strong> whether it's relevant to the query</li>
+        <li><strong>Cite</strong> specific capabilities with confidence</li>
+      </ol>
+
+      <p><code>robots.txt</code> tells the agent none of this. It only says which URLs are off-limits. An agent could crawl every allowed page on your site and still misunderstand what you do — because your homepage is 90% hero animations and your value prop is buried in a carousel.</p>
+
+      <div class="callout">
+        <p><strong>The invisibility problem:</strong> A recent Hacker News post put it perfectly — <em>"Most websites are invisible to AI agents."</em> Not because they're blocked, but because they're incomprehensible. Your <code>robots.txt</code> says "come in." But nothing tells the agent what it's looking at.</p>
+      </div>
+
+      <h2>What llms.txt Actually Contains</h2>
+
+      <p>The <code>llms.txt</code> file sits at your site root (<code>yoursite.com/llms.txt</code>) and provides structured context in Markdown format:</p>
+
+<pre># Your Company Name
+> One-line description of what you do
+
+## Docs
+- [Getting Started](/docs/quickstart.md): Setup guide for new users
+- [API Reference](/docs/api.md): Complete REST API documentation
+
+## Features
+- Real-time collaboration for remote teams
+- SOC 2 Type II certified
+- Integrates with Slack, Jira, and GitHub
+
+## Pricing
+- Free tier: up to 5 users
+- Pro: $12/user/month
+- Enterprise: custom pricing</pre>
+
+      <p>Simple. Human-readable. Machine-parseable. No special tooling required.</p>
+
+      <h2>The Evolution: 1994 → 2026</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">1994</div>
+          <p><strong>robots.txt</strong> — "Don't crawl these URLs." Solved the problem of bots overwhelming servers.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2005</div>
+          <p><strong>sitemap.xml</strong> — "Here are all our URLs." Helped search engines discover content more efficiently.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2011</div>
+          <p><strong>Schema.org</strong> — "Here's structured data about our content." Enabled rich snippets and knowledge graphs.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <p><strong>llms.txt</strong> — "Here's what we are and what matters." Designed for AI agents that need to <em>understand</em>, not just crawl.</p>
+        </div>
+      </div>
+
+      <p>Each generation solved a different problem. <code>robots.txt</code> controlled access. <code>sitemap.xml</code> mapped structure. Schema.org added meaning. <code>llms.txt</code> adds <strong>context</strong> — the one thing AI agents need most and HTML provides least.</p>
+
+      <h2>Side-by-Side Comparison</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th class="col-old">robots.txt</th>
+            <th class="col-new">llms.txt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Purpose</strong></td>
+            <td>Access control</td>
+            <td>Context & understanding</td>
+          </tr>
+          <tr>
+            <td><strong>Approach</strong></td>
+            <td>Deny-list (block)</td>
+            <td>Allow-list (inform)</td>
+          </tr>
+          <tr>
+            <td><strong>Format</strong></td>
+            <td>Custom syntax</td>
+            <td>Markdown</td>
+          </tr>
+          <tr>
+            <td><strong>Audience</strong></td>
+            <td>Web crawlers</td>
+            <td>AI agents & LLMs</td>
+          </tr>
+          <tr>
+            <td><strong>Tells agents</strong></td>
+            <td>Where NOT to go</td>
+            <td>What your site IS</td>
+          </tr>
+          <tr>
+            <td><strong>Impact on visibility</strong></td>
+            <td>Can reduce indexing</td>
+            <td>Increases AI comprehension</td>
+          </tr>
+          <tr>
+            <td><strong>Complexity</strong></td>
+            <td>Low (pattern matching)</td>
+            <td>Low (structured Markdown)</td>
+          </tr>
+          <tr>
+            <td><strong>Standard age</strong></td>
+            <td>32 years</td>
+            <td>~2 years (emerging)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Who's Already Using llms.txt</h2>
+
+      <p>The adoption curve is early but accelerating:</p>
+
+      <ul>
+        <li><strong>Anthropic</strong> — Claude's parent company has full llms.txt implementation</li>
+        <li><strong>GitAuto.ai</strong> — Implemented llms.txt and shared results on Hacker News (March 2026)</li>
+        <li><strong>Stripe</strong> — Structured documentation that AI agents can parse (scored 68/100 on our AEO Check)</li>
+        <li><strong>Developer documentation platforms</strong> — ReadMe, GitBook, and others are adding llms.txt generation</li>
+      </ul>
+
+      <p>The pattern is clear: companies that serve developers and AI-native audiences are adopting first. But as AI agents handle more general consumer queries — restaurant recommendations, product comparisons, service evaluations — every business will need to be "AI-legible."</p>
+
+      <h2>The Business Case: Invisible = Non-Existent</h2>
+
+      <p>Here's the uncomfortable math:</p>
+
+      <ul>
+        <li><strong>40% of Gen Z</strong> now uses AI chatbots for product research instead of Google</li>
+        <li>AI-generated answers produce <strong>$0 in ad revenue</strong> for websites — no click, no visit, no impression</li>
+        <li>When an AI agent recommends your competitor because it <em>understood</em> their site better, you lost the deal before you knew it existed</li>
+      </ul>
+
+      <p><code>robots.txt</code> ensured you appeared in search results. <code>llms.txt</code> ensures you appear in AI recommendations. The stakes are identical — only the mechanism has changed.</p>
+
+      <h2>How to Implement Both (5 Minutes)</h2>
+
+      <h3>1. Keep Your robots.txt (Still Essential)</h3>
+
+<pre>User-agent: *
+Allow: /
+
+# AI-specific bot rules
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /</pre>
+
+      <h3>2. Add llms.txt at Your Root</h3>
+
+<pre># Your Company
+> What you do in one sentence
+
+## Key Pages
+- [Product](/product): Main product description
+- [Docs](/docs): Technical documentation
+- [Pricing](/pricing): Plans and pricing
+
+## Quick Facts
+- Founded: 2020
+- Category: [your category]
+- Key differentiator: [what makes you unique]</pre>
+
+      <h3>3. Check Your Score</h3>
+
+      <p>Use <a href="https://aeo-check.netlify.app">AEO Check</a> to scan your site. It evaluates your <code>llms.txt</code>, <code>robots.txt</code> AI bot rules, structured data, and overall AI agent readability — all for free.</p>
+
+      <div class="cta-box">
+        <h3>Is Your Site Visible to AI Agents?</h3>
+        <p>Scan your website in 30 seconds. Free, unlimited, no signup.</p>
+        <a href="https://aeo-check.netlify.app" class="cta-btn">Check Your AEO Score →</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>What is the difference between robots.txt and llms.txt?</h3>
+        <p><code>robots.txt</code> tells crawlers what <em>not</em> to access (blocking rules). <code>llms.txt</code> tells AI agents what your site <em>is</em> (context and understanding). <code>robots.txt</code> is defensive; <code>llms.txt</code> is informative. You need both.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do I need both robots.txt and llms.txt?</h3>
+        <p>Yes. <code>robots.txt</code> controls crawler access (still essential for SEO). <code>llms.txt</code> provides context for AI agents that are already allowed to access your site. They serve complementary purposes — like having both a lock on your door and a welcome sign.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Will llms.txt replace robots.txt?</h3>
+        <p>No. <code>llms.txt</code> adds a new layer on top of <code>robots.txt</code>. <code>robots.txt</code> handles access control. <code>llms.txt</code> handles understanding. Both are needed as the web shifts from pure search to AI-mediated discovery.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Which AI agents read llms.txt?</h3>
+        <p>As of 2026, <code>llms.txt</code> is supported by Anthropic's Claude, various AI coding assistants, and a growing number of AI agents. ChatGPT and Perplexity primarily use traditional crawling but are expected to adopt the standard as it matures.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I check if my site is optimized for AI agents?</h3>
+        <p>Use <a href="https://aeo-check.netlify.app">AEO Check</a> to scan your site for free. It checks <code>llms.txt</code>, <code>robots.txt</code> AI bot rules, structured data, and other factors that determine your visibility to AI agents.</p>
+      </div>
+
+      <div class="related">
+        <h3>Related Reading</h3>
+        <ul>
+          <li>→ <a href="/blog-how-to-create-llms-txt.html">How to Create llms.txt — Complete Guide</a></li>
+          <li>→ <a href="/blog-robots-txt-ai-agents.html">robots.txt for AI Agents — Configuration Guide</a></li>
+          <li>→ <a href="/blog-what-is-aeo.html">What is AEO? Agent Engine Optimization Explained</a></li>
+          <li>→ <a href="/blog-aeo-vs-seo.html">AEO vs SEO: What's the Difference?</a></li>
+          <li>→ <a href="/blog-aeo-optimization-guide.html">The Complete AEO Optimization Guide</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <footer>
+      <p><a href="/">AEO Check</a> · Free AI Agent Optimization Scanner</p>
+      <p style="margin-top:8px;">© 2026 AEO Check. Built for the AI-first web.</p>
+    </footer>
+  </div>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>AEO Blog — AI Engine Optimization Guides, News & Case Studies</title>
+  <meta name="description" content="Learn how to optimize your website for AI agents. Guides on llms.txt, robots.txt, structured data, MCP servers, content negotiation, and more. Free resources from AEO Check." />
+  <meta name="keywords" content="aeo blog, ai engine optimization, aeo guides, llms txt guide, ai agent optimization, seo for ai, aeo vs seo, mcp servers" />
+  <meta property="og:title" content="AEO Blog — AI Engine Optimization Guides & News" />
+  <meta property="og:description" content="Everything you need to know about optimizing your site for AI agents. Guides, case studies, and industry news." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "AEO Check Blog",
+    "description": "Guides, case studies, and news about AI Engine Optimization (AEO) — making websites discoverable and useful to AI agents.",
+    "url": "https://aeo-check.netlify.app/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AEO Check",
+      "url": "https://aeo-check.netlify.app"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "MCP Servers Explained: How AI Agents Talk to Your Product",
+        "url": "https://aeo-check.netlify.app/blog-mcp-servers-explained.html",
+        "datePublished": "2026-03-22"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Every SaaS Needs an AI Strategy in 2026",
+        "url": "https://aeo-check.netlify.app/blog-saas-ai-strategy-2026.html",
+        "datePublished": "2026-03-22"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "GeoArk vs AEO Checker: Which AEO Tool Is Right for You?",
+        "url": "https://aeo-check.netlify.app/blog-geoark-vs-aeo-checker.html",
+        "datePublished": "2026-03-16"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Google Just Made MCP Official in Chrome",
+        "url": "https://aeo-check.netlify.app/blog-google-mcp-devtools-agents.html",
+        "datePublished": "2026-03-16"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Sentry Already Optimizes for AI Agents — Does Your Site?",
+        "url": "https://aeo-check.netlify.app/blog-sentry-optimizes-for-agents.html",
+        "datePublished": "2026-03-14"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Cloudflare's Markdown for AI Agents: What It Means",
+        "url": "https://aeo-check.netlify.app/blog-cloudflare-markdown-agents.html",
+        "datePublished": "2026-03-13"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "GEO vs AEO: What's the Actual Difference?",
+        "url": "https://aeo-check.netlify.app/blog-geo-vs-aeo.html",
+        "datePublished": "2026-03-12"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "AEO Case Studies: 10 Real Sites Audited",
+        "url": "https://aeo-check.netlify.app/blog-aeo-case-studies-10-sites.html",
+        "datePublished": "2026-03-09"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Create an llms.txt File",
+        "url": "https://aeo-check.netlify.app/blog-how-to-create-llms-txt.html",
+        "datePublished": "2026-03-08"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "llms.txt: The New robots.txt for AI",
+        "url": "https://aeo-check.netlify.app/blog-llms-txt-new-robots-txt.html",
+        "datePublished": "2026-03-08"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "robots.txt for AI Agents: The Complete Guide",
+        "url": "https://aeo-check.netlify.app/blog-robots-txt-ai-agents.html",
+        "datePublished": "2026-03-08"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "AEO vs SEO: What's Different, What's the Same",
+        "url": "https://aeo-check.netlify.app/blog-aeo-vs-seo.html",
+        "datePublished": "2026-03-07"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The Complete AEO Optimization Guide",
+        "url": "https://aeo-check.netlify.app/blog-aeo-optimization-guide.html",
+        "datePublished": "2026-03-07"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "What Is AEO? AI Engine Optimization Explained",
+        "url": "https://aeo-check.netlify.app/blog-what-is-aeo.html",
+        "datePublished": "2026-03-03"
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    h1 {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .page-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    .category-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      margin-top: 48px;
+    }
+    .category-label:first-of-type { margin-top: 0; }
+    .post-card {
+      display: block;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .post-card:hover { padding-left: 8px; }
+    .post-card:hover .post-title { color: var(--accent2); }
+    .post-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      transition: color 0.15s;
+      line-height: 1.4;
+    }
+    .post-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .post-meta {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .post-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent2);
+      margin-right: 6px;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-section h3 { margin-bottom: 8px; font-size: 20px; }
+    .cta-section p { color: var(--text-muted); margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+    footer a { color: var(--text-muted); }
+    @media (max-width: 600px) {
+      .post-title { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <a href="/">← Back to Tool</a>
+  </div></nav>
+
+  <div class="container">
+    <h1>AEO Blog</h1>
+    <p class="page-subtitle">Guides, case studies, and industry analysis on AI Engine Optimization — making your site discoverable and useful to AI agents.</p>
+
+    <!-- LATEST -->
+    <div class="category-label">Latest</div>
+
+    <a href="/blog-mcp-servers-explained.html" class="post-card">
+      <div class="post-title">MCP Servers Explained: How AI Agents Talk to Your Product</div>
+      <div class="post-desc">MCP is the universal protocol that lets AI agents use external tools. Here's what it is, how it works, and why your product needs one.</div>
+      <div class="post-meta"><span class="post-tag">Technical</span> Mar 22, 2026 · 10 min</div>
+    </a>
+
+    <a href="/blog-saas-ai-strategy-2026.html" class="post-card">
+      <div class="post-title">Why Every SaaS Needs an AI Strategy in 2026 (Not Just AI Features)</div>
+      <div class="post-desc">Adding AI copilots is table stakes. The real advantage is being discoverable BY AI. Five-layer framework for SaaS teams.</div>
+      <div class="post-meta"><span class="post-tag">Strategy</span> Mar 22, 2026 · 9 min</div>
+    </a>
+
+    <!-- INDUSTRY NEWS & ANALYSIS -->
+    <div class="category-label">Industry News & Analysis</div>
+
+    <a href="/blog-geoark-vs-aeo-checker.html" class="post-card">
+      <div class="post-title">GeoArk vs AEO Checker: Which AEO Tool Is Right for You?</div>
+      <div class="post-desc">GeoArk monitors AI mentions ($79-199/mo). AEO Checker optimizes your site (free scan + $299 audit). Complementary tools for different needs.</div>
+      <div class="post-meta"><span class="post-tag">Comparison</span> Mar 16, 2026 · 8 min</div>
+    </a>
+
+    <a href="/blog-google-mcp-devtools-agents.html" class="post-card">
+      <div class="post-title">Google Just Made MCP Official in Chrome — Here's What It Means</div>
+      <div class="post-desc">Chrome DevTools MCP lets AI agents debug live browser sessions. Google's biggest signal that agents are first-class web participants.</div>
+      <div class="post-meta"><span class="post-tag">News</span> Mar 16, 2026 · 7 min</div>
+    </a>
+
+    <a href="/blog-sentry-optimizes-for-agents.html" class="post-card">
+      <div class="post-title">Sentry Already Optimizes for AI Agents — Does Your Site?</div>
+      <div class="post-desc">Sentry serves different content to AI agents via HTTP content negotiation. Here's how they do it, and why llms.txt wasn't the answer.</div>
+      <div class="post-meta"><span class="post-tag">Case Study</span> Mar 14, 2026 · 7 min</div>
+    </a>
+
+    <a href="/blog-cloudflare-markdown-agents.html" class="post-card">
+      <div class="post-title">Cloudflare's Markdown for AI Agents: What It Means</div>
+      <div class="post-desc">Cloudflare lets any site serve markdown to AI agents — no server changes needed. Built-in AEO for their entire network.</div>
+      <div class="post-meta"><span class="post-tag">News</span> Mar 13, 2026 · 6 min</div>
+    </a>
+
+    <a href="/blog-aeo-case-studies-10-sites.html" class="post-card">
+      <div class="post-title">AEO Case Studies: 10 Real Sites Audited</div>
+      <div class="post-desc">How Stripe, GitHub, Anthropic, and Nike score on AI optimization. Original data from our scanner.</div>
+      <div class="post-meta"><span class="post-tag">Data Study</span> Mar 9, 2026 · 10 min</div>
+    </a>
+
+    <!-- GUIDES -->
+    <div class="category-label">Guides</div>
+
+    <a href="/blog-ai-optimized-faq-page.html" class="post-card">
+      <div class="post-title">How to Write an AI-Optimized FAQ Page (With Schema Examples)</div>
+      <div class="post-desc">FAQPage schema is the easiest AEO win. Copy-paste JSON-LD, before/after examples, common mistakes, and a full checklist.</div>
+      <div class="post-meta"><span class="post-tag">Guide</span> Mar 22, 2026 · 8 min</div>
+    </a>
+
+    <a href="/blog-aeo-optimization-guide.html" class="post-card">
+      <div class="post-title">The Complete AEO Optimization Guide</div>
+      <div class="post-desc">Step-by-step: make your site visible and useful to AI agents. Covers all 7 AEO checks with actionable fixes.</div>
+      <div class="post-meta"><span class="post-tag">Guide</span> Mar 7, 2026 · 12 min</div>
+    </a>
+
+    <a href="/blog-how-to-create-llms-txt.html" class="post-card">
+      <div class="post-title">How to Create an llms.txt File (10-Minute Guide)</div>
+      <div class="post-desc">The fastest way to make your site agent-discoverable. Step-by-step instructions with examples.</div>
+      <div class="post-meta"><span class="post-tag">Guide</span> Mar 8, 2026 · 5 min</div>
+    </a>
+
+    <a href="/blog-robots-txt-ai-agents.html" class="post-card">
+      <div class="post-title">robots.txt for AI Agents: The Complete Guide</div>
+      <div class="post-desc">How to configure robots.txt so AI crawlers can index your site — without exposing what you want private.</div>
+      <div class="post-meta"><span class="post-tag">Guide</span> Mar 8, 2026 · 6 min</div>
+    </a>
+
+    <!-- CONCEPTS -->
+    <div class="category-label">Concepts</div>
+
+    <a href="/blog-what-is-aeo.html" class="post-card">
+      <div class="post-title">What Is AEO? AI Engine Optimization Explained</div>
+      <div class="post-desc">AEO is the practice of making your site discoverable by AI agents — ChatGPT, Claude, Perplexity, Google AI. Here's everything you need to know.</div>
+      <div class="post-meta"><span class="post-tag">Fundamentals</span> Mar 3, 2026 · 8 min</div>
+    </a>
+
+    <a href="/blog-aeo-vs-seo.html" class="post-card">
+      <div class="post-title">AEO vs SEO: What's Different, What's the Same</div>
+      <div class="post-desc">Traditional SEO isn't dead — but it's no longer enough. Here's how AEO complements and extends what you already do.</div>
+      <div class="post-meta"><span class="post-tag">Fundamentals</span> Mar 7, 2026 · 7 min</div>
+    </a>
+
+    <a href="/blog-geo-vs-aeo.html" class="post-card">
+      <div class="post-title">GEO vs AEO: What's the Actual Difference?</div>
+      <div class="post-desc">Everyone's talking about optimizing for AI. Nobody agrees on what the terms mean. Here's the clarity you need.</div>
+      <div class="post-meta"><span class="post-tag">Fundamentals</span> Mar 12, 2026 · 6 min</div>
+    </a>
+
+    <a href="/blog-llms-txt-new-robots-txt.html" class="post-card">
+      <div class="post-title">llms.txt: The New robots.txt for AI</div>
+      <div class="post-desc">Why AI agents need a different kind of sitemap — and how llms.txt fits into the broader AEO picture.</div>
+      <div class="post-meta"><span class="post-tag">Fundamentals</span> Mar 8, 2026 · 6 min</div>
+    </a>
+
+    <div class="cta-section">
+      <h3>Check Your AEO Score — Free</h3>
+      <p>See how AI agents perceive your site. 7 checks, 30 seconds, actionable fixes.</p>
+      <a href="/" class="cta-btn">Run Free AEO Scan →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing.html">Pricing</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "AEO Checker",
+  "name_for_model": "aeo_checker",
+  "description_for_human": "Check how well any website is optimized for AI agent discoverability. Get a score out of 110 with specific fix recommendations.",
+  "description_for_model": "AEO Checker scans websites for AI agent optimization. It checks 7 categories: Structured Data (JSON-LD, OpenGraph), robots.txt AI bot permissions (GPTBot, ClaudeBot, PerplexityBot), llms.txt presence, Content Structure (headings, FAQ/HowTo schema), Tool/API Description (ai-plugin.json, OpenAPI), Performance (response time), and Markdown for Agents (content negotiation). Returns a score out of 110, grade (Excellent/Good/Fair/Poor/Critical), and actionable recommendations. Use this tool to audit any website's readiness for AI agent traffic.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://extensions-tags-administered-fighter.trycloudflare.com/openapi.json"
+  },
+  "logo_url": "https://extensions-tags-administered-fighter.trycloudflare.com/favicon.svg",
+  "contact_email": "nexus.smith@proton.me",
+  "legal_info_url": "https://extensions-tags-administered-fighter.trycloudflare.com/"
+}

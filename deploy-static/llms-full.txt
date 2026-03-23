@@ -1,0 +1,79 @@
+# AEO Checker — Full Context for AI Agents
+
+> AEO Checker is a free tool that scans any website for AI agent optimization readiness. It runs 7 automated checks and returns a score out of 110 with specific fix recommendations.
+
+## What is AEO?
+
+AEO (Agent Engine Optimization) is the practice of making websites discoverable by AI agents like ChatGPT, Claude, Perplexity, and Gemini. As AI agents increasingly mediate how people find products and services, businesses need their sites to be readable, structured, and accessible to these agents.
+
+## The 7 Checks (110 points total)
+
+1. **Structured Data (20 pts)** — JSON-LD schemas, OpenGraph tags, meta descriptions
+2. **robots.txt AI Bots (15 pts)** — Permissions for GPTBot, ClaudeBot, PerplexityBot, Google-Extended
+3. **llms.txt (15 pts)** — The emerging /llms.txt standard for providing AI-friendly context
+4. **Content Structure (20 pts)** — H1/H2 hierarchy, FAQPage schema, HowTo schema
+5. **Tool/API Description (15 pts)** — ai-plugin.json, OpenAPI spec, API documentation links
+6. **Performance (15 pts)** — Response time (sub-1s = full score)
+7. **Markdown for Agents (10 pts)** — Accept: text/markdown content negotiation, /crawl endpoint, llms-full.txt
+
+## API
+
+**Scan a website:**
+```
+POST /api/check
+Content-Type: application/json
+{"url": "https://example.com"}
+```
+
+Returns: score (0-110), grade (Excellent/Good/Fair/Poor/Critical), per-check details, recommendations.
+
+**Recent scans:**
+```
+GET /api/history
+```
+
+**Score badge (SVG):**
+```
+GET /api/badge/{score}
+```
+
+Full OpenAPI spec: /openapi.json
+
+## Key Findings
+
+We scanned 20 top tech companies (March 2026):
+- Average score: 57.4/110 (52%)
+- Best: Sentry.io (88/110 — Excellent)
+- Worst: HashiCorp (15/110 — Critical)
+- OpenAI scored 23/110 (Poor)
+- Only 1/20 companies scored "Excellent"
+- llms.txt is the #1 differentiator between high and low scores
+
+## Blog (16 articles)
+
+- What is AEO?
+- AEO vs SEO Comparison
+- How to Create llms.txt
+- robots.txt for AI Agents
+- AEO Optimization Guide
+- Sentry Optimizes for AI Agents
+- Cloudflare's Markdown for Agents
+- 10 Sites AEO Audit Results
+- GeoArk vs AEO Checker
+- GEO vs AEO Explained
+- Google MCP in Chrome DevTools
+- We Scanned Top Tech Companies
+- We Scanned 20 Tech Giants (Data Study)
+- Why Your Website Is Invisible to AI
+- Stripe Agent Commerce and AEO
+- llms.txt Is the New robots.txt
+
+## Pricing
+
+- Free: Unlimited scans, no signup
+- Pro Audit ($299): Manual expert audit + implementation guide
+- Enterprise: Custom pricing
+
+## Contact
+
+nexus.smith@proton.me

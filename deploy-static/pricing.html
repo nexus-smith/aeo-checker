@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEO Checker Pricing — AI Optimization Audit Plans & API Access</title>
+  <meta name="description" content="AEO Checker pricing. Free AEO score tool, professional AI optimization audits, and API access for agencies. Get your site discovered by AI agents." />
+  <meta name="keywords" content="aeo checker pricing, aeo audit service, ai optimization pricing, aeo score api, ai discoverability audit" />
+  <meta property="og:title" content="AEO Checker — Pricing & Plans" />
+  <meta property="og:description" content="Free AEO score tool. Professional AI optimization audits. API access for agencies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://extensions-tags-administered-fighter.trycloudflare.com/pricing.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --surface2: #1e1e35;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .container { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 20px 80px; }
+
+    /* Nav */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .nav-brand { font-family: var(--mono); font-size: 14px; color: var(--accent2); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 64px; }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #e8e8f0 0%, #9090b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+    .header p { color: var(--text-muted); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; } }
+
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .plan:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-2px); }
+    .plan.featured {
+      border-color: rgba(99,102,241,0.4);
+      background: linear-gradient(180deg, rgba(99,102,241,0.08) 0%, var(--surface) 60%);
+      position: relative;
+    }
+    .plan.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 3px 14px;
+      border-radius: 100px;
+    }
+    .plan-name { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px; }
+    .plan-price { font-size: 2.4rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .plan-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+    .plan-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; min-height: 40px; }
+    .plan-features { list-style: none; flex: 1; margin-bottom: 28px; }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 6px 0;
+      line-height: 1.5;
+    }
+    .plan-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--sans);
+    }
+    .plan-cta.primary { background: var(--accent); color: #fff; }
+    .plan-cta.primary:hover { box-shadow: 0 8px 25px rgba(99,102,241,0.35); transform: translateY(-1px); }
+    .plan-cta.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .plan-cta.secondary:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* TAM section */
+    .tam-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 48px;
+    }
+    .tam-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    .tam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 640px) { .tam-grid { grid-template-columns: 1fr; } }
+    .tam-card {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .tam-number {
+      font-family: var(--mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 4px;
+    }
+    .tam-label { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    /* FAQ */
+    .faq-section { margin-bottom: 48px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 24px; text-align: center; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-q::after { content: '+'; color: var(--text-dim); font-family: var(--mono); font-size: 18px; transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .bottom-cta h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; }
+    .bottom-cta p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+    .bottom-cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .bottom-cta a:hover { box-shadow: 0 8px 25px rgba(99,102,241,0.35); transform: translateY(-1px); }
+
+    .footer { text-align: center; color: var(--text-dim); font-size: 12px; font-family: var(--mono); padding-top: 20px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AEO Checker Pricing",
+    "description": "AEO Checker pricing plans. Free AEO score tool, professional AI optimization audits, and API access.",
+    "url": "https://extensions-tags-administered-fighter.trycloudflare.com/pricing.html",
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An AEO (AI Engine Optimization) audit analyzes how well AI agents like ChatGPT, Claude, and Perplexity can discover, understand, and recommend your website. It covers structured data, robots.txt configuration, llms.txt, content structure, API discoverability, and performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is AEO different from SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO optimizes for search engine crawlers and ranking algorithms. AEO optimizes for AI answer engines that synthesize information and recommend tools. Both matter, but AEO focuses on structured data, llms.txt, and AI bot accessibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need AEO now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI agents are already skipping traditional search results. Businesses optimized for AI discoverability get recommended by ChatGPT, Claude, Perplexity, and Google AI Overviews while competitors remain invisible. Early movers capture the naming window."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the free AEO checker accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The free checker runs 6 automated checks covering structured data, robots.txt, llms.txt, content structure, API descriptions, and performance. It gives a reliable baseline score. The Pro audit adds manual review, competitive analysis, and implementation roadmap."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="/" class="nav-brand">⚡ AEO Checker</a>
+      <div class="nav-links">
+        <a href="/">Free Scan</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/blog-what-is-aeo.html">Blog</a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+      <h1>Make Your Site Visible to AI</h1>
+      <p>From free scans to full AEO audits. Choose the plan that fits how your business talks to AI agents.</p>
+    </header>
+
+    <!-- Pricing Grid -->
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="plan">
+        <div class="plan-name">// FREE</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-desc">Quick score. Instant results. No signup.</div>
+        <ul class="plan-features">
+          <li>AEO Score /100 with grade</li>
+          <li>6 automated checks</li>
+          <li>Actionable recommendations</li>
+          <li>Embeddable badge</li>
+          <li>Unlimited scans</li>
+        </ul>
+        <a href="/" class="plan-cta secondary">Scan Now — Free</a>
+      </div>
+
+      <!-- Pro Audit -->
+      <div class="plan featured">
+        <div class="plan-name">// PRO AUDIT</div>
+        <div class="plan-price">$299 <span>per site</span></div>
+        <div class="plan-desc">Deep analysis by AEO specialists. Implementation roadmap included.</div>
+        <ul class="plan-features">
+          <li>Everything in Free</li>
+          <li>Manual expert review (not just automated)</li>
+          <li>Competitor AEO benchmarking (3 competitors)</li>
+          <li>Priority fix roadmap with code snippets</li>
+          <li>llms.txt + JSON-LD templates custom-written</li>
+          <li>robots.txt optimization for AI bots</li>
+          <li>30-day follow-up re-scan</li>
+          <li>Delivered within 48 hours</li>
+        </ul>
+        <a href="#waitlist" class="plan-cta primary">Get Your Audit</a>
+      </div>
+
+      <!-- Agency / API -->
+      <div class="plan">
+        <div class="plan-name">// AGENCY API</div>
+        <div class="plan-price">$99 <span>/month</span></div>
+        <div class="plan-desc">Integrate AEO scoring into your tools. White-label ready.</div>
+        <ul class="plan-features">
+          <li>REST API access (/api/check)</li>
+          <li>1,000 scans/month</li>
+          <li>White-label badge generation</li>
+          <li>Bulk URL scanning</li>
+          <li>JSON response with full breakdown</li>
+          <li>Webhook notifications</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#waitlist" class="plan-cta secondary">Join API Waitlist</a>
+      </div>
+    </div>
+
+    <!-- TAM / Market Size -->
+    <div class="tam-section">
+      <h2>Why AEO Matters Now</h2>
+      <div class="tam-grid">
+        <div class="tam-card">
+          <div class="tam-number">40%</div>
+          <div class="tam-label">of Gen Z uses AI instead of Google for search (2025 data)</div>
+        </div>
+        <div class="tam-card">
+          <div class="tam-number">0</div>
+          <div class="tam-label">ad revenue from AI agents — they skip sponsored results entirely</div>
+        </div>
+        <div class="tam-card">
+          <div class="tam-number">2-4 wk</div>
+          <div class="tam-label">naming window remaining — "AEO" is being defined right now</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">What is an AEO audit?</div>
+        <div class="faq-a">An AEO (AI Engine Optimization) audit analyzes how well AI agents like ChatGPT, Claude, and Perplexity can discover, understand, and recommend your website. It covers structured data, robots.txt configuration for AI bots, llms.txt presence, content structure, API discoverability, and response performance.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is AEO different from SEO?</div>
+        <div class="faq-a">SEO optimizes for search engine crawlers and ranking algorithms — keywords, backlinks, page authority. AEO optimizes for AI answer engines that synthesize information and recommend tools directly. Key differences: AI agents read JSON-LD and llms.txt (not just HTML), they check robots.txt for bot-specific rules, and they prioritize structured, machine-readable content over keyword density.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why should I care about AEO now?</div>
+        <div class="faq-a">AI agents are already replacing traditional search for millions of users. When someone asks ChatGPT "what's the best project management tool?", your site is either in the answer or it's not. There's no page 2 in AI search — you're recommended or invisible. Companies optimizing now will capture the naming window before competitors catch on.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is the free checker accurate?</div>
+        <div class="faq-a">The free checker runs 6 automated checks covering the core AEO signals. It gives a reliable baseline score out of 100. The Pro audit goes deeper with manual review, competitive analysis, custom template generation, and an implementation roadmap tailored to your specific stack.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What do I get with the Pro Audit?</div>
+        <div class="faq-a">A comprehensive report delivered within 48 hours: your full AEO breakdown, competitor benchmarking (3 competitors of your choice), priority fix roadmap with copy-paste code snippets, custom-written llms.txt and JSON-LD templates for your site, robots.txt optimization, and a 30-day follow-up re-scan to measure improvement.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How does the Agency API work?</div>
+        <div class="faq-a">Simple REST API. POST a URL to /api/check, get back a JSON response with score, grade, and detailed breakdown for each of the 6 checks. Perfect for SEO agencies adding AEO to their service stack, or SaaS tools integrating AEO scoring. White-label badges included.</div>
+      </div>
+    </div>
+
+    <!-- Waitlist form -->
+    <div class="bottom-cta" id="waitlist">
+      <h2>Ready to optimize for AI?</h2>
+      <p>Join the waitlist for Pro Audits and API access. Early adopters get priority + launch pricing.</p>
+      <form action="https://formsubmit.co/nexus.smith@proton.me" method="POST" style="display:inline-flex;flex-direction:column;gap:12px;max-width:400px;width:100%;margin:0 auto;">
+        <input type="hidden" name="_subject" value="AEO Checker — Waitlist Signup (Pricing Page)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://extensions-tags-administered-fighter.trycloudflare.com/pricing.html?thanks=1">
+        <input type="text" name="_honey" style="display:none">
+        <input type="email" name="email" required placeholder="you@company.com" style="padding:14px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#1a1a2e;color:#e8e8f0;font-family:'Inter',sans-serif;font-size:14px;outline:none;">
+        <select name="plan" style="padding:14px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#1a1a2e;color:#e8e8f0;font-family:'Inter',sans-serif;font-size:14px;outline:none;cursor:pointer;">
+          <option value="pro-audit">Pro Audit ($299/site)</option>
+          <option value="agency-api">Agency API ($99/mo)</option>
+          <option value="both">Both — I want everything</option>
+        </select>
+        <button type="submit" style="padding:14px 32px;border-radius:10px;background:#6366f1;color:#fff;border:none;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;">Join Waitlist →</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <a href="/" style="color:#4a4a6a;text-decoration:none;">AEO Checker</a> · <a href="/pricing.html" style="color:#4a4a6a;text-decoration:none;">Pricing</a> · <a href="/blog-what-is-aeo.html" style="color:#4a4a6a;text-decoration:none;">Blog</a>
+    </footer>
+  </div>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+    });
+
+    // Thank you message
+    if (window.location.search.includes('thanks=1')) {
+      const cta = document.getElementById('waitlist');
+      cta.innerHTML = '<h2 style="color:#22c55e">You\'re on the list! 🎉</h2><p>We\'ll reach out soon with early access details.</p><a href="/" style="display:inline-block;background:#6366f1;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;margin-top:16px;">Run a Free Scan →</a>';
+    }
+  </script>
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>Google Just Made MCP Official in Chrome — Here's What It Means for Your Site</title>
+  <meta name="description" content="Google's Chrome DevTools now supports MCP (Model Context Protocol), letting AI agents debug live browser sessions. This changes how agents interact with the web — and what your site needs to be ready for." />
+  <meta name="keywords" content="chrome devtools mcp, model context protocol, google mcp, ai agents browser, aeo optimization, agent web interaction, chrome m144, coding agents" />
+  <meta property="og:title" content="Google Just Made MCP Official in Chrome — Here's What It Means for Your Site" />
+  <meta property="og:description" content="Chrome DevTools MCP lets AI agents debug live browser sessions. Google adopting MCP is the clearest signal yet that agents are becoming first-class web participants." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://extensions-tags-administered-fighter.trycloudflare.com/blog-google-mcp-devtools-agents.html" />
+  <link rel="canonical" href="https://extensions-tags-administered-fighter.trycloudflare.com/blog-google-mcp-devtools-agents.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Google Just Made MCP Official in Chrome — Here's What It Means for Your Site",
+    "description": "Google's Chrome DevTools now supports MCP (Model Context Protocol), letting AI agents debug live browser sessions. This is the clearest signal yet that agents are first-class web participants.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://extensions-tags-administered-fighter.trycloudflare.com"},
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "mainEntityOfPage": "https://extensions-tags-administered-fighter.trycloudflare.com/blog-google-mcp-devtools-agents.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Chrome DevTools MCP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chrome DevTools MCP is an official Google tool that lets AI coding agents connect to live Chrome browser sessions using the Model Context Protocol (MCP). Agents can inspect elements, analyze network requests, take performance traces, and debug web pages — all through your actual browser, not a headless instance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Model Context Protocol (MCP)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MCP (Model Context Protocol) is an open standard originally created by Anthropic that defines how AI agents communicate with external tools and data sources. It provides a standardized interface so agents can interact with browsers, databases, APIs, and other services through a common protocol. Google adopting MCP in Chrome DevTools signals it's becoming the de facto standard for agent-tool communication."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Google adopting MCP matter for website owners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When Google integrates MCP into Chrome, it validates that AI agents browsing the web is not experimental — it's mainstream infrastructure. More agents means more non-human visitors to your site. Sites that are optimized for agent consumption (clean structure, structured data, machine-readable content) will be better served by these tools. Sites that aren't may be misunderstood, skipped, or poorly represented in AI-generated answers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I prepare my website for AI agents using Chrome DevTools MCP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Focus on clean HTML structure, semantic markup, structured data (Schema.org JSON-LD), an llms.txt file, and ideally content negotiation (serving markdown to agents via Accept headers). These fundamentals make your site readable whether an agent is using Chrome DevTools MCP, a headless browser, or a direct HTTP request. Use a tool like AEO Check to audit your site's agent-readiness."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Chrome DevTools MCP safe to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google has built in security measures. Remote debugging must be explicitly enabled in chrome://inspect, every MCP connection triggers a user permission dialog, and Chrome shows a visible banner while a debugging session is active. The agent cannot connect without the developer's explicit approval each time."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    .article-meta {
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .article-meta time { color: var(--text-dim); }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text); }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .tldr {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin: 32px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .tldr strong { color: var(--accent2); }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title { font-weight: 600; margin-bottom: 8px; }
+    .callout-warn {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-warn .callout-title { color: var(--amber); }
+    .callout-green {
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-green .callout-title { color: var(--green); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--text-muted); }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin: 24px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .timeline-item.highlight::before {
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .timeline-text {
+      color: var(--text);
+      font-size: 15px;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-section h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+    .related-posts { margin: 48px 0; }
+    .related-posts h3 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .related-link {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .related-link:hover { color: var(--accent2); }
+    .related-link span { color: var(--text-dim); font-size: 13px; font-weight: 400; display: block; margin-top: 4px; }
+    blockquote {
+      border-left: 3px solid var(--text-dim);
+      padding: 12px 20px;
+      margin: 24px 0;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent2);
+      display: block;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    @media (max-width: 600px) {
+      pre { font-size: 12px; padding: 16px; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <a href="/">← Back to Tool</a>
+  </div></nav>
+
+  <article class="container">
+    <div class="article-meta">
+      <time datetime="2026-03-16">March 16, 2026</time> · 8 min read
+    </div>
+
+    <h1>Google Just Made MCP Official in Chrome — Here's What It Means for Your Site</h1>
+    <p class="subtitle">Chrome DevTools now lets AI agents debug live browser sessions using MCP. When Google builds agent infrastructure directly into Chrome, the question stops being "will agents browse the web?" and becomes "is your site ready when they do?"</p>
+
+    <div class="tldr">
+      <strong>TL;DR:</strong> Google shipped an MCP server for Chrome DevTools that lets coding agents connect to your live browser session — inspect elements, analyze network requests, take performance traces. It's not experimental. It's in Chrome M144 Beta right now. This matters for AEO because it's Google validating that AI agents are first-class web participants, not a niche experiment.
+    </div>
+
+    <h2>What Google Actually Shipped</h2>
+
+    <p>The <a href="https://developer.chrome.com/blog/chrome-devtools-mcp-debug-your-browser-session">Chrome DevTools MCP server</a> (457 points on Hacker News, 195 comments) does something no browser automation tool has done before: it lets an AI agent connect to <em>your actual browser session</em>.</p>
+
+    <p>Not a headless instance. Not a separate profile. Your browser. Your cookies. Your logged-in state.</p>
+
+    <p>Here's the setup — it's one config block:</p>
+
+    <pre><code>{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest",
+        "--autoConnect",
+        "--channel=beta"
+      ]
+    }
+  }
+}</code></pre>
+
+    <p>Once connected, an agent can:</p>
+
+    <ul>
+      <li><strong>Inspect elements</strong> — select something in the Elements panel, ask the agent to investigate</li>
+      <li><strong>Analyze network requests</strong> — select a failing request in the Network panel, hand it to the agent</li>
+      <li><strong>Run performance traces</strong> — ask the agent to profile a page load</li>
+      <li><strong>Access authenticated content</strong> — because it's using your session, no re-login needed</li>
+    </ul>
+
+    <p>The key innovation is the handoff model. You browse normally. You spot a problem. You select the element or request. Then you tell your coding agent: "fix this." The agent sees exactly what you see — same page, same state, same context.</p>
+
+    <div class="callout">
+      <div class="callout-title">Security model</div>
+      <p style="margin-bottom:0">Google didn't skimp on guardrails. Remote debugging must be explicitly enabled at <code>chrome://inspect#remote-debugging</code>. Every connection triggers a user permission dialog. Chrome shows a visible banner ("Chrome is being controlled by automated test software") while active. An agent cannot connect without your explicit approval.</p>
+    </div>
+
+    <h2>Why MCP — and Why It Matters</h2>
+
+    <p>The Chrome DevTools team could have built a proprietary API. They chose <a href="https://modelcontextprotocol.io">MCP (Model Context Protocol)</a> instead — the open standard originally created by Anthropic for agent-tool communication.</p>
+
+    <p>This is a significant strategic choice. MCP defines a common language for how AI agents talk to external tools. When Google builds on it, they're not just shipping a feature — they're endorsing a standard.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-number">457</span>
+        <span class="stat-label">HN points</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">195</span>
+        <span class="stat-label">comments</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">M144</span>
+        <span class="stat-label">Chrome Beta</span>
+      </div>
+    </div>
+
+    <p>Here's the MCP adoption timeline that matters:</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Nov 2024</div>
+        <div class="timeline-text">Anthropic releases MCP as open standard</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Q1 2025</div>
+        <div class="timeline-text">OpenAI, Microsoft, and dozens of dev tools add MCP support</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Sep 2025</div>
+        <div class="timeline-text">Chrome DevTools MCP server first released</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Dec 2025</div>
+        <div class="timeline-text">Auto-connect to live browser sessions shipped</div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-date">Mar 2026</div>
+        <div class="timeline-text">457-point HN discussion — developer community takes notice</div>
+      </div>
+    </div>
+
+    <p>The pattern is clear. MCP started as one company's standard. It's now the default protocol for agent-tool communication. And the world's most-used browser just built it in.</p>
+
+    <h2>The AEO Implication Nobody's Talking About</h2>
+
+    <p>Most of the Hacker News discussion focused on developer workflow — "cool, my coding agent can debug CSS for me." That's valid but misses the bigger picture.</p>
+
+    <p>Chrome DevTools MCP means agents are no longer limited to reading your site through HTTP requests. They can now <em>experience</em> your site the way a browser does — rendering, JavaScript execution, computed styles, network waterfalls, the full picture.</p>
+
+    <p>This changes the agent-readiness calculus:</p>
+
+    <h3>Before Chrome DevTools MCP</h3>
+    <p>Agents visited your site via HTTP, got raw HTML, and tried to parse it. Optimization meant clean HTML, structured data, and machine-readable content. If your site was a JavaScript SPA that rendered nothing without client-side execution, agents saw a blank page.</p>
+
+    <h3>After Chrome DevTools MCP</h3>
+    <p>Agents can now render your site in a real browser and inspect the result. They see computed styles, DOM mutations, network requests, performance metrics. A JavaScript-heavy site is no longer invisible — but a <em>slow</em> or <em>broken</em> site is now measurably so.</p>
+
+    <div class="callout-warn">
+      <div class="callout-title">⚠️ Performance becomes agent-visible</div>
+      <p style="margin-bottom:0">When agents could only read HTML, a 4-second load time was invisible to them. With DevTools MCP, an agent can take a performance trace and <em>see</em> your site loads in 4 seconds while a competitor loads in 0.8 seconds. Performance was always important for users. Now it's data that agents can factor into recommendations.</p>
+    </div>
+
+    <h2>What This Means for Each Audience</h2>
+
+    <h3>For Developers</h3>
+    <p>This is the most immediate use case. If you're using Claude, Gemini, or any coding agent with MCP support, you can now hand off debugging tasks to your agent without context-switching. Select a DOM element, say "why is this overflowing on mobile?", and the agent has full access to computed styles, layout info, and the surrounding markup.</p>
+
+    <p>The configuration is trivial — one MCP server entry. The impact is significant: agents go from "suggest a fix based on code" to "diagnose the actual rendered problem and suggest a fix."</p>
+
+    <h3>For Site Owners & Marketers</h3>
+    <p>Agents using Chrome DevTools MCP are primarily developers debugging their own sites today. But the infrastructure pattern matters: Google is building the pipes for agents to deeply understand web content. Today it's DevTools. Tomorrow it could be Googlebot itself using MCP to communicate what it finds on your site to AI systems.</p>
+
+    <p>The smart move is the same as it's always been: build a fast, well-structured, accessible site. But now add agent-specific optimizations:</p>
+
+    <ol>
+      <li><strong>Structured data</strong> — Schema.org JSON-LD on every important page</li>
+      <li><strong>llms.txt</strong> — Machine-readable site overview (<a href="/blog-how-to-create-llms-txt.html">how to create one</a>)</li>
+      <li><strong>Content negotiation</strong> — Serve markdown to agents (<a href="/blog-sentry-optimizes-for-agents.html">how Sentry does it</a>)</li>
+      <li><strong>Performance</strong> — Now that agents can measure it, fast sites win twice</li>
+      <li><strong>Clean HTML</strong> — Semantic markup agents can parse without guessing</li>
+    </ol>
+
+    <h3>For the AI Industry</h3>
+    <p>MCP winning the protocol war has massive implications. A world where every tool speaks MCP means agents become interoperable. A Claude agent can use the same Chrome DevTools server as a Gemini agent. This standardization accelerates the entire ecosystem — more agents, doing more things, interacting with more of the web.</p>
+
+    <p>More agent activity on the web = more need for AEO. It's that simple.</p>
+
+    <h2>The Protocol War Is Over</h2>
+
+    <p>Six months ago, there were legitimate questions about whether MCP would become the standard or if competing protocols would emerge. Google adopting MCP for Chrome DevTools effectively ends that debate.</p>
+
+    <p>Here's why:</p>
+
+    <ul>
+      <li><strong>Anthropic</strong> created MCP and uses it across Claude</li>
+      <li><strong>OpenAI</strong> added MCP support to ChatGPT and their agent frameworks</li>
+      <li><strong>Google</strong> built MCP into Chrome DevTools</li>
+      <li><strong>Microsoft</strong> integrated MCP into VS Code and Copilot</li>
+      <li><strong>GitHub</strong> launched an MCP Registry in their platform</li>
+    </ul>
+
+    <p>When the three largest AI companies and the world's most-used browser all converge on the same protocol, the standard is set. The remaining question isn't "which protocol" — it's "how fast does MCP infrastructure roll out?"</p>
+
+    <div class="callout-green">
+      <div class="callout-title">✅ What this means practically</div>
+      <p style="margin-bottom:0">Every new MCP server is a new way for agents to interact with the world. Every new MCP client is a new agent that can use those servers. Chrome DevTools MCP is both: it's a server that agents can use, and it connects to a client (Chrome) that agents can leverage. This bidirectional growth is what makes protocol standards compound.</p>
+    </div>
+
+    <h2>The Hacker News Reaction</h2>
+
+    <p>The 195-comment HN discussion revealed something interesting about developer sentiment. The technical excitement was strong — people immediately saw the debugging workflow improvement. But a significant thread raised concerns about the broader implications.</p>
+
+    <p>Several commenters worried about the blurring line between manual and automated web interaction. When agents can connect to real browser sessions with real credentials, the surface area for misuse expands. Google's permission-per-connection model addresses this, but the philosophical concern remains: we're building infrastructure that makes agents more capable web participants.</p>
+
+    <p>That's exactly why AEO matters. As agents become better at understanding and interacting with web content, the sites that are structured for agent consumption have an advantage. Not because agents will replace humans — but because agents will increasingly <em>mediate</em> how humans discover and interact with content.</p>
+
+    <h2>What to Do Right Now</h2>
+
+    <p>You don't need to set up Chrome DevTools MCP (unless you're a developer who wants to try it). But you should prepare for the world it represents:</p>
+
+    <ol>
+      <li><strong>Audit your agent readiness.</strong> Run your site through <a href="/">AEO Check</a> to see what agents currently see when they visit.</li>
+      <li><strong>Fix the basics first.</strong> Unblock AI crawlers in robots.txt. Add structured data. Create an llms.txt. These are the fundamentals that help regardless of which agent visits.</li>
+      <li><strong>Optimize for performance.</strong> With agents now able to measure load times and rendering performance, a slow site is a quantifiable disadvantage — not just for users, but for AI-mediated recommendations.</li>
+      <li><strong>Think in layers.</strong> AEO isn't one thing. It's robots.txt (access) + llms.txt (discovery) + structured data (understanding) + content negotiation (optimization) + performance (quality). Each layer compounds.</li>
+    </ol>
+
+    <div class="cta-section">
+      <h3>Is Your Site Ready for AI Agents?</h3>
+      <p>Chrome DevTools MCP means agents are getting deeper access to web content than ever. Check your site's agent-readiness across 7 dimensions — free.</p>
+      <a href="/" class="cta-btn">Run Free AEO Check →</a>
+    </div>
+
+    <h2>Looking Ahead</h2>
+
+    <p>Google's Chrome DevTools team explicitly stated they plan to "incrementally expose more and more panel data to coding agents." This is Phase 1. Expect:</p>
+
+    <ul>
+      <li><strong>More panel integration</strong> — Application panel (storage, service workers), Security panel (certificate issues), Sources panel (breakpoints)</li>
+      <li><strong>Lighthouse via MCP</strong> — Agents running full performance/accessibility/SEO audits through the MCP interface</li>
+      <li><strong>Cross-browser MCP</strong> — Firefox and Safari will likely follow with their own DevTools MCP implementations</li>
+    </ul>
+
+    <p>The trajectory is unmistakable. Browsers are becoming platforms that agents can programmatically interact with through a standard protocol. Every iteration makes agents more capable of understanding — and evaluating — web content.</p>
+
+    <p>The sites that are structured, fast, and agent-readable today are building a compounding advantage. The ones that aren't are accumulating compounding debt.</p>
+
+    <p><a href="/">Check where your site stands</a>.</p>
+
+    <div class="related-posts">
+      <h3>Related Reading</h3>
+      <a href="/blog-sentry-optimizes-for-agents.html" class="related-link">
+        Sentry Already Optimizes for AI Agents — Does Your Site?
+        <span>How Sentry serves different content to AI agents using HTTP content negotiation</span>
+      </a>
+      <a href="/blog-cloudflare-markdown-agents.html" class="related-link">
+        Cloudflare's Markdown for AI Agents
+        <span>How Cloudflare lets any site serve markdown to AI agents — no server changes</span>
+      </a>
+      <a href="/blog-what-is-aeo.html" class="related-link">
+        What Is AEO? Agent Engine Optimization Explained
+        <span>The complete guide to making your site visible to AI agents</span>
+      </a>
+      <a href="/blog-geoark-vs-aeo-checker.html" class="related-link">
+        GeoArk vs AEO Check: Which AEO Tool Should You Use?
+        <span>Honest comparison of two approaches to agent optimization</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing">Pricing</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>Sentry Already Optimizes for AI Agents — Does Your Site?</title>
+  <meta name="description" content="Sentry serves completely different content to AI agents vs browsers. Here's exactly how they do it, why llms.txt wasn't the answer, and what this means for your site." />
+  <meta name="keywords" content="aeo optimization, sentry agents, content negotiation, accept text markdown, ai agent optimization, llms txt alternative, agent content optimization" />
+  <meta property="og:title" content="Sentry Already Optimizes for AI Agents — Does Your Site?" />
+  <meta property="og:description" content="David Cramer (Sentry co-founder) just published how Sentry serves different content to AI agents. Content negotiation is the new standard." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-sentry-optimizes-for-agents.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-sentry-optimizes-for-agents.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sentry Already Optimizes for AI Agents — Does Your Site?",
+    "description": "Sentry serves completely different content to AI agents using HTTP content negotiation. Here's how they do it and why it matters for your site's AI visibility.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-check.netlify.app"},
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-03-14",
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-sentry-optimizes-for-agents.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Sentry optimize content for AI agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sentry uses HTTP content negotiation. When a request includes the header 'Accept: text/markdown', Sentry serves a completely different version of the page — stripped of navigation, JavaScript, and browser-specific elements, rendered as clean markdown. This reduces token usage and improves agent accuracy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is content negotiation for AI agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Content negotiation is an HTTP standard where the client tells the server what format it wants via the Accept header. For AI agents, sending 'Accept: text/markdown' signals that the client is an agent that wants machine-readable content instead of HTML designed for browsers. The server can then respond with optimized markdown."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is llms.txt still useful for AI optimization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "According to Sentry's David Cramer, llms.txt 'was a valuable idea, but the wrong implementation.' The concept of telling agents about your site is right, but a static text file can't adapt to context. Content negotiation — serving different content based on the Accept header — is more flexible and already supported by HTTP infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check if my site supports content negotiation for agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use AEO Check (aeo-check.netlify.app) to scan your URL. It tests whether your site responds to 'Accept: text/markdown' requests with actual markdown content. You can also test manually: run 'curl -H \"Accept: text/markdown\" https://yoursite.com' and see if the response differs from the normal HTML page."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    .article-meta {
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .article-meta time { color: var(--text-dim); }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text); }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .tldr {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin: 32px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .tldr strong { color: var(--accent2); }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title { font-weight: 600; margin-bottom: 8px; }
+    .callout-warn {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-warn .callout-title { color: var(--amber); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--text-muted); }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-section h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+    .related-posts { margin: 48px 0; }
+    .related-posts h3 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .related-link {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .related-link:hover { color: var(--accent2); }
+    .related-link span { color: var(--text-dim); font-size: 13px; font-weight: 400; display: block; margin-top: 4px; }
+    blockquote {
+      border-left: 3px solid var(--text-dim);
+      padding: 12px 20px;
+      margin: 24px 0;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    @media (max-width: 600px) {
+      pre { font-size: 12px; padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <a href="/blog.html">Blog</a> · <a href="/">Tool</a>
+  </div></nav>
+
+  <article class="container">
+    <div class="article-meta">
+      <time datetime="2026-03-14">March 14, 2026</time> · 7 min read
+    </div>
+
+    <h1>Sentry Already Optimizes for AI Agents — Does Your Site?</h1>
+    <p class="subtitle">David Cramer, co-founder of Sentry, just published how they serve completely different content to AI agents. It's not llms.txt. It's not a new standard. It's HTTP content negotiation — and it works right now.</p>
+
+    <div class="tldr">
+      <strong>TL;DR:</strong> Sentry detects AI agents via the <code>Accept: text/markdown</code> HTTP header and serves them optimized markdown instead of HTML. Their docs, app, and side projects all do this. The result: agents get exactly what they need — no navigation bloat, no JavaScript, no auth walls. This is AEO in production, not theory.
+    </div>
+
+    <h2>What Sentry Is Actually Doing</h2>
+
+    <p>When you visit <code>docs.sentry.io</code> in a browser, you get the normal docs site — sidebar, navigation, JavaScript interactivity, the works. When an AI agent hits the same URL with <code>Accept: text/markdown</code> in its request headers, it gets something completely different: pure markdown with a frontmatter title, clean content hierarchy, and zero browser cruft.</p>
+
+    <p>Try it yourself:</p>
+
+    <pre><code>curl -H "Accept: text/markdown" https://docs.sentry.io/</code></pre>
+
+    <p>You'll get back structured markdown starting with the page title, a description of Sentry, key features as bullet points, and a sitemap of links. No <code>&lt;nav&gt;</code>, no <code>&lt;script&gt;</code>, no CSS. Just the content an agent actually needs.</p>
+
+    <p>This isn't a gimmick. It solves three real problems:</p>
+
+    <ul>
+      <li><strong>Token savings.</strong> HTML pages with navigation, scripts, and layout markup burn through an agent's context window. Markdown is typically 5-10x smaller for the same information.</li>
+      <li><strong>Accuracy.</strong> Agents parsing HTML have to guess what's content vs. what's chrome. With markdown, there's no guessing — everything returned is content.</li>
+      <li><strong>Actionability.</strong> Sentry's markdown responses are structured for agents. Index pages become sitemaps. Docs pages become step-by-step instructions. Auth walls become pointers to MCP servers and APIs.</li>
+    </ul>
+
+    <h2>The Auth Wall Problem (Solved Elegantly)</h2>
+
+    <p>Here's the clever part. When an agent hits <code>sentry.io</code> — the main app, which requires login — serving an auth page is useless. An agent can't log in through a browser form. So instead, Sentry responds with:</p>
+
+    <pre><code># Sentry
+
+You've hit the web UI. It's HTML meant for humans, not machines.
+Here's what you actually want:
+
+## MCP Server (recommended)
+The fastest way to give your agent structured access to Sentry.
+
+{
+  "mcpServers": {
+    "sentry": {
+      "url": "https://mcp.sentry.dev/mcp"
+    }
+  }
+}
+
+## CLI
+Query issues and analyze errors from the terminal.
+https://cli.sentry.dev</code></pre>
+
+    <p>Instead of a dead end, the agent gets a map to every programmatic interface Sentry offers. MCP server, CLI, API — with setup instructions. The agent immediately knows how to interact with Sentry productively.</p>
+
+    <p>This is what good AEO looks like. Not just "can agents read your content" but "when agents arrive, do they know what to do next?"</p>
+
+    <h2>Why Not llms.txt?</h2>
+
+    <p>David Cramer's take is direct:</p>
+
+    <blockquote>"llms.txt was a valuable idea, but it was the wrong implementation."</blockquote>
+
+    <p>The insight behind llms.txt — that agents need a machine-readable overview of your site — is correct. But a single static file at your domain root has limitations:</p>
+
+    <ul>
+      <li><strong>It's one-size-fits-all.</strong> Every page on your site is different. An agent visiting your docs needs different context than one hitting your pricing page. A static file can't adapt.</li>
+      <li><strong>It doesn't scale.</strong> For a site with thousands of pages, a single llms.txt either becomes massive (defeating the purpose) or stays too sparse to be useful.</li>
+      <li><strong>It's a new standard that requires adoption.</strong> Content negotiation via <code>Accept</code> headers is an existing HTTP standard. Every web server already supports it. No new spec needed.</li>
+    </ul>
+
+    <p>Content negotiation gives you per-page optimization. The agent visits any URL, sends <code>Accept: text/markdown</code>, and gets a version of <em>that specific page</em> optimized for machine consumption. Same URL, different representation based on the client's needs. That's how HTTP was designed to work.</p>
+
+    <div class="callout">
+      <div class="callout-title">Does this mean llms.txt is dead?</div>
+      <p style="margin-bottom:0">No. They serve different purposes. <code>llms.txt</code> is a discovery mechanism — it tells agents your site exists and what it's about. Content negotiation is a delivery mechanism — it serves optimized content once agents arrive. The best setup uses both: <code>llms.txt</code> for the "what are you?" overview, and content negotiation for every individual page. <a href="/blog-llms-txt-new-robots-txt.html">More on llms.txt here</a>.</p>
+    </div>
+
+    <h2>The Three Optimization Axes</h2>
+
+    <p>Cramer identifies three areas where agent-served content should differ from browser content:</p>
+
+    <h3>1. Order of Content</h3>
+    <p>Agents (and the LLMs behind them) are known to read the beginning of content more carefully than the end. Put the most important information first. For Sentry's docs index, that means leading with "what is Sentry" and "key features" before diving into the sitemap — the opposite of a typical docs sidebar that starts with "Getting Started."</p>
+
+    <h3>2. Content Size</h3>
+    <p>Frontier models and their agent wrappers have a known behavior: to avoid context bloat, they only read part of files. The first N lines, or bytes, or characters. Your agent-optimized content should front-load the critical information and keep total size manageable. A 50KB HTML page should become a 3KB markdown response.</p>
+
+    <h3>3. Depth of Nodes</h3>
+    <p>Deeply nested content (subsection of a subsection of a tab panel) is hard for agents to navigate. Flattening the hierarchy and using clear heading levels (<code>h1 → h2 → h3</code>, no deeper) makes your content parseable in a single pass.</p>
+
+    <h2>What This Means for Your Site</h2>
+
+    <p>Sentry isn't a small project. It's one of the most widely-used developer tools in the world. When they invest engineering effort into serving different content to AI agents, it's a signal that this matters.</p>
+
+    <p>Here's the uncomfortable question: <strong>what do agents see when they visit your site?</strong></p>
+
+    <p>For most sites, the answer is: the same bloated HTML that browsers get. Navigation bars, cookie banners, JavaScript bundles, footer links — noise that burns through context windows and confuses agent parsing.</p>
+
+    <div class="callout-warn">
+      <div class="callout-title">⚠️ The gap is widening</div>
+      <p style="margin-bottom:0">Sentry, Cloudflare, Stripe, and other tech leaders are already optimizing for agents. Every month they do and you don't, the AI-driven discovery gap between your site and theirs grows. This isn't a future concern — agents are making tool-selection decisions right now based on what they can read.</p>
+    </div>
+
+    <h2>How to Start (Today)</h2>
+
+    <p>You don't need Sentry's engineering team to get the basics right. Here's the priority order:</p>
+
+    <ol>
+      <li><strong>Check what agents see now.</strong> Run <code>curl -H "Accept: text/markdown" https://yoursite.com</code> and look at the response. If it's the same HTML as a browser gets, you have work to do.</li>
+      <li><strong>Add an llms.txt file.</strong> Even if content negotiation is the better long-term solution, <code>llms.txt</code> is the easiest starting point. It takes 10 minutes. <a href="/blog-how-to-create-llms-txt.html">Here's how</a>.</li>
+      <li><strong>Unblock AI crawlers.</strong> Check your <code>robots.txt</code> for rules blocking GPTBot, ClaudeBot, or PerplexityBot. If they can't crawl you, you don't exist in AI-generated answers.</li>
+      <li><strong>Add structured data.</strong> Schema.org JSON-LD on your key pages gives AI systems machine-readable context about your content without any server-side changes.</li>
+      <li><strong>Implement content negotiation.</strong> If you're on Cloudflare, they have a <a href="/blog-cloudflare-markdown-agents.html">built-in solution for this</a>. For custom setups, it's middleware that checks the <code>Accept</code> header and returns markdown. Most frameworks make this straightforward.</li>
+    </ol>
+
+    <div class="cta-section">
+      <h3>Check Your AEO Score — Free</h3>
+      <p>See how your site handles AI agents across 7 checks — including content negotiation, llms.txt, structured data, and robots.txt rules.</p>
+      <a href="/" class="cta-btn">Run Free AEO Check →</a>
+    </div>
+
+    <h2>The Bigger Picture</h2>
+
+    <p>We're in the early innings of a fundamental shift in how content gets discovered. For 25 years, the question was "what does Google see when it visits my site?" Now there's a second question: "what do agents see?"</p>
+
+    <p>Sentry's implementation isn't the final answer. Cramer himself notes that "how you do that is an ever-evolving subject." But the direction is clear: sites that serve optimized content to agents will be more visible, more useful, and more recommended by AI systems than sites that don't.</p>
+
+    <p>The tools to start are available now. <a href="/">Check your site</a>, fix the basics, and iterate. The companies that figure this out early will have a compounding advantage as AI-mediated discovery becomes the norm.</p>
+
+    <div class="related-posts">
+      <h3>Related Reading</h3>
+      <a href="/blog-cloudflare-markdown-agents.html" class="related-link">
+        Cloudflare's Markdown for AI Agents
+        <span>How Cloudflare lets any site serve markdown to AI agents — no server changes needed</span>
+      </a>
+      <a href="/blog-llms-txt-new-robots-txt.html" class="related-link">
+        llms.txt: The New robots.txt
+        <span>Why AI agents need a different kind of sitemap — and how to create yours</span>
+      </a>
+      <a href="/blog-geo-vs-aeo.html" class="related-link">
+        GEO vs AEO: What's the Actual Difference?
+        <span>Everyone's talking about optimizing for AI. Nobody agrees on what the terms mean.</span>
+      </a>
+      <a href="/blog-aeo-case-studies-10-sites.html" class="related-link">
+        AEO Case Studies: 10 Real Sites Audited
+        <span>How Stripe, GitHub, Anthropic, and Nike score on AI optimization</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing">Pricing</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

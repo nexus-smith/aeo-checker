@@ -1,0 +1,322 @@
+[
+  {
+    "domain": "stripe.com",
+    "grade": "Good",
+    "score": 68,
+    "max": 110,
+    "pct": 62,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "7/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "github.com",
+    "grade": "Fair",
+    "score": 63,
+    "max": 110,
+    "pct": 57,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "7/20",
+      "Tool/API Description": "8/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "notion.so",
+    "grade": "Fair",
+    "score": 56,
+    "max": 110,
+    "pct": 51,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "linear.app",
+    "grade": "Good",
+    "score": 71,
+    "max": 110,
+    "pct": 65,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "8/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "5/10"
+    }
+  },
+  {
+    "domain": "vercel.com",
+    "grade": "Good",
+    "score": 68,
+    "max": 110,
+    "pct": 62,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "7/20",
+      "Tool/API Description": "8/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "5/10"
+    }
+  },
+  {
+    "domain": "supabase.com",
+    "grade": "Fair",
+    "score": 61,
+    "max": 110,
+    "pct": 55,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "openai.com",
+    "grade": "Poor",
+    "score": 23,
+    "max": 110,
+    "pct": 21,
+    "checks": {
+      "Structured Data": "0/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "0/20",
+      "Tool/API Description": "0/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "anthropic.com",
+    "grade": "Fair",
+    "score": 49,
+    "max": 110,
+    "pct": 45,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "3/10"
+    }
+  },
+  {
+    "domain": "cloudflare.com",
+    "grade": "Fair",
+    "score": 49,
+    "max": 110,
+    "pct": 45,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "8/10"
+    }
+  },
+  {
+    "domain": "shopify.com",
+    "grade": "Good",
+    "score": 71,
+    "max": 110,
+    "pct": 65,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "slack.com",
+    "grade": "Good",
+    "score": 68,
+    "max": 110,
+    "pct": 62,
+    "checks": {
+      "Structured Data": "10/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "10/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "zoom.us",
+    "grade": "Fair",
+    "score": 56,
+    "max": 110,
+    "pct": 51,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "figma.com",
+    "grade": "Fair",
+    "score": 49,
+    "max": 110,
+    "pct": 45,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "6/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "hubspot.com",
+    "grade": "Fair",
+    "score": 51,
+    "max": 110,
+    "pct": 46,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "datadog.com",
+    "grade": "Good",
+    "score": 71,
+    "max": 110,
+    "pct": 65,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "twilio.com",
+    "grade": "Good",
+    "score": 71,
+    "max": 110,
+    "pct": 65,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "8/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "sentry.io",
+    "grade": "Excellent",
+    "score": 88,
+    "max": 110,
+    "pct": 80,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "15/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "15/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "10/10"
+    }
+  },
+  {
+    "domain": "atlassian.com",
+    "grade": "Poor",
+    "score": 43,
+    "max": 110,
+    "pct": 39,
+    "checks": {
+      "Structured Data": "15/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "7/20",
+      "Tool/API Description": "3/15",
+      "Performance": "10/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "gitlab.com",
+    "grade": "Fair",
+    "score": 56,
+    "max": 110,
+    "pct": 51,
+    "checks": {
+      "Structured Data": "20/20",
+      "robots.txt AI Bots": "8/15",
+      "llms.txt": "0/15",
+      "Content Structure": "10/20",
+      "Tool/API Description": "3/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  },
+  {
+    "domain": "hashicorp.com",
+    "grade": "Critical",
+    "score": 15,
+    "max": 110,
+    "pct": 14,
+    "checks": {
+      "Structured Data": "0/20",
+      "robots.txt AI Bots": "0/15",
+      "llms.txt": "0/15",
+      "Content Structure": "0/20",
+      "Tool/API Description": "0/15",
+      "Performance": "15/15",
+      "Markdown for Agents": "0/10"
+    }
+  }
+]

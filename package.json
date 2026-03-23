@@ -1,0 +1,18 @@
+{
+  "name": "aeo-checker",
+  "version": "1.0.0",
+  "description": "AEO Score checker — analyze any URL for AI agent discoverability",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

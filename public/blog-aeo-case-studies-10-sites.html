@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>We Checked 10 Popular Sites for AEO Readiness — Here's What We Found</title>
+  <meta name="description" content="We audited 10 major websites for AI Engine Optimization readiness — llms.txt, structured data, FAQ schema, and more. Some results will surprise you." />
+  <meta name="keywords" content="aeo audit, aeo case study, llms.txt adoption, ai search optimization, generative engine optimization examples, website ai readiness, aeo checker results" />
+  <meta property="og:title" content="We Checked 10 Sites for AEO Readiness — The Results" />
+  <meta property="og:description" content="Stripe, Anthropic, GitHub, Nike — who's ready for AI search? We audited 10 sites and the results are revealing." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-aeo-case-studies-10-sites.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-aeo-case-studies-10-sites.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "We Checked 10 Popular Sites for AEO Readiness — Here's What We Found",
+    "description": "AEO audit of 10 major websites including Stripe, Anthropic, GitHub, Salesforce, and Nike. Analysis of llms.txt adoption, structured data, and AI search readiness.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-check.netlify.app"},
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10",
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-aeo-case-studies-10-sites.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What percentage of top websites have llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In our audit of 10 popular websites in March 2026, 70% of tech companies had llms.txt files, while 0% of non-tech companies did. Overall adoption is still early — mostly limited to developer-facing platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Anthropic have an llms.txt file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. As of March 2026, anthropic.com returns a 404 for llms.txt. This is ironic given that Anthropic builds Claude, one of the AI models that benefits from llms.txt files. It highlights that even AI companies haven't universally adopted AEO practices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which companies are leading in AEO readiness?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stripe and GitHub Docs lead our audit. Stripe offers both llms.txt and llms-full.txt with comprehensive documentation links. GitHub Docs provides dedicated APIs for LLM consumption, going far beyond a simple text file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I check if my site is AEO-ready?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start by checking for llms.txt, structured data (Schema.org), FAQ markup, clear content hierarchy, and whether your site is cited by AI models like ChatGPT and Claude. Tools like AEO Check can help audit your AI search visibility."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4e7;
+      --text-muted: #8b8b9e;
+      --accent: #6366f1;
+      --accent-soft: rgba(99,102,241,0.12);
+      --green: #22c55e;
+      --green-soft: rgba(34,197,94,0.12);
+      --red: #ef4444;
+      --red-soft: rgba(239,68,68,0.12);
+      --yellow: #f59e0b;
+      --yellow-soft: rgba(245,158,11,0.12);
+      --radius: 12px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; }
+    
+    /* Header */
+    .blog-header { text-align: center; padding: 3rem 0 2rem; }
+    .blog-header .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .blog-header .meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Content */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+    }
+    p { margin-bottom: 1.25rem; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    
+    /* Score cards */
+    .site-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .site-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .site-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .site-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .score-high { background: var(--green-soft); color: var(--green); }
+    .score-mid { background: var(--yellow-soft); color: var(--yellow); }
+    .score-low { background: var(--red-soft); color: var(--red); }
+    
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 500px) {
+      .checklist { grid-template-columns: 1fr; }
+    }
+    .check-item { display: flex; align-items: center; gap: 0.4rem; }
+    .check-yes { color: var(--green); }
+    .check-no { color: var(--red); }
+    .check-partial { color: var(--yellow); }
+    
+    .finding {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    /* Summary table */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .summary-table th, .summary-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .summary-table th {
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Key insight */
+    .insight-box {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .insight-box strong { color: var(--accent); }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin: 2.5rem 0;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.9; text-decoration: none; }
+    
+    /* Nav */
+    .blog-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+    .blog-nav a { font-weight: 600; font-size: 0.95rem; }
+    
+    /* Related */
+    .related-posts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 500px) {
+      .related-posts { grid-template-columns: 1fr; }
+    }
+    .related-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .related-card:hover { border-color: var(--accent); }
+    .related-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="blog-nav">
+      <a href="/">← AEO Check</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+    
+    <header class="blog-header">
+      <span class="tag">Case Study</span>
+      <h1>We Checked 10 Popular Sites for AEO Readiness — Here's What We Found</h1>
+      <p class="meta">March 10, 2026 · 8 min read · By AEO Check</p>
+    </header>
+    
+    <article>
+      <p>AI search engines like ChatGPT, Claude, and Perplexity now handle <strong>900 million weekly searches</strong>. When someone asks "what's the best payment API?", the AI doesn't return 10 blue links — it gives one answer, citing one or two sources.</p>
+      
+      <p>The question isn't whether your site ranks anymore. It's whether AI can <em>understand</em> your site well enough to recommend it.</p>
+      
+      <p>We audited 10 major websites for AI Engine Optimization (AEO) readiness. We checked for <code>llms.txt</code>, structured data, FAQ schema, content clarity, and overall AI-friendliness. The results were revealing — and one finding was downright ironic.</p>
+      
+      <h2>What We Checked</h2>
+      <p>For each site, we evaluated five core AEO signals:</p>
+      <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text);">
+        <li><strong>llms.txt</strong> — Does the site provide a structured guide for AI agents?</li>
+        <li><strong>Structured Data</strong> — Schema.org markup (Organization, Product, FAQ, etc.)</li>
+        <li><strong>FAQ Schema</strong> — FAQPage markup for direct answer extraction</li>
+        <li><strong>Content Clarity</strong> — Clean hierarchy, clear descriptions, no JS-only rendering</li>
+        <li><strong>AI Citation Potential</strong> — Would an AI model likely cite this site?</li>
+      </ul>
+      
+      <h2>The Results: 10 Sites Audited</h2>
+      
+      <!-- Stripe -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Stripe</div>
+            <div class="site-url">stripe.com</div>
+          </div>
+          <span class="score-badge score-high">★ Excellent</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt (+ llms-full.txt)</div>
+          <div class="check-item"><span class="check-yes">✓</span> Rich structured data</div>
+          <div class="check-item"><span class="check-yes">✓</span> Clear product descriptions</div>
+          <div class="check-item"><span class="check-yes">✓</span> Comprehensive docs</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Stripe is best-in-class. Their llms.txt provides a structured overview of every product with direct links. They also offer <code>llms-full.txt</code> — complete documentation in a single file specifically for AI consumption. This is what AEO-readiness looks like at scale.
+        </div>
+      </div>
+      
+      <!-- GitHub Docs -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">GitHub Docs</div>
+            <div class="site-url">docs.github.com</div>
+          </div>
+          <span class="score-badge score-high">★ Excellent</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt with APIs</div>
+          <div class="check-item"><span class="check-yes">✓</span> Dedicated LLM endpoints</div>
+          <div class="check-item"><span class="check-yes">✓</span> Clean markdown output</div>
+          <div class="check-item"><span class="check-yes">✓</span> Search API for agents</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> GitHub goes further than anyone. Their llms.txt doesn't just list pages — it provides dedicated APIs for AI consumption: a Page List API, Article API (returns clean markdown), and Search API. They've built infrastructure specifically for AI agents to consume their docs. The gold standard.
+        </div>
+      </div>
+      
+      <!-- Salesforce -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Salesforce</div>
+            <div class="site-url">salesforce.com</div>
+          </div>
+          <span class="score-badge score-high">★ Good</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt present</div>
+          <div class="check-item"><span class="check-yes">✓</span> Rich structured data</div>
+          <div class="check-item"><span class="check-yes">✓</span> Agentforce content</div>
+          <div class="check-item"><span class="check-partial">~</span> Focused on AI/agent topics</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Salesforce's llms.txt is strategically focused on their Agentforce product line — AI agent courses, agentic architecture. They're using llms.txt as a marketing channel to position their AI products for recommendation by other AI systems. Smart move.
+        </div>
+      </div>
+      
+      <!-- Shopify -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Shopify Dev</div>
+            <div class="site-url">shopify.dev</div>
+          </div>
+          <span class="score-badge score-mid">★ Good</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt present</div>
+          <div class="check-item"><span class="check-yes">✓</span> Structured data</div>
+          <div class="check-item"><span class="check-yes">✓</span> Developer docs</div>
+          <div class="check-item"><span class="check-partial">~</span> Dev platform only (not main site)</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Shopify's developer platform has llms.txt. Worth noting: it's on <code>shopify.dev</code>, not <code>shopify.com</code>. The main commerce site likely doesn't have one. This is a common pattern — developer tools adopt first, marketing sites lag behind.
+        </div>
+      </div>
+      
+      <!-- Vercel -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Vercel</div>
+            <div class="site-url">vercel.com</div>
+          </div>
+          <span class="score-badge score-mid">★ Good</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt present</div>
+          <div class="check-item"><span class="check-yes">✓</span> Docs linked</div>
+          <div class="check-item"><span class="check-partial">~</span> Basic format</div>
+          <div class="check-item"><span class="check-yes">✓</span> Clear product positioning</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Vercel has llms.txt with a clear pitch: "the AI Cloud." Interesting positioning choice — the llms.txt file itself frames Vercel as an AI platform, not just a hosting provider. They're using AEO to reinforce their brand narrative.
+        </div>
+      </div>
+      
+      <!-- Linear -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Linear</div>
+            <div class="site-url">linear.app</div>
+          </div>
+          <span class="score-badge score-mid">★ Good</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt present</div>
+          <div class="check-item"><span class="check-yes">✓</span> Clean structure</div>
+          <div class="check-item"><span class="check-yes">✓</span> Docs with markdown links</div>
+          <div class="check-item"><span class="check-partial">~</span> No full-doc file</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Linear's llms.txt is clean and well-structured with docs sections (Getting started, Concepts, etc.). A strong implementation for a SaaS product — exactly what AI needs to understand and recommend a project management tool.
+        </div>
+      </div>
+      
+      <!-- Notion -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Notion</div>
+            <div class="site-url">notion.so</div>
+          </div>
+          <span class="score-badge score-mid">★ Basic</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-yes">✓</span> llms.txt present</div>
+          <div class="check-item"><span class="check-partial">~</span> Minimal content</div>
+          <div class="check-item"><span class="check-partial">~</span> Brand description only</div>
+          <div class="check-item"><span class="check-no">✗</span> No doc links</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Notion has llms.txt but it's minimal — just a brand description ("50 million users...") without documentation links or structured product info. It's a start, but not leveraging the format's full potential.
+        </div>
+      </div>
+      
+      <!-- THE IRONIC ONE: Anthropic -->
+      <div class="site-card" style="border-color: var(--red); border-width: 2px;">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Anthropic 🤦</div>
+            <div class="site-url">anthropic.com</div>
+          </div>
+          <span class="score-badge score-low">✗ Missing</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-no">✗</span> No llms.txt (404)</div>
+          <div class="check-item"><span class="check-yes">✓</span> Good structured data</div>
+          <div class="check-item"><span class="check-yes">✓</span> Strong docs (docs.anthropic.com)</div>
+          <div class="check-item"><span class="check-partial">~</span> Great content, no AEO file</div>
+        </div>
+        <div class="finding">
+          <strong>The irony:</strong> Anthropic — the company behind Claude, one of the most popular AI models — doesn't have an llms.txt file. Their main site returns a 404. This is like a locksmith with a broken lock. Their docs at docs.anthropic.com are excellent, but the main brand site misses a basic AEO signal. Even AI companies haven't fully adopted AEO practices.
+        </div>
+      </div>
+      
+      <!-- HubSpot -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">HubSpot</div>
+            <div class="site-url">hubspot.com</div>
+          </div>
+          <span class="score-badge score-low">✗ Missing</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-no">✗</span> No llms.txt (404)</div>
+          <div class="check-item"><span class="check-yes">✓</span> Rich structured data</div>
+          <div class="check-item"><span class="check-yes">✓</span> Massive content library</div>
+          <div class="check-item"><span class="check-partial">~</span> Strong SEO, weak AEO</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> HubSpot is an SEO powerhouse — arguably the best content marketing machine in SaaS. But they don't have llms.txt. This represents the gap between traditional SEO excellence and AEO readiness. Having great content isn't enough if AI agents can't easily parse and recommend it.
+        </div>
+      </div>
+      
+      <!-- Nike -->
+      <div class="site-card">
+        <div class="site-card-header">
+          <div>
+            <div class="site-name">Nike</div>
+            <div class="site-url">nike.com</div>
+          </div>
+          <span class="score-badge score-low">✗ Not Ready</span>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><span class="check-no">✗</span> No llms.txt (404)</div>
+          <div class="check-item"><span class="check-partial">~</span> Basic structured data</div>
+          <div class="check-item"><span class="check-no">✗</span> Heavy JS rendering</div>
+          <div class="check-item"><span class="check-no">✗</span> Not AI-agent friendly</div>
+        </div>
+        <div class="finding">
+          <strong>Key finding:</strong> Nike's site is built for visual browsing, not AI consumption. No llms.txt, heavy JavaScript rendering, and minimal structured data beyond e-commerce basics. When someone asks an AI "what running shoes should I buy?", Nike's site isn't helping itself get cited. Traditional brands are the furthest behind in AEO.
+        </div>
+      </div>
+      
+      <h2>The Scorecard</h2>
+      
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Site</th>
+            <th>llms.txt</th>
+            <th>Schema</th>
+            <th>AEO Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Stripe</td><td><span class="check-yes">✓ + full</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-high" style="font-size:0.75rem">Excellent</span></td></tr>
+          <tr><td>GitHub Docs</td><td><span class="check-yes">✓ + APIs</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-high" style="font-size:0.75rem">Excellent</span></td></tr>
+          <tr><td>Salesforce</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-high" style="font-size:0.75rem">Good</span></td></tr>
+          <tr><td>Shopify Dev</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-mid" style="font-size:0.75rem">Good</span></td></tr>
+          <tr><td>Vercel</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-mid" style="font-size:0.75rem">Good</span></td></tr>
+          <tr><td>Linear</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-mid" style="font-size:0.75rem">Good</span></td></tr>
+          <tr><td>Notion</td><td><span class="check-partial">~ minimal</span></td><td><span class="check-partial">~</span></td><td><span class="score-badge score-mid" style="font-size:0.75rem">Basic</span></td></tr>
+          <tr><td>Anthropic</td><td><span class="check-no">✗ 404</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-low" style="font-size:0.75rem">Missing</span></td></tr>
+          <tr><td>HubSpot</td><td><span class="check-no">✗ 404</span></td><td><span class="check-yes">✓</span></td><td><span class="score-badge score-low" style="font-size:0.75rem">Missing</span></td></tr>
+          <tr><td>Nike</td><td><span class="check-no">✗ 404</span></td><td><span class="check-partial">~</span></td><td><span class="score-badge score-low" style="font-size:0.75rem">Not Ready</span></td></tr>
+        </tbody>
+      </table>
+      
+      <h2>Key Takeaways</h2>
+      
+      <div class="insight-box">
+        <strong>1. Developer-facing companies lead.</strong> 7 out of 7 tech/developer platforms had llms.txt. Non-tech brands (Nike) and even marketing-heavy SaaS (HubSpot) are behind.
+      </div>
+      
+      <div class="insight-box">
+        <strong>2. Having llms.txt isn't enough.</strong> Notion has one but it's minimal. Stripe and GitHub show what "excellent" looks like: full documentation, dedicated APIs, structured product descriptions.
+      </div>
+      
+      <div class="insight-box">
+        <strong>3. SEO ≠ AEO.</strong> HubSpot dominates traditional SEO but scores poorly on AEO. The skills are different. Great content needs AEO infrastructure to be cited by AI.
+      </div>
+      
+      <div class="insight-box">
+        <strong>4. Even AI companies aren't ready.</strong> Anthropic builds Claude but doesn't have llms.txt on their main site. The cobbler's children have no shoes.
+      </div>
+      
+      <div class="insight-box">
+        <strong>5. llms.txt as marketing.</strong> Salesforce and Vercel use their llms.txt to push specific narratives ("the AI Cloud", "Agentforce"). The file isn't just technical — it's a brand positioning tool for AI audiences.
+      </div>
+      
+      <h2>What Should You Do?</h2>
+      
+      <p>If your site doesn't have llms.txt, you're in the same boat as Anthropic, HubSpot, and Nike. Here's a quick priority list:</p>
+      
+      <ol style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+        <li><strong>Add llms.txt</strong> — Even a basic one helps. Describe what your company does, link to key pages.</li>
+        <li><strong>Check your structured data</strong> — Schema.org markup (Organization, Product, FAQ) helps AI parse your content.</li>
+        <li><strong>Ensure content renders without JavaScript</strong> — AI crawlers can't always execute JS. Server-side rendering matters.</li>
+        <li><strong>Add FAQ schema</strong> — AI models love pulling from FAQPage markup for direct answers.</li>
+        <li><strong>Audit your AI visibility</strong> — Ask ChatGPT and Claude about your product category. Are you being cited?</li>
+      </ol>
+      
+      <div class="cta-section">
+        <h3>Want to know where your site stands?</h3>
+        <p style="color: var(--text-muted);">Get a complete AEO audit with specific, actionable fixes — not just another dashboard to stare at.</p>
+        <a href="/" class="cta-btn">Check Your AEO Score →</a>
+      </div>
+      
+      <h2>Related Articles</h2>
+      <div class="related-posts">
+        <a href="/blog-llms-txt-new-robots-txt.html" class="related-card" style="text-decoration:none; color:inherit;">
+          <h4>llms.txt: The New robots.txt</h4>
+          <p>Why AI agents need a different kind of sitemap — and how to implement yours.</p>
+        </a>
+        <a href="/blog-what-is-aeo.html" class="related-card" style="text-decoration:none; color:inherit;">
+          <h4>What is AEO?</h4>
+          <p>Agent Engine Optimization explained: the new SEO for AI search.</p>
+        </a>
+        <a href="/blog-aeo-vs-seo.html" class="related-card" style="text-decoration:none; color:inherit;">
+          <h4>AEO vs SEO</h4>
+          <p>The key differences — and why you need both in 2026.</p>
+        </a>
+        <a href="/blog-5-steps-aeo.html" class="related-card" style="text-decoration:none; color:inherit;">
+          <h4>5 Steps to Improve Your AEO</h4>
+          <p>Practical guide to making your site AI-agent friendly.</p>
+        </a>
+      </div>
+    </article>
+    
+    <footer>
+      <p>© 2026 AEO Check. Built for the AI-first web.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/">Home</a> · <a href="/blog.html">Blog</a> · <a href="/pricing.html">Pricing</a>
+      </p>
+    </footer>
+  </div>
+  
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

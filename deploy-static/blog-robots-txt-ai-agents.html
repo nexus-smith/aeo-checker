@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>robots.txt for AI Agents — How to Allow GPTBot, ClaudeBot & PerplexityBot (2026)</title>
+  <meta name="description" content="Configure your robots.txt to allow AI agents like GPTBot, ClaudeBot, and PerplexityBot. Complete guide with examples, common mistakes, and copy-paste templates." />
+  <meta name="keywords" content="robots.txt ai agents, gptbot robots.txt, claudebot allow, perplexitybot robots.txt, ai crawler robots.txt, robots.txt ai bots, allow ai agents robots.txt" />
+  <meta property="og:title" content="robots.txt for AI Agents — Allow GPTBot, ClaudeBot & More" />
+  <meta property="og:description" content="Configure robots.txt to let AI agents crawl your site. Copy-paste templates included." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://extensions-tags-administered-fighter.trycloudflare.com/blog-robots-txt-ai-agents.html" />
+  <link rel="canonical" href="https://extensions-tags-administered-fighter.trycloudflare.com/blog-robots-txt-ai-agents.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #1a1a2e; --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0; --text-muted: #6b6b8a; --text-dim: #4a4a6a;
+      --accent: #6366f1; --accent2: #818cf8; --green: #22c55e;
+      --mono: 'JetBrains Mono', monospace; --sans: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .nav-brand { font-family: var(--mono); font-size: 14px; color: var(--accent2); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; }
+    .nav-links a:hover { color: var(--text); }
+    .article-meta { font-family: var(--mono); font-size: 12px; color: var(--text-dim); margin-bottom: 16px; letter-spacing: 0.05em; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 20px; }
+    .lead { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 20px; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 48px 0 16px; }
+    h3 { font-size: 1.05rem; font-weight: 600; margin: 32px 0 12px; }
+    p { margin-bottom: 18px; color: var(--text-muted); }
+    a { color: var(--accent2); }
+    ul, ol { margin: 0 0 18px 24px; color: var(--text-muted); }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); }
+    code { font-family: var(--mono); font-size: 0.88em; background: rgba(99,102,241,0.1); padding: 2px 6px; border-radius: 4px; color: var(--accent2); }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0 24px; overflow-x: auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--text-muted); }
+    .tip { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: var(--text-muted); }
+    .tip strong { color: var(--green); }
+    .warning { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.15); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: var(--text-muted); }
+    .warning strong { color: #eab308; }
+    .cta-box { background: var(--surface); border: 1px solid rgba(99,102,241,0.3); border-radius: 14px; padding: 32px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { margin-top: 0; }
+    .cta-box p { margin-bottom: 16px; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
+    .cta-btn:hover { box-shadow: 0 8px 25px rgba(99,102,241,0.35); transform: translateY(-1px); color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 24px; font-size: 14px; }
+    th { text-align: left; padding: 10px 14px; background: var(--surface); color: var(--text); font-weight: 600; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-muted); }
+    .footer { text-align: center; color: var(--text-dim); font-size: 12px; font-family: var(--mono); margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .footer a { color: var(--text-dim); text-decoration: none; }
+    @media (max-width: 580px) { .container { padding: 0 16px 60px; } h1 { font-size: 1.5rem; } pre { padding: 14px 16px; font-size: 12px; } table { font-size: 12px; } th, td { padding: 8px 10px; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "robots.txt for AI Agents — How to Allow GPTBot, ClaudeBot & PerplexityBot",
+    "description": "Complete guide to configuring robots.txt for AI agents like GPTBot, ClaudeBot, and PerplexityBot.",
+    "datePublished": "2026-03-08",
+    "dateModified": "2026-03-08",
+    "author": { "@type": "Organization", "name": "AEO Checker" },
+    "publisher": { "@type": "Organization", "name": "AEO Checker", "url": "https://extensions-tags-administered-fighter.trycloudflare.com" },
+    "mainEntityOfPage": "https://extensions-tags-administered-fighter.trycloudflare.com/blog-robots-txt-ai-agents.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is GPTBot and should I allow it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GPTBot is OpenAI's web crawler that collects data to improve AI models and power ChatGPT's browsing feature. Allowing GPTBot means ChatGPT can access your content and potentially recommend your site when users ask relevant questions. If you want AI visibility, allow it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is ClaudeBot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ClaudeBot is Anthropic's web crawler for Claude AI. It works similarly to GPTBot — crawling your site to help Claude understand and reference your content. Allowing ClaudeBot lets Claude recommend your products and services."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I block or allow AI bots in robots.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you want AI agents to recommend your site, allow them. If you have proprietary content you don't want used for AI training, block specific bots. Most businesses benefit from allowing AI crawlers since it increases their visibility in AI-powered search results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Google-Extended?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google-Extended is Google's user-agent for AI/Gemini training data collection. It's separate from Googlebot (which handles Search indexing). Blocking Google-Extended prevents your content from training Gemini but doesn't affect your Google Search ranking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does blocking AI bots affect my SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Blocking AI-specific bots (GPTBot, ClaudeBot, etc.) does NOT affect your traditional Google Search ranking — those are handled by Googlebot, which is separate. However, blocking AI bots means you'll be invisible in AI-powered answer engines, which is increasingly where users look for recommendations."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="nav-brand">⚡ AEO Checker</a>
+      <div class="nav-links">
+        <a href="/">Free Scan</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/blog-what-is-aeo.html">Blog</a>
+      </div>
+    </nav>
+
+    <article>
+      <div class="article-meta">MARCH 8, 2026 · 7 MIN READ</div>
+      <h1>robots.txt for AI Agents — How to Allow GPTBot, ClaudeBot & PerplexityBot</h1>
+      <p class="lead">
+        Your robots.txt controls which bots can crawl your site. For decades, that meant search engines. Now it means AI agents too. Here's how to configure it so ChatGPT, Claude, and Perplexity can discover — and recommend — your business.
+      </p>
+
+      <h2>The AI Bots You Need to Know</h2>
+      <p>Each major AI company has its own crawler. Here's the complete list:</p>
+
+      <table>
+        <tr><th>User-Agent</th><th>Company</th><th>Purpose</th></tr>
+        <tr><td><code>GPTBot</code></td><td>OpenAI</td><td>Crawls for ChatGPT browsing + model training</td></tr>
+        <tr><td><code>ChatGPT-User</code></td><td>OpenAI</td><td>Real-time browsing when users ask ChatGPT to look something up</td></tr>
+        <tr><td><code>ClaudeBot</code></td><td>Anthropic</td><td>Crawls for Claude AI knowledge + web access</td></tr>
+        <tr><td><code>PerplexityBot</code></td><td>Perplexity</td><td>Powers Perplexity's AI search engine</td></tr>
+        <tr><td><code>Google-Extended</code></td><td>Google</td><td>AI/Gemini training (separate from Googlebot Search)</td></tr>
+        <tr><td><code>Bytespider</code></td><td>ByteDance</td><td>TikTok AI training data</td></tr>
+        <tr><td><code>CCBot</code></td><td>Common Crawl</td><td>Open dataset used by many AI models</td></tr>
+        <tr><td><code>cohere-ai</code></td><td>Cohere</td><td>Enterprise AI model training</td></tr>
+      </table>
+
+      <div class="tip">
+        <strong>💡 Key distinction:</strong> <code>GPTBot</code> crawls for training + knowledge. <code>ChatGPT-User</code> is the real-time browser — when a user says "look up X" in ChatGPT. You want both allowed if you want maximum AI visibility.
+      </div>
+
+      <h2>The Copy-Paste Template</h2>
+      <p>Want maximum AI visibility? Use this robots.txt:</p>
+
+      <pre># Standard search engines
+User-agent: *
+Allow: /
+
+# AI Agents — Explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml</pre>
+
+      <p><strong>Why explicit <code>Allow</code> matters:</strong> Some robots.txt parsers treat "not mentioned" differently from "explicitly allowed." Being explicit removes all ambiguity — you're telling AI bots: "Yes, we want you here."</p>
+
+      <h2>Selective Access: Allow Some, Block Others</h2>
+      <p>Maybe you want ChatGPT and Claude to reference your content, but you don't want your data used for model training by everyone:</p>
+
+      <pre># Allow AI search/browsing agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block training-only crawlers
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Standard search engines
+User-agent: *
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml</pre>
+
+      <h2>Common Mistakes</h2>
+
+      <h3>Mistake #1: Blocking everything with a wildcard</h3>
+      <pre># ❌ This blocks ALL bots including AI agents
+User-agent: *
+Disallow: /</pre>
+      <p>If you have a wildcard <code>Disallow: /</code>, AI bots without a specific rule will be blocked. Always add explicit rules for the AI bots you want to allow.</p>
+
+      <h3>Mistake #2: Confusing Google-Extended with Googlebot</h3>
+      <p><code>Googlebot</code> handles Google Search indexing — blocking it kills your SEO. <code>Google-Extended</code> is specifically for Gemini/AI training. They're independent. Blocking Google-Extended does NOT affect your search ranking.</p>
+
+      <div class="warning">
+        <strong>⚠️ Never block Googlebot</strong> unless you intentionally want to disappear from Google Search. Only block <code>Google-Extended</code> if you don't want Google using your content for Gemini.
+      </div>
+
+      <h3>Mistake #3: Not testing after changes</h3>
+      <p>After updating robots.txt, always verify:</p>
+      <ol>
+        <li>Visit <code>yourdomain.com/robots.txt</code> in your browser to confirm the content is correct</li>
+        <li>Run your site through <a href="/">AEO Checker</a> — the robots.txt check will show which bots are allowed/blocked</li>
+        <li>Use Google Search Console's robots.txt tester if available for your property</li>
+      </ol>
+
+      <h3>Mistake #4: Wrong bot name spelling</h3>
+      <p>Bot names are case-sensitive in some parsers. Use the exact names:</p>
+      <ul>
+        <li><code>GPTBot</code> (not <code>gptbot</code> or <code>GptBot</code>)</li>
+        <li><code>ClaudeBot</code> (not <code>claudebot</code> or <code>Claude-Bot</code>)</li>
+        <li><code>Google-Extended</code> (not <code>GoogleExtended</code> or <code>Googlebot-Extended</code>)</li>
+      </ul>
+
+      <h2>The Strategic Question: Allow or Block?</h2>
+      <p>This depends on your business model:</p>
+
+      <table>
+        <tr><th>Business Type</th><th>Recommendation</th><th>Why</th></tr>
+        <tr><td>SaaS / Product</td><td><strong>Allow all</strong></td><td>You want AI agents recommending your product</td></tr>
+        <tr><td>Service business</td><td><strong>Allow all</strong></td><td>AI referrals = free qualified leads</td></tr>
+        <tr><td>Content publisher</td><td><strong>Selective</strong></td><td>Allow browsing bots, consider blocking training bots</td></tr>
+        <tr><td>Paywalled content</td><td><strong>Block training bots</strong></td><td>Prevent free access to paid content</td></tr>
+        <tr><td>Proprietary data</td><td><strong>Block all AI bots</strong></td><td>Protect intellectual property</td></tr>
+      </table>
+
+      <p>For most businesses, the math is simple: <strong>AI agents are the new search engines.</strong> Being invisible to them is like blocking Googlebot in 2005. You might have your reasons, but you're choosing to be unfindable by a growing share of internet users.</p>
+
+      <h2>Beyond robots.txt: The Full AEO Stack</h2>
+      <p>robots.txt is just one of six signals AI agents use to evaluate your site. The complete AEO (AI Engine Optimization) stack includes:</p>
+      <ol>
+        <li><strong>Structured Data</strong> — JSON-LD schemas that AI agents can parse</li>
+        <li><strong>robots.txt</strong> — Explicit AI bot permissions (this guide)</li>
+        <li><strong><a href="/blog-how-to-create-llms-txt.html">llms.txt</a></strong> — Structured context file for AI comprehension</li>
+        <li><strong>Content Structure</strong> — Clean H1-H3 hierarchy, FAQ schemas</li>
+        <li><strong>API Discoverability</strong> — OpenAPI specs, ai-plugin.json</li>
+        <li><strong>Performance</strong> — Response time under 2 seconds</li>
+      </ol>
+
+      <div class="cta-box">
+        <h3>Check all 6 signals at once</h3>
+        <p>The free AEO Checker scans your site across all six AI discoverability signals and gives you a score out of 100.</p>
+        <a href="/" class="cta-btn">Free AEO Scan →</a>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <h3>What is GPTBot and should I allow it?</h3>
+      <p>GPTBot is OpenAI's web crawler. It collects data for model improvement and powers ChatGPT's browsing feature. Allowing it means ChatGPT can recommend your site. If you want AI visibility, allow it.</p>
+
+      <h3>What is ClaudeBot?</h3>
+      <p>ClaudeBot is Anthropic's crawler for Claude AI. It works like GPTBot — letting Claude understand and reference your content. Allowing it means Claude can recommend your products.</p>
+
+      <h3>Should I block or allow AI bots?</h3>
+      <p>If you want AI agents to recommend your site: allow them. If you have proprietary content: selectively block training bots while allowing browsing bots. Most businesses benefit from maximum AI visibility.</p>
+
+      <h3>What is Google-Extended?</h3>
+      <p>Google's user-agent for Gemini AI training. It's separate from Googlebot (Search indexing). Blocking it won't affect your Google ranking but prevents Gemini from training on your content.</p>
+
+      <h3>Does blocking AI bots affect my SEO?</h3>
+      <p>No. AI bots are separate from search engine crawlers. Blocking GPTBot or ClaudeBot has zero impact on your Google/Bing rankings. However, you become invisible in AI-powered answer engines — which is where users increasingly search.</p>
+
+      <p style="font-size:13px;color:var(--text-dim);margin-top:40px;">
+        <strong>Related:</strong>
+        <a href="/blog-what-is-aeo.html">What is AEO?</a> ·
+        <a href="/blog-how-to-create-llms-txt.html">How to Create llms.txt</a> ·
+        <a href="/blog-aeo-optimization-guide.html">AEO Optimization Guide</a> ·
+        <a href="/blog-aeo-vs-seo.html">AEO vs SEO</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <a href="/">AEO Checker</a> · <a href="/pricing.html">Pricing</a> · <a href="/blog-what-is-aeo.html">Blog</a>
+    </footer>
+  </div>
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

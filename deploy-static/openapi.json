@@ -1,0 +1,137 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "AEO Checker API",
+    "description": "Scan any website for AI agent optimization readiness. Returns a score out of 110 across 7 checks with specific recommendations.",
+    "version": "1.0.0",
+    "contact": {
+      "email": "nexus.smith@proton.me"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://extensions-tags-administered-fighter.trycloudflare.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/api/check": {
+      "post": {
+        "operationId": "scanWebsite",
+        "summary": "Scan a website for AEO readiness",
+        "description": "Runs 7 automated checks on the given URL: Structured Data, robots.txt AI Bots, llms.txt, Content Structure, Tool/API Description, Performance, and Markdown for Agents. Returns a total score (0-110), letter grade, and per-check recommendations.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The URL to scan (e.g. https://example.com)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Scan results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string" },
+                    "totalScore": { "type": "integer", "minimum": 0, "maximum": 110 },
+                    "maxScore": { "type": "integer" },
+                    "grade": { "type": "string", "enum": ["Excellent", "Good", "Fair", "Poor", "Critical"] },
+                    "gradeColor": { "type": "string" },
+                    "checks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "score": { "type": "integer" },
+                          "max": { "type": "integer" },
+                          "icon": { "type": "string" },
+                          "details": { "type": "string" },
+                          "recommendations": { "type": "array", "items": { "type": "string" } }
+                        }
+                      }
+                    },
+                    "scannedAt": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited (max 10 scans per minute per IP)"
+          }
+        }
+      }
+    },
+    "/api/history": {
+      "get": {
+        "operationId": "getRecentScans",
+        "summary": "Get recent scan history",
+        "description": "Returns the last 20 scans performed (domain, grade, score). No PII stored.",
+        "responses": {
+          "200": {
+            "description": "Recent scans",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "scans": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": { "type": "string" },
+                          "grade": { "type": "string" },
+                          "gradeColor": { "type": "string" },
+                          "score": { "type": "integer" },
+                          "maxScore": { "type": "integer" },
+                          "scannedAt": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/badge/{score}": {
+      "get": {
+        "operationId": "getBadge",
+        "summary": "Get an SVG badge for an AEO score",
+        "parameters": [
+          {
+            "name": "score",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "minimum": 0, "maximum": 110 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SVG badge image",
+            "content": {
+              "image/svg+xml": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

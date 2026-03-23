@@ -1,0 +1,39 @@
+# AEO Checker — AI Engine Optimization Score Tool
+
+## What is AEO Checker?
+AEO Checker is a free tool that analyzes any website's visibility to AI agents (ChatGPT, Claude, Perplexity, Google AI). It provides an AEO Score out of 100 with actionable recommendations.
+
+## What is AEO (AI Engine Optimization)?
+AEO is the practice of optimizing websites so AI agents can discover, understand, and recommend them. It's the next evolution of SEO — instead of optimizing for search engine crawlers, you optimize for AI answer engines.
+
+## How the AEO Score works
+The checker runs 7 automated checks:
+1. **Structured Data** (0-20pts) — JSON-LD schemas, OpenGraph tags, meta descriptions
+2. **robots.txt AI Bots** (0-15pts) — Are GPTBot, ClaudeBot, PerplexityBot allowed?
+3. **llms.txt** (0-15pts) — Does the site have an /llms.txt file for AI context?
+4. **Content Structure** (0-20pts) — H1-H3 hierarchy, FAQPage schema, HowTo schema
+5. **Tool/API Description** (0-15pts) — ai-plugin.json, OpenAPI spec, MCP hints
+6. **Performance** (0-15pts) — Response time (AI agents timeout fast)
+7. **Markdown for Agents** (0-10pts) — Accept: text/markdown content negotiation, /crawl endpoint, llms-full.txt
+
+## Key URLs
+- AEO Checker tool: https://extensions-tags-administered-fighter.trycloudflare.com/
+- What is AEO? Guide: https://extensions-tags-administered-fighter.trycloudflare.com/blog-what-is-aeo.html
+- AEO Optimization Guide: https://extensions-tags-administered-fighter.trycloudflare.com/blog-aeo-optimization-guide.html
+- AEO vs SEO Comparison: https://extensions-tags-administered-fighter.trycloudflare.com/blog-aeo-vs-seo.html
+- Why Sites Are Invisible to AI: https://extensions-tags-administered-fighter.trycloudflare.com/blog-website-invisible-to-ai.html
+- Stripe Agent Commerce + AEO: https://extensions-tags-administered-fighter.trycloudflare.com/blog-stripe-agent-commerce-aeo.html
+
+## API
+POST /api/check with JSON body { "url": "https://example.com" } to get an AEO score.
+GET /api/badge/:score to get an embeddable SVG badge.
+
+## Who it's for
+- Website owners who want AI agents to recommend their content
+- SEO professionals expanding into AI optimization
+- SaaS companies that want to be discovered by AI-powered search
+- Content creators aiming for AI answer engine citations
+
+- [20 Tech Giants AEO Scores (2026)](https://extensions-tags-administered-fighter.trycloudflare.com/blog-top20-aeo-scores-2026.html): Full AEO audit of 20 major tech companies. Rankings, per-check analysis, key insights.
+- [AEO Audit Checklist: 20 Things to Check](https://extensions-tags-administered-fighter.trycloudflare.com/blog-aeo-audit-checklist.html): Printable 20-item yes/no checklist across 7 AEO categories with impact levels.
+- [The Agent Economy — 5 Things Businesses Must Do](https://extensions-tags-administered-fighter.trycloudflare.com/blog-agent-economy-5-things-business.html): Stripe, NVIDIA, Cloudflare, Sentry all building agent infrastructure simultaneously. 5 concrete steps for business readiness.

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>How to Create llms.txt — The Complete Guide to AI Agent Context Files (2026)</title>
+  <meta name="description" content="Step-by-step guide to creating llms.txt for your website. Learn the emerging standard that helps ChatGPT, Claude, and Perplexity understand and recommend your site." />
+  <meta name="keywords" content="llms.txt, how to create llms.txt, llms txt file, ai agent context, aeo optimization, llms.txt standard, llms.txt example, llms.txt template" />
+  <meta property="og:title" content="How to Create llms.txt — Complete Guide (2026)" />
+  <meta property="og:description" content="Step-by-step guide to creating llms.txt. Help AI agents understand and recommend your site." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-how-to-create-llms-txt.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-how-to-create-llms-txt.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .nav-brand { font-family: var(--mono); font-size: 14px; color: var(--accent2); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .article-meta { font-family: var(--mono); font-size: 12px; color: var(--text-dim); margin-bottom: 16px; letter-spacing: 0.05em; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 20px; }
+    .lead { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 20px; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 48px 0 16px; color: var(--text); }
+    h3 { font-size: 1.05rem; font-weight: 600; margin: 32px 0 12px; }
+    p { margin-bottom: 18px; color: var(--text-muted); }
+    a { color: var(--accent2); }
+    ul, ol { margin: 0 0 18px 24px; color: var(--text-muted); }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); }
+    code { font-family: var(--mono); font-size: 0.88em; background: rgba(99,102,241,0.1); padding: 2px 6px; border-radius: 4px; color: var(--accent2); }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0 24px;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .tip {
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.15);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .tip strong { color: var(--green); }
+    .warning {
+      background: rgba(234,179,8,0.06);
+      border: 1px solid rgba(234,179,8,0.15);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .warning strong { color: #eab308; }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 14px;
+      padding: 32px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .cta-box h3 { margin-top: 0; color: var(--text); }
+    .cta-box p { margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .cta-btn:hover { box-shadow: 0 8px 25px rgba(99,102,241,0.35); transform: translateY(-1px); color: #fff; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
+    .toc-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 12px; }
+    .toc ol { margin: 0; padding-left: 20px; }
+    .toc li { margin-bottom: 6px; font-size: 14px; }
+    .toc a { color: var(--accent2); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .footer { text-align: center; color: var(--text-dim); font-size: 12px; font-family: var(--mono); margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .footer a { color: var(--text-dim); text-decoration: none; }
+    @media (max-width: 580px) { .container { padding: 0 16px 60px; } h1 { font-size: 1.5rem; } pre { padding: 14px 16px; font-size: 12px; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Create llms.txt — The Complete Guide to AI Agent Context Files",
+    "description": "Step-by-step guide to creating llms.txt for your website to improve AI agent discoverability.",
+    "datePublished": "2026-03-08",
+    "dateModified": "2026-03-08",
+    "author": { "@type": "Organization", "name": "AEO Checker" },
+    "publisher": { "@type": "Organization", "name": "AEO Checker", "url": "https://aeo-check.netlify.app" },
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-how-to-create-llms-txt.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Create llms.txt for Your Website",
+    "description": "Create an llms.txt file that helps AI agents understand and recommend your site.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Create the file",
+        "text": "Create a plain text file named llms.txt in your website's root directory (same level as robots.txt and sitemap.xml)."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Write your company description",
+        "text": "Start with a markdown heading and a clear 2-3 sentence description of what your company or product does."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "List key features and use cases",
+        "text": "Add sections for your main features, target audience, and primary use cases. Use markdown formatting."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Add important URLs",
+        "text": "Include links to your key pages: documentation, pricing, blog, API reference, and contact."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Deploy and verify",
+        "text": "Upload the file to your web server root. Verify it's accessible at yourdomain.com/llms.txt. Test with the AEO Checker."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "llms.txt is an emerging standard — a plain text file placed at the root of your website (like robots.txt) that provides structured context for AI language models. It helps ChatGPT, Claude, Perplexity, and other AI agents understand what your site does, who it's for, and how to recommend it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I put llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Place llms.txt in the root directory of your website, at the same level as robots.txt and sitemap.xml. It should be accessible at yourdomain.com/llms.txt via HTTP."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What format should llms.txt use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use plain text with Markdown formatting. Start with a heading (# Your Product Name), followed by sections describing your product, features, use cases, and key URLs. Keep it between 500-2000 characters for optimal AI parsing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do AI agents actually read llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The llms.txt standard is emerging and growing. AI crawlers like GPTBot, ClaudeBot, and PerplexityBot are increasingly checking for llms.txt as a structured context source. Having one positions your site ahead of competitors as the standard matures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long should llms.txt be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aim for 500-2000 characters. Too short (under 100 chars) and it's not useful. Too long (over 5000 chars) and AI agents may truncate or ignore parts. Be concise and structured — every line should earn its place."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="nav-brand">⚡ AEO Checker</a>
+      <div class="nav-links">
+        <a href="/">Free Scan</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/blog.html">Blog</a>
+      </div>
+    </nav>
+
+    <article>
+      <div class="article-meta">MARCH 8, 2026 · 8 MIN READ</div>
+      <h1>How to Create llms.txt — The Complete Guide to AI Agent Context Files</h1>
+      <p class="lead">
+        Your website has <code>robots.txt</code> for search crawlers and <code>sitemap.xml</code> for indexing. Now there's <code>llms.txt</code> — a simple text file that tells AI agents what your site actually does. Here's how to create one that gets you recommended.
+      </p>
+
+      <div class="toc">
+        <div class="toc-title">// IN THIS GUIDE</div>
+        <ol>
+          <li><a href="#what">What is llms.txt?</a></li>
+          <li><a href="#why">Why you need it now</a></li>
+          <li><a href="#anatomy">Anatomy of a great llms.txt</a></li>
+          <li><a href="#template">Copy-paste template</a></li>
+          <li><a href="#examples">Real-world examples</a></li>
+          <li><a href="#mistakes">Common mistakes</a></li>
+          <li><a href="#deploy">Deploy and verify</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <h2 id="what">What is llms.txt?</h2>
+      <p>
+        <code>llms.txt</code> is an emerging standard for providing AI language models with structured context about your website. Think of it as <strong><code>robots.txt</code> for AI comprehension</strong> — while robots.txt tells crawlers <em>where</em> to go, llms.txt tells AI agents <em>what you do</em>.
+      </p>
+      <p>
+        It's a plain text file placed at your website's root (<code>yourdomain.com/llms.txt</code>) that uses Markdown formatting. When AI agents like GPTBot, ClaudeBot, or PerplexityBot crawl your site, they check for this file to build a richer understanding of your product or service.
+      </p>
+      <p>
+        The concept was <a href="https://llmstxt.org" target="_blank">proposed by Jeremy Howard</a> (fast.ai founder) and is gaining traction rapidly as AI-powered search replaces traditional search for millions of users.
+      </p>
+
+      <h2 id="why">Why you need llms.txt now</h2>
+      <p>
+        When someone asks ChatGPT "what's the best project management tool?", the AI doesn't search Google — it synthesizes information from everything it knows. Sites with clear, structured context are more likely to be recommended. Sites without it? <strong>Invisible.</strong>
+      </p>
+      <p>Three reasons to create yours today:</p>
+      <ol>
+        <li><strong>First-mover advantage:</strong> Most websites don't have llms.txt yet. Creating one now puts you ahead of 99% of competitors.</li>
+        <li><strong>Zero cost, high ROI:</strong> It takes 15 minutes to create. The potential upside — being recommended by AI agents to millions of users — is massive.</li>
+        <li><strong>Future-proof:</strong> As AI search grows (40% of Gen Z already uses AI instead of Google), llms.txt will become as essential as robots.txt is today.</li>
+      </ol>
+
+      <h2 id="anatomy">Anatomy of a great llms.txt</h2>
+      <p>A strong llms.txt has five sections:</p>
+
+      <h3>1. Product identity (required)</h3>
+      <p>Start with your name and a crisp 2-3 sentence description. This is the most important part — AI agents use it as the primary summary.</p>
+      <pre># Acme Analytics
+
+Real-time web analytics that respects user privacy. No cookies, no tracking scripts, no personal data collection. Built for businesses that need insights without compromising user trust.</pre>
+
+      <h3>2. Key features (required)</h3>
+      <p>List your 4-6 most important features. Be specific about <em>what makes you different</em>, not just what you do.</p>
+      <pre>## Features
+- Real-time dashboard with &lt;1 second data refresh
+- GDPR/CCPA compliant by design (no cookies, no PII)
+- Lightweight script (under 1KB, no performance impact)
+- Custom events and goal tracking
+- API access for data export
+- Self-hosted option available</pre>
+
+      <h3>3. Target audience (recommended)</h3>
+      <p>Help AI agents match your product to the right queries.</p>
+      <pre>## Who it's for
+- Privacy-conscious businesses replacing Google Analytics
+- SaaS companies needing lightweight, GDPR-compliant analytics
+- Developers who want a simple, script-tag-and-done solution
+- EU-based businesses requiring data sovereignty</pre>
+
+      <h3>4. Key URLs (recommended)</h3>
+      <p>Direct AI agents to your most important pages.</p>
+      <pre>## Key URLs
+- Homepage: https://acme-analytics.com
+- Documentation: https://docs.acme-analytics.com
+- Pricing: https://acme-analytics.com/pricing
+- API Reference: https://docs.acme-analytics.com/api
+- Blog: https://acme-analytics.com/blog</pre>
+
+      <h3>5. Differentiators (optional but powerful)</h3>
+      <p>What makes you different from the obvious competitors? This is what makes AI agents recommend you <em>specifically</em>.</p>
+      <pre>## Why Acme over alternatives
+- Unlike Google Analytics: no cookies, no PII, no consent banners needed
+- Unlike Plausible: self-hosted option with full data ownership
+- Unlike Matomo: 10x faster setup, no server management required
+- One-time purchase available (no recurring subscription)</pre>
+
+      <h2 id="template">Copy-paste template</h2>
+      <p>Copy this template, fill in your details, and save it as <code>llms.txt</code> in your site root:</p>
+      <pre># [Your Product Name]
+
+[2-3 sentences: what it does, who it's for, what makes it unique]
+
+## Features
+- [Feature 1 — be specific]
+- [Feature 2 — mention what's different]
+- [Feature 3]
+- [Feature 4]
+- [Feature 5]
+
+## Who it's for
+- [Target audience 1]
+- [Target audience 2]
+- [Target audience 3]
+
+## Key URLs
+- Homepage: [URL]
+- Documentation: [URL]
+- Pricing: [URL]
+- API: [URL]
+- Contact: [URL]
+
+## How it works
+[1-2 sentences explaining the core workflow or user experience]
+
+## Pricing
+[Brief pricing info — e.g., "Free tier available. Pro starts at $X/month."]</pre>
+
+      <div class="tip">
+        <strong>💡 Pro tip:</strong> Aim for 500-2000 characters. Every line should earn its place. AI agents skim — frontload the most important information.
+      </div>
+
+      <h2 id="examples">Real-world examples</h2>
+      <p>Here's what our own llms.txt looks like (you can see it at <a href="https://aeo-check.netlify.app/llms.txt" target="_blank">aeo-check.netlify.app/llms.txt</a>):</p>
+      <pre># AEO Checker — AI Engine Optimization Score Tool
+
+AEO Checker is a free tool that analyzes any website's
+visibility to AI agents (ChatGPT, Claude, Perplexity,
+Google AI). It provides an AEO Score out of 100 with
+actionable recommendations.
+
+## How the AEO Score works
+The checker runs 6 automated checks:
+1. Structured Data (0-20pts)
+2. robots.txt AI Bots (0-15pts)
+3. llms.txt (0-15pts)
+4. Content Structure (0-20pts)
+5. Tool/API Description (0-15pts)
+6. Performance (0-15pts)
+
+## Key URLs
+- AEO Checker tool: https://aeo-check.netlify.app/
+- Pricing: https://aeo-check.netlify.app/pricing.html
+- Blog: https://aeo-check.netlify.app/blog-what-is-aeo.html
+
+## API
+POST /api/check with JSON body { "url": "..." }
+GET /api/badge/:score for embeddable SVG badge</pre>
+
+      <p>Other notable sites with llms.txt:</p>
+      <ul>
+        <li><strong>Anthropic</strong> — <code>anthropic.com/llms.txt</code> (they don't have one yet — opportunity!)</li>
+        <li><strong>Stripe</strong> — Early adopter of developer-facing context files</li>
+        <li><strong>llmstxt.org</strong> — The original proposal and directory</li>
+      </ul>
+
+      <h2 id="mistakes">Common mistakes</h2>
+
+      <div class="warning">
+        <strong>⚠️ Mistake #1: Too short.</strong> A one-liner like "We make software" tells AI nothing useful. Include features, audience, and URLs. Minimum 500 characters.
+      </div>
+
+      <div class="warning">
+        <strong>⚠️ Mistake #2: Marketing fluff.</strong> "Revolutionary AI-powered synergy platform" means nothing to an AI agent. Be concrete: what does it DO? For whom? How is it different?
+      </div>
+
+      <div class="warning">
+        <strong>⚠️ Mistake #3: Forgetting URLs.</strong> AI agents need to know where to send users. Always include your key page links.
+      </div>
+
+      <div class="warning">
+        <strong>⚠️ Mistake #4: HTML or complex formatting.</strong> llms.txt should be plain text with simple Markdown. No HTML tags, no embedded scripts, no JSON.
+      </div>
+
+      <p><strong>Keep it simple, structured, and honest.</strong> AI agents are good at detecting marketing BS — just describe what you actually do.</p>
+
+      <h2 id="deploy">Deploy and verify</h2>
+
+      <h3>Step 1: Create the file</h3>
+      <p>Save your content as <code>llms.txt</code> (plain text, UTF-8 encoding).</p>
+
+      <h3>Step 2: Upload to your site root</h3>
+      <p>Place it alongside your <code>robots.txt</code> and <code>sitemap.xml</code>. The file should be accessible at:</p>
+      <pre>https://yourdomain.com/llms.txt</pre>
+
+      <h3>Step 3: Verify it's accessible</h3>
+      <p>Open <code>yourdomain.com/llms.txt</code> in your browser. You should see the raw text content. If you get a 404, check your web server configuration.</p>
+
+      <h3>Step 4: Test with AEO Checker</h3>
+      <p>Run your site through our <a href="/">free AEO Checker</a>. The llms.txt check should now show ✅ with a score of 10-15/15 depending on content length.</p>
+
+      <div class="tip">
+        <strong>💡 Platform-specific notes:</strong>
+        <br>• <strong>WordPress:</strong> Upload llms.txt to your <code>public_html</code> or <code>www</code> directory
+        <br>• <strong>Netlify/Vercel:</strong> Place in your <code>public/</code> or <code>static/</code> folder
+        <br>• <strong>Next.js:</strong> Place in the <code>public/</code> directory
+        <br>• <strong>Shopify:</strong> Upload via theme editor under Assets, then create a redirect from <code>/llms.txt</code>
+      </div>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <h3>What is llms.txt?</h3>
+      <p>A plain text file at your website root that provides structured context for AI language models. It helps ChatGPT, Claude, Perplexity, and other AI agents understand what your site does and how to recommend it.</p>
+
+      <h3>Where do I put llms.txt?</h3>
+      <p>In the root directory of your website, at the same level as robots.txt and sitemap.xml. It should be accessible at <code>yourdomain.com/llms.txt</code> via HTTP.</p>
+
+      <h3>What format should llms.txt use?</h3>
+      <p>Plain text with Markdown formatting. Start with a heading (<code># Your Product</code>), followed by feature lists, audience, and key URLs. Aim for 500-2000 characters.</p>
+
+      <h3>Do AI agents actually read llms.txt?</h3>
+      <p>The standard is emerging and growing. AI crawlers like GPTBot, ClaudeBot, and PerplexityBot are increasingly checking for it. Having one positions you ahead of competitors as the standard matures — and it costs you nothing.</p>
+
+      <h3>How long should llms.txt be?</h3>
+      <p>500-2000 characters is the sweet spot. Under 100 is too sparse to be useful. Over 5000 risks being truncated. Be concise — every line should earn its place.</p>
+
+      <div class="cta-box">
+        <h3>Check your AEO Score</h3>
+        <p>Created your llms.txt? See how your full AEO score improved.</p>
+        <a href="/" class="cta-btn">Free AEO Scan →</a>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-dim);margin-top:40px;">
+        <strong>Related reading:</strong>
+        <a href="/blog-what-is-aeo.html">What is AEO?</a> ·
+        <a href="/blog-aeo-optimization-guide.html">AEO Optimization Guide</a> ·
+        <a href="/blog-aeo-vs-seo.html">AEO vs SEO</a> ·
+        <a href="/pricing.html">AEO Audit Services</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <a href="/">AEO Checker</a> · <a href="/pricing.html">Pricing</a> · <a href="/blog.html">Blog</a>
+    </footer>
+  </div>
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

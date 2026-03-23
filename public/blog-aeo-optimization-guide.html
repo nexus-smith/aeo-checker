@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEO Optimization Guide: How to Optimize Your Site for AI Agents (2026)</title>
+  <meta name="description" content="Complete AEO optimization guide. Learn how to make your site discoverable by ChatGPT, Claude, Perplexity and other AI agents. Covers llms.txt, structured data, robots.txt, and AEO best practices." />
+  <meta name="keywords" content="aeo optimization, aeo optimization guide, how to optimize for ai agents, ai engine optimization, aeo meaning, seo for ai, ai discoverability" />
+  <meta property="og:title" content="How to Optimize Your Site for AI Agents: A Practical AEO Guide" />
+  <meta property="og:description" content="The definitive guide to Agent Engine Optimization. 7 concrete steps to make AI agents recommend your product." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-aeo-optimization-guide.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- HowTo + Article + FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to Optimize Your Site for AI Agents: A Practical AEO Guide",
+        "description": "Step-by-step guide to making your website discoverable by AI agents like ChatGPT, Claude, and Perplexity.",
+        "datePublished": "2026-03-06",
+        "author": {
+          "@type": "Organization",
+          "name": "AEO Checker"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AEO Checker"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Optimize Your Website for AI Agents",
+        "description": "A 7-step guide to improving your AEO score and making your site discoverable by AI agents.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Audit your current AEO score",
+            "text": "Run your site through an AEO checker to establish a baseline. Most sites score 30-50 out of 100."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Create an llms.txt file",
+            "text": "Create a plain-text file at yourdomain.com/llms.txt that maps your most important pages with one-line descriptions."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Configure robots.txt for AI crawlers",
+            "text": "Add explicit Allow directives for GPTBot, ClaudeBot, PerplexityBot, and Googlebot-Extended."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Add JSON-LD structured data",
+            "text": "Implement Organization, Product, FAQ, and BreadcrumbList schemas on your key pages."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Structure your content for machine parsing",
+            "text": "Use clear H1/H2/H3 hierarchy, descriptive headings, and front-load key information in each section."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 6,
+            "name": "Ensure technical accessibility",
+            "text": "Make sure your site renders without JavaScript, loads under 3 seconds, and serves clean HTML."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 7,
+            "name": "Monitor and iterate",
+            "text": "Re-check your AEO score monthly. AI crawlers update frequently — improvements compound quickly."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does it take to see results from AEO optimization?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike SEO which can take 3-6 months, AEO improvements can show results within 4-8 weeks. AI training datasets and crawler re-indexing cycles are more frequent than traditional search engine re-crawling. Sites that implement structured data, llms.txt, and proper bot permissions typically see improved AI representation within 1-2 months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is AEO replacing SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, AEO complements SEO. Traditional search engines still drive the majority of web traffic. But the share of discovery happening through AI agents — ChatGPT, Claude, Perplexity, Google AI Overviews — is growing rapidly. Smart teams optimize for both channels simultaneously, since many AEO improvements (structured data, content clarity, technical performance) also improve SEO."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to pay for AEO tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The core AEO optimizations — llms.txt, structured data, robots.txt configuration, content restructuring — are all free to implement. You can check your AEO score for free using tools like AEO Checker. The biggest investment is time, not money."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the most impactful AEO optimization?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Based on our analysis of 500+ sites, the highest-impact single optimization is adding JSON-LD Organization schema to your homepage. It's the foundation that AI agents use to understand who you are and what you do. The second-highest impact is creating an llms.txt file — it's still rare enough that having one gives you a significant signal advantage."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #0f0f1a;
+      --bg3: #141428;
+      --surface: #1a1a2e;
+      --surface2: #1e1e35;
+      --border: rgba(255,255,255,0.07);
+      --border-glow: rgba(99, 102, 241, 0.3);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #22c55e;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --red: #ef4444;
+      --mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo span { color: var(--text-muted); font-weight: 400; }
+
+    .nav-links { display: flex; gap: 20px; }
+
+    .nav-link {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    /* ── Header ── */
+    .post-header {
+      margin-bottom: 56px;
+    }
+
+    .post-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent2);
+      margin-bottom: 20px;
+    }
+
+    .post-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #e8e8f0 0%, #9090b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .post-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .post-meta span { color: var(--text-dim); margin: 0 8px; }
+
+    /* ── Article body ── */
+    .post-body {
+      font-size: 1rem;
+      color: #c8c8d8;
+      line-height: 1.8;
+    }
+
+    .post-body p {
+      margin-bottom: 1.4em;
+    }
+
+    .post-body h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 2.5em 0 0.7em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin: 1.8em 0 0.5em;
+      font-family: var(--mono);
+      letter-spacing: 0.01em;
+    }
+
+    .post-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .post-body a {
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(129,140,248,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .post-body a:hover {
+      color: #fff;
+      border-color: rgba(129,140,248,0.7);
+    }
+
+    .post-body code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      color: var(--accent2);
+    }
+
+    .post-body pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      overflow-x: auto;
+      margin: 1.5em 0;
+    }
+
+    .post-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.83rem;
+      color: #a8b4cc;
+    }
+
+    .post-body ul, .post-body ol {
+      margin: 0.8em 0 1.4em 1.5em;
+    }
+
+    .post-body li {
+      margin-bottom: 0.4em;
+    }
+
+    /* ── Step cards ── */
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 1.5em 0;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .step-card:hover {
+      border-color: var(--border-glow);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      margin-top: 4px;
+    }
+
+    .step-body {
+      color: #b0b0c8;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .step-body code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      color: var(--accent2);
+    }
+
+    /* ── Impact meter ── */
+    .impact {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      margin-top: 12px;
+    }
+
+    .impact-high { color: var(--green); }
+    .impact-medium { color: var(--yellow); }
+    .impact-low { color: var(--text-muted); }
+
+    .impact-bar {
+      width: 40px;
+      height: 4px;
+      background: var(--bg3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .impact-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .impact-high .impact-bar-fill { width: 100%; background: var(--green); }
+    .impact-medium .impact-bar-fill { width: 66%; background: var(--yellow); }
+    .impact-low .impact-bar-fill { width: 33%; background: var(--text-muted); }
+
+    /* ── Comparison table ── */
+    .compare-table {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 1.5em 0;
+    }
+
+    .compare-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-header-cell {
+      padding: 12px 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+
+    .compare-cell {
+      padding: 14px 18px;
+      font-size: 0.9rem;
+    }
+
+    .compare-cell:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    .compare-bad { color: var(--red); }
+    .compare-good { color: var(--green); }
+
+    /* ── Callout box ── */
+    .callout {
+      background: rgba(99,102,241,0.06);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 1.5em 0;
+      font-size: 0.93rem;
+      color: #b8b8d0;
+    }
+
+    .callout strong {
+      color: var(--accent2);
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      text-align: center;
+      padding: 56px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 64px;
+    }
+
+    .cta-block h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #e8e8f0 0%, #9090b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-block p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent2);
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ── */
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .post-footer a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    /* ── Related posts ── */
+    .related {
+      margin-top: 48px;
+    }
+
+    .related-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .related-link {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      margin-bottom: 8px;
+    }
+
+    .related-link:hover { border-color: var(--border-glow); }
+
+    .related-link-title {
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .related-link-desc {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 1.5em 0 2.5em;
+    }
+
+    .toc-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      margin-bottom: 6px;
+    }
+
+    .toc li::before {
+      content: counter(toc) ".";
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .toc a {
+      color: #b0b0c8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .compare-cell { padding: 10px 12px; font-size: 0.82rem; }
+      .step-card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="./" class="nav-logo">AEO_CHECKER <span>/blog</span></a>
+      <div class="nav-links">
+        <a href="./blog-what-is-aeo.html" class="nav-link">What is AEO?</a>
+        <a href="/blog.html" class="nav-link">Blog</a>
+        <a href="./" class="nav-link">Check Your Score →</a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="post-header">
+      <div class="post-badge">GUIDE</div>
+      <h1>How to Optimize Your Site for AI Agents</h1>
+      <div class="post-meta">Mar 6, 2026 <span>·</span> 12 min read <span>·</span> Practical AEO</div>
+    </header>
+
+    <!-- Article -->
+    <article class="post-body">
+
+      <p>
+        You've heard the term <a href="./blog-what-is-aeo.html">AEO</a>. You might have even checked your score. Now what?
+      </p>
+
+      <p>
+        This is the implementation guide. Seven concrete steps, ordered by impact, with code you can copy-paste. Most of this can be done in an afternoon. The sites that do it now will be the ones AI agents recommend six months from now. The ones that don't will be invisible to the fastest-growing discovery channel in a decade.
+      </p>
+
+      <p>
+        No theory. No fluff. Let's fix your site.
+      </p>
+
+      <!-- TOC -->
+      <div class="toc">
+        <div class="toc-title">In this guide</div>
+        <ol>
+          <li><a href="#audit">Audit your baseline</a></li>
+          <li><a href="#llms-txt">Create your llms.txt</a></li>
+          <li><a href="#robots">Configure robots.txt for AI crawlers</a></li>
+          <li><a href="#structured-data">Add JSON-LD structured data</a></li>
+          <li><a href="#content">Structure content for machine parsing</a></li>
+          <li><a href="#technical">Fix technical accessibility</a></li>
+          <li><a href="#monitor">Monitor and iterate</a></li>
+        </ol>
+      </div>
+
+      <h2 id="audit">Step 1: Audit Your Baseline</h2>
+
+      <p>
+        Before optimizing anything, you need to know where you stand. Run your homepage through an <a href="./">AEO checker</a> and note your score. The average production site scores between 30 and 50 out of 100. Even well-known companies — Stripe (68), Anthropic (46), OpenAI (41) — have significant gaps.
+      </p>
+
+      <p>
+        Pay attention to <strong>which categories are weakest</strong>. Most sites fail on the same three things: no llms.txt (0 points out of ~15), sparse structured data (5-8 out of ~25), and incomplete bot directives in robots.txt. These three fixes alone can jump your score by 25-35 points.
+      </p>
+
+      <div class="callout">
+        <strong>Quick win:</strong> Screenshot your current AEO report. You'll want to compare it after implementing these steps. The before/after delta is useful for convincing stakeholders that this work matters.
+      </div>
+
+      <h2 id="llms-txt">Step 2: Create Your llms.txt</h2>
+
+      <p>
+        <code>llms.txt</code> is to AI agents what <code>robots.txt</code> is to search engines — a machine-readable map of your site's most important content. It lives at <code>yourdomain.com/llms.txt</code> and gives language models a curated index instead of forcing them to guess which pages matter.
+      </p>
+
+      <p>
+        The format is simple. Here's a real example:
+      </p>
+
+      <pre><code># Acme Corp
+
+> Acme builds developer tools for API testing.
+
+## Main Pages
+- [Homepage](https://acme.dev): Overview and pricing
+- [Product](https://acme.dev/product): Feature breakdown
+- [Docs](https://acme.dev/docs): Full API documentation
+
+## Key Resources
+- [Changelog](https://acme.dev/changelog): Release notes
+- [Blog](https://acme.dev/blog): Technical articles
+- [API Reference](https://acme.dev/api): OpenAPI spec</code></pre>
+
+      <div class="step-card">
+        <div class="step-number">IMPACT</div>
+        <div class="step-title">Why llms.txt matters disproportionately</div>
+        <div class="step-body">
+          As of March 2026, fewer than 3% of websites have an llms.txt file. That means having one immediately differentiates you. AI crawlers like ClaudeBot and GPTBot check for it. When it exists, they use it as their primary navigation map instead of inferring structure from sitemaps and link graphs. It's 20 minutes of work for a signal advantage that compounds.
+        </div>
+        <div class="impact impact-high">
+          <div class="impact-bar"><div class="impact-bar-fill"></div></div>
+          HIGH IMPACT
+        </div>
+      </div>
+
+      <p>
+        <strong>Common mistakes:</strong> Don't list every page on your site. The point isn't completeness — it's curation. List your 10-20 most important pages. Think: "If an AI agent could only read 15 pages on my site, which ones would tell the full story?" Those go in llms.txt.
+      </p>
+
+      <h2 id="robots">Step 3: Configure robots.txt for AI Crawlers</h2>
+
+      <p>
+        Your robots.txt probably handles Googlebot. It almost certainly doesn't handle AI crawlers. Here's what a modern robots.txt should include:
+      </p>
+
+      <pre><code># Search engines
+User-agent: Googlebot
+Allow: /
+
+# AI Crawlers — explicitly permitted
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Reference files
+Sitemap: https://yourdomain.com/sitemap.xml</code></pre>
+
+      <p>
+        The key insight: <strong>absence is ambiguous, but explicit is clear.</strong> Without named AI bot directives, different crawlers interpret default rules differently. Some assume they're allowed. Some assume they're blocked. Adding explicit <code>Allow</code> directives removes all ambiguity.
+      </p>
+
+      <div class="compare-table">
+        <div class="compare-header">
+          <div class="compare-header-cell">❌ Before</div>
+          <div class="compare-header-cell">✅ After</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">Only default User-agent: *</div>
+          <div class="compare-cell compare-good">Named directives per AI crawler</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">No sitemap reference</div>
+          <div class="compare-cell compare-good">Sitemap: directive included</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">AI bots guess their access</div>
+          <div class="compare-cell compare-good">Explicit Allow for each AI bot</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Want to block AI crawlers instead?</strong> That's a valid choice — many publishers do. Use <code>Disallow: /</code> per bot. But be intentional. The worst outcome is an ambiguous robots.txt where you think you're being crawled but aren't, or vice versa. Make a decision and be explicit.
+      </div>
+
+      <h2 id="structured-data">Step 4: Add JSON-LD Structured Data</h2>
+
+      <p>
+        Structured data is the highest-leverage AEO optimization after llms.txt. It tells AI agents <em>what things are</em>, not just what words are on the page. A product description in plain text is useful. A Product schema with name, price, rating, and availability is <strong>machine-actionable</strong>.
+      </p>
+
+      <h3>Priority 1: Organization schema (homepage)</h3>
+
+      <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Acme Corp",
+  "url": "https://acme.dev",
+  "description": "Developer tools for API testing",
+  "logo": "https://acme.dev/logo.png",
+  "sameAs": [
+    "https://twitter.com/acmedev",
+    "https://github.com/acmedev"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@acme.dev",
+    "contactType": "customer support"
+  }
+}
+&lt;/script&gt;</code></pre>
+
+      <h3>Priority 2: FAQ schema (any page with Q&A content)</h3>
+
+      <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Acme do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acme provides API testing tools..."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code></pre>
+
+      <h3>Priority 3: Product or SoftwareApplication (product pages)</h3>
+
+      <p>
+        If you sell a product or SaaS, this schema is essential. Include <code>offers</code> with price, <code>aggregateRating</code> if you have reviews, and a clear <code>description</code>. AI agents use this data to generate product comparisons and recommendations.
+      </p>
+
+      <div class="step-card">
+        <div class="step-number">TIP</div>
+        <div class="step-title">Validation matters</div>
+        <div class="step-body">
+          After adding structured data, validate it with <a href="https://validator.schema.org/" style="color: var(--accent2); border-bottom: 1px solid rgba(129,140,248,0.3);">Google's Schema Validator</a>. Invalid JSON-LD is worse than no JSON-LD — it signals to AI parsers that your site metadata is unreliable.
+        </div>
+      </div>
+
+      <h2 id="content">Step 5: Structure Content for Machine Parsing</h2>
+
+      <p>
+        AI agents don't "read" your page the way humans do. They parse it structurally: headings create sections, the first paragraph of each section gets weighted heavily, and lists/tables get extracted as data. Knowing this changes how you write.
+      </p>
+
+      <p><strong>Rules that matter:</strong></p>
+
+      <ul>
+        <li><strong>One H1 per page.</strong> It should describe what this page is about, not be a tagline. "API Testing Platform — Features & Pricing" beats "Build better APIs" every time.</li>
+        <li><strong>H2s = section boundaries.</strong> Each H2 should be a standalone topic that makes sense without reading the rest of the page. AI agents extract H2 sections as independent content chunks.</li>
+        <li><strong>Front-load key information.</strong> The first sentence of each section should contain the core claim or fact. AI summaries pull heavily from opening sentences.</li>
+        <li><strong>Use lists for features, pricing, and comparisons.</strong> Bullet points and numbered lists get extracted more reliably than prose paragraphs.</li>
+        <li><strong>Avoid clever headings.</strong> "Why We're Different" tells an AI agent nothing. "3 Features That Make Acme Faster Than Postman" gives it a specific, extractable claim.</li>
+      </ul>
+
+      <div class="compare-table">
+        <div class="compare-header">
+          <div class="compare-header-cell">❌ Hard to parse</div>
+          <div class="compare-header-cell">✅ Machine-readable</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">"Reimagine your workflow"</div>
+          <div class="compare-cell compare-good">"API testing tool — test 10x faster"</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">Features in flowing prose</div>
+          <div class="compare-cell compare-good">Features in a bullet list</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">Key info buried in paragraph 3</div>
+          <div class="compare-cell compare-good">Key info in the first sentence</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-bad">Same H2 for different topics</div>
+          <div class="compare-cell compare-good">Descriptive H2 per distinct section</div>
+        </div>
+      </div>
+
+      <h2 id="technical">Step 6: Fix Technical Accessibility</h2>
+
+      <p>
+        The most beautifully structured content in the world is worthless if AI crawlers can't reach it. Technical accessibility is the foundation everything else sits on.
+      </p>
+
+      <h3>Server-side rendering</h3>
+
+      <p>
+        If your site is a React/Vue SPA that renders client-side, AI crawlers see a blank page with a <code>&lt;div id="root"&gt;&lt;/div&gt;</code>. This is the single most common reason for a 0/100 structured data score. Solutions:
+      </p>
+
+      <ul>
+        <li><strong>Next.js / Nuxt / Astro:</strong> Server-render your marketing pages by default.</li>
+        <li><strong>Static export:</strong> Pre-render to HTML at build time. Works for any framework.</li>
+        <li><strong>Prerender middleware:</strong> If you can't change frameworks, tools like Prerender.io serve static HTML to crawlers.</li>
+      </ul>
+
+      <h3>Page speed</h3>
+
+      <p>
+        AI crawlers have timeouts. If your page takes 8 seconds to load because of a 4MB hero image and 12 third-party scripts, crawlers may give up before they see your content. Keep your LCP under 2.5 seconds. Remove unused JavaScript. Compress images.
+      </p>
+
+      <h3>Meta tags and Open Graph</h3>
+
+      <p>
+        Every indexable page needs: <code>title</code>, <code>meta description</code>, <code>og:title</code>, <code>og:description</code>, <code>og:type</code>, <code>og:url</code>. These are the first things an AI agent reads when it encounters a URL. Incomplete meta tags signal a low-quality page.
+      </p>
+
+      <div class="step-card">
+        <div class="step-number">COMMON PITFALL</div>
+        <div class="step-title">The sitemap gap</div>
+        <div class="step-body">
+          40% of the sites we scan don't have a <code>sitemap.xml</code>. It takes 5 minutes to generate one. Every static site generator has a plugin for it. Reference it in your robots.txt. This is table stakes — if you don't have one, fix it before you do anything else in this guide.
+        </div>
+        <div class="impact impact-medium">
+          <div class="impact-bar"><div class="impact-bar-fill"></div></div>
+          MEDIUM IMPACT
+        </div>
+      </div>
+
+      <h2 id="monitor">Step 7: Monitor and Iterate</h2>
+
+      <p>
+        AEO isn't a one-time setup. AI crawlers re-index frequently. New crawlers emerge. Schema standards evolve. The sites that maintain their AEO scores are the ones that check them regularly.
+      </p>
+
+      <p><strong>A monthly cadence that works:</strong></p>
+
+      <ol>
+        <li><strong>Re-run your AEO check</strong> on your homepage and top 3-5 pages.</li>
+        <li><strong>Compare to your baseline.</strong> Score should be trending up. If it's flat or down, check what changed.</li>
+        <li><strong>Review your llms.txt.</strong> Did you launch new pages? Deprecate old ones? Update the map.</li>
+        <li><strong>Check for new AI crawlers.</strong> The bot landscape changes quarterly. New agents (like Grok, Gemini, Mistral assistants) have their own User-agents.</li>
+        <li><strong>Update structured data</strong> if your product, pricing, or team changed.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>The compounding effect:</strong> Traditional SEO results take 3-6 months. AEO moves faster because AI training cycles and crawler re-indexing happen more frequently. A site that implements these seven steps this week may see improved AI representation within 4-8 weeks. The bar is still low. Getting to 75+ puts you in the top percentile of AI-discoverable sites in most industries.
+      </div>
+
+      <h2>The 30-Minute Quick Start</h2>
+
+      <p>
+        Don't have an afternoon? Here's the maximum-impact subset you can do in 30 minutes:
+      </p>
+
+      <ol>
+        <li><strong>5 min:</strong> Create <code>llms.txt</code> with your top 10 pages. Upload it to your root.</li>
+        <li><strong>5 min:</strong> Add AI crawler directives to <code>robots.txt</code>. Copy the template above.</li>
+        <li><strong>10 min:</strong> Add Organization JSON-LD to your homepage. Copy the template, fill in your details.</li>
+        <li><strong>5 min:</strong> Add FAQ JSON-LD with 3-5 questions about your product.</li>
+        <li><strong>5 min:</strong> Run your <a href="./">AEO check</a> again. Compare to your earlier screenshot.</li>
+      </ol>
+
+      <p>
+        That's a 20-30 point score improvement for half an hour of work. Not bad.
+      </p>
+
+      <h2>What Comes Next</h2>
+
+      <p>
+        AI agents are becoming the primary discovery channel for a growing segment of users. The shift from "search a query, click a link" to "ask a question, get a recommendation" is structural, not cyclical. The companies that optimize for this channel now are building a compounding advantage.
+      </p>
+
+      <p>
+        The mechanics are not complex. The tools are free. What's rare is prioritization. Most of your competitors haven't heard of AEO yet. By the time they do, you'll already be the site that AI agents recommend.
+      </p>
+
+    </article>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h2>Ready to check your AEO score?</h2>
+      <p>Free analysis. No signup. Takes under 10 seconds. See exactly where you stand.</p>
+      <a href="./" class="cta-btn">Run Your AEO Check →</a>
+    </div>
+
+    <!-- Related -->
+    <div class="related">
+      <div class="related-title">Related</div>
+      <a href="./blog-what-is-aeo.html" class="related-link">
+        <div class="related-link-title">What is AEO? The SEO for AI Agents Explained</div>
+        <div class="related-link-desc">The concept, the six scoring factors, and why it matters now.</div>
+      </a>
+      <a href="./blog-aeo-vs-seo.html" class="related-link">
+        <div class="related-link-title">AEO vs SEO: What's the Difference?</div>
+        <div class="related-link-desc">Side-by-side comparison of what matters for search engines vs. AI agents.</div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="post-footer">
+      <div class="post-footer-text">© 2026 AEO Checker</div>
+      <a href="./">← Back to the tool</a>
+    </footer>
+
+  </div>
+<script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

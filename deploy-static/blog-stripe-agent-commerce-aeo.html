@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stripe Just Made AI Agents Into Customers — Is Your Business Ready?</title>
+  <meta name="description" content="Stripe's Agent Toolkit and MCP server let AI agents discover, evaluate, and pay businesses autonomously. If agents can't find you, they can't pay you. Here's what this means for AEO." />
+  <meta property="og:title" content="Stripe Just Made AI Agents Into Customers" />
+  <meta property="og:description" content="AI agents are becoming buyers. Stripe built the payment rails. Now the question is: can agents find YOUR business? AEO is the answer." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://extensions-tags-administered-fighter.trycloudflare.com/blog-stripe-agent-commerce-aeo.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Stripe Just Made AI Agents Into Customers — Is Your Business Ready?",
+        "description": "Stripe's Agent Toolkit enables AI agents to discover, evaluate, and transact with businesses autonomously. What this means for AEO and agent discoverability.",
+        "datePublished": "2026-03-19",
+        "author": { "@type": "Organization", "name": "AEO Checker" },
+        "publisher": { "@type": "Organization", "name": "AEO Checker" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Stripe's Agent Toolkit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Stripe's Agent Toolkit is a collection of SDKs (Python and TypeScript) that let AI agents interact with Stripe's payment infrastructure through function calling. It integrates with OpenAI's Agents SDK, LangChain, CrewAI, and Vercel's AI SDK, and includes a remote MCP server at mcp.stripe.com for secure agent access via OAuth."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is agent commerce?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Agent commerce is the emerging model where AI agents autonomously discover, evaluate, and transact with businesses on behalf of users. Instead of a human browsing a website and clicking 'buy', an AI agent finds the best option, negotiates terms, and completes the payment — all programmatically. Stripe's Agent Toolkit provides the payment infrastructure for this new commerce model."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does AEO relate to agent commerce?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AEO (Agent Engine Optimization) is the discovery layer for agent commerce. Before an AI agent can pay for your product or service, it needs to find you, understand what you offer, and evaluate you against alternatives. AEO ensures your business is visible and legible to AI agents through structured data, llms.txt, robots.txt permissions, and API descriptions — the prerequisites for agent-driven transactions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is MCP (Model Context Protocol)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MCP (Model Context Protocol) is an open standard for connecting AI agents to external tools and services. Stripe hosts a remote MCP server at mcp.stripe.com that allows AI agents to securely access payment functionality via OAuth. MCP is becoming the standard way for agents to interact with business APIs."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --surface-2: #1a1a28;
+      --text: #e2e2e8; --text-dim: #8888a0; --text-muted: #555570;
+      --accent: #6366f1; --accent-glow: rgba(99,102,241,0.15);
+      --green: #22c55e; --yellow: #eab308; --red: #ef4444; --orange: #f97316;
+      --stripe: #635bff; --stripe-glow: rgba(99,91,255,0.15);
+      --border: rgba(255,255,255,0.06); --radius: 12px;
+      --font: 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+    .article-container { max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-dim); text-decoration: none; font-size: 14px; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+    .article-meta { color: var(--text-dim); font-size: 14px; margin-bottom: 0.5rem; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--text), var(--stripe)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lead { font-size: 1.15rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; border-left: 3px solid var(--stripe); padding-left: 1.25rem; }
+    h2 { font-size: 1.5rem; font-weight: 600; margin: 3rem 0 1rem; color: var(--text); }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--text); }
+    p { margin-bottom: 1.25rem; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    pre { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; overflow-x: auto; font-family: var(--mono); font-size: 14px; line-height: 1.6; margin: 1rem 0 1.5rem; color: var(--text); }
+    code { font-family: var(--mono); font-size: 0.9em; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; }
+
+    .timeline {
+      position: relative; padding-left: 2rem; margin: 2rem 0;
+      border-left: 2px solid var(--border);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2rem; padding: 1.25rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2.35rem; top: 1.5rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--stripe); border: 2px solid var(--bg);
+    }
+    .timeline-date { font-size: 12px; font-weight: 600; color: var(--stripe); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .timeline-company { font-weight: 600; color: var(--text); }
+
+    .flow-diagram {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; margin: 2rem 0;
+      text-align: center;
+    }
+    .flow-steps { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; }
+    .flow-step {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.75rem 1.25rem; font-size: 14px; font-weight: 500;
+    }
+    .flow-step.highlight {
+      background: var(--accent-glow); border-color: rgba(99,102,241,0.3);
+      color: var(--accent);
+    }
+    .flow-arrow { color: var(--text-muted); font-size: 20px; }
+
+    .impact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;
+    }
+    .impact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .impact-card .icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .impact-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+    .impact-card p { font-size: 14px; color: var(--text-dim); margin: 0; }
+
+    .quote-block {
+      background: var(--surface); border-left: 3px solid var(--stripe);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-dim);
+    }
+    .quote-block .attr { font-style: normal; font-size: 13px; color: var(--text-muted); margin-top: 0.75rem; }
+
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,91,255,0.1), rgba(99,102,241,0.03));
+      border: 1px solid rgba(99,91,255,0.2);
+      border-radius: var(--radius); padding: 2.5rem; text-align: center; margin: 3rem 0;
+    }
+    .cta-section h2 { margin-top: 0; }
+    .cta-btn {
+      display: inline-flex; padding: 14px 32px; background: var(--accent);
+      color: white; border-radius: 8px; font-weight: 600; font-size: 16px;
+      text-decoration: none; margin-top: 1rem; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.3); text-decoration: none; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.75rem; align-items: flex-start; }
+    .checklist li:last-child { border-bottom: none; }
+
+    footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 3rem; }
+
+    @media (max-width: 600px) {
+      .article-container { padding: 2rem 1rem 4rem; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .flow-steps { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="article-container">
+
+  <a href="/" class="back-link">← Back to AEO Checker</a>
+
+  <div class="article-meta">March 19, 2026 · 10 min read</div>
+
+  <h1>Stripe Just Made AI Agents Into Customers — Is Your Business Ready?</h1>
+
+  <p class="lead">
+    Stripe launched an Agent Toolkit with a remote MCP server at <code>mcp.stripe.com</code>. AI agents can now discover businesses, create payment links, and complete transactions — autonomously. This isn't a feature announcement. It's the birth of agent commerce. And it has massive implications for who gets found.
+  </p>
+
+  <h2>What Stripe actually built</h2>
+
+  <p>Stripe's <a href="https://docs.stripe.com/agents" target="_blank" rel="noopener">Agent Toolkit</a> isn't just another API wrapper. It's a full integration layer that lets AI agents — built with OpenAI's Agents SDK, LangChain, CrewAI, or Vercel's AI SDK — directly interact with Stripe's payment infrastructure through function calling.</p>
+
+  <p>Here's what an agent can do right now:</p>
+
+  <pre>from stripe_agent_toolkit.openai.toolkit import create_stripe_agent_toolkit
+
+toolkit = await create_stripe_agent_toolkit(
+    secret_key=os.getenv("STRIPE_SECRET_KEY")
+)
+
+agent = Agent(
+    name="Procurement Agent",
+    instructions="Find the best SaaS for our needs and handle payment.",
+    tools=toolkit.get_tools()
+)
+
+# Agent discovers, evaluates, creates payment link, completes purchase
+result = await Runner.run(agent, "Find a GDPR-compliant analytics tool under $50/mo")</pre>
+
+  <p>Read that last line carefully. The agent doesn't just search — it <strong>finds, evaluates, and pays</strong>. All in one flow. And Stripe hosts a remote MCP server at <code>mcp.stripe.com</code> with OAuth, meaning any MCP-compatible agent can connect to payment rails out of the box.</p>
+
+  <h2>The agent commerce stack is forming — fast</h2>
+
+  <p>Stripe isn't building this alone. Look at what happened in the last two weeks:</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <div class="timeline-company">Stripe</div>
+      <p style="margin: 0.5rem 0 0; font-size: 15px; color: var(--text-dim);">Agent Toolkit + MCP server. Agents can create payment links, manage billing, process transactions via function calling.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <div class="timeline-company">NVIDIA</div>
+      <p style="margin: 0.5rem 0 0; font-size: 15px; color: var(--text-dim);">NemoClaw — full agent framework. NVIDIA providing the compute + orchestration layer for enterprise agents.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <div class="timeline-company">Cloudflare</div>
+      <p style="margin: 0.5rem 0 0; font-size: 15px; color: var(--text-dim);">Markdown content negotiation for agent crawlers. CDN-level support for machine-readable content delivery.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <div class="timeline-company">Sentry</div>
+      <p style="margin: 0.5rem 0 0; font-size: 15px; color: var(--text-dim);">Full AEO optimization — llms.txt, structured data, agent-readable docs. <a href="/blog-sentry-optimizes-for-agents.html">Scored 82/110 on AEO Checker</a>.</p>
+    </div>
+  </div>
+
+  <p>This isn't coincidence. It's convergence. The infrastructure companies that power the internet — payments (Stripe), compute (NVIDIA), content delivery (Cloudflare), observability (Sentry) — are all building for agents <em>simultaneously</em>.</p>
+
+  <div class="quote-block">
+    The agent economy isn't coming. The plumbing is already being installed.
+  </div>
+
+  <h2>The discovery problem nobody's solving</h2>
+
+  <p>Here's the gap. Stripe built the payment rails. NVIDIA built the compute. Cloudflare built the delivery. But there's a critical step before any of these matter:</p>
+
+  <div class="flow-diagram">
+    <div class="flow-steps">
+      <div class="flow-step highlight">Agent discovers you</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Agent evaluates you</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Agent selects you</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Agent pays you (Stripe)</div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 14px; color: var(--text-dim);">If step 1 fails, steps 2-4 never happen.</p>
+  </div>
+
+  <p>Stripe solved the payment step. But an agent can only pay businesses it can <strong>find and understand</strong>. If your website is invisible to AI agents — no structured data, blocked robots.txt, no llms.txt, no API description — you're excluded from the entire agent commerce loop.</p>
+
+  <p>This is exactly what AEO (Agent Engine Optimization) solves. It's the discovery layer that makes agent commerce possible.</p>
+
+  <h2>What "agent-discoverable" actually means in 2026</h2>
+
+  <p>When a procurement agent runs "Find a GDPR-compliant analytics tool under $50/mo," here's what it checks:</p>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="icon">🤖</div>
+      <h4>robots.txt</h4>
+      <p>Can GPTBot, ClaudeBot, PerplexityBot crawl your site? If blocked, the agent never sees you.</p>
+    </div>
+    <div class="impact-card">
+      <div class="icon">🧱</div>
+      <h4>Structured Data</h4>
+      <p>JSON-LD schema tells agents what you are, what you cost, and what you do — in machine-readable format.</p>
+    </div>
+    <div class="impact-card">
+      <div class="icon">📄</div>
+      <h4>llms.txt</h4>
+      <p>Your elevator pitch for machines. What you do, who you serve, why you're different — no marketing fluff.</p>
+    </div>
+    <div class="impact-card">
+      <div class="icon">🔌</div>
+      <h4>API / MCP</h4>
+      <p>OpenAPI spec + ai-plugin.json lets agents interact with your product, not just read about it.</p>
+    </div>
+  </div>
+
+  <p>A business that has all four is <strong>transactable</strong> — an agent can discover it, understand it, evaluate it against alternatives, and initiate a purchase through Stripe. A business missing any of these is friction at best, invisible at worst.</p>
+
+  <h2>The math that should scare you</h2>
+
+  <p>Consider this scenario. An AI procurement agent evaluates 50 analytics tools. Your competitor has:</p>
+
+  <ul style="padding-left: 1.5rem; margin: 1rem 0;">
+    <li>Structured data with Product schema (price, features, compliance)</li>
+    <li>llms.txt explaining their GDPR compliance</li>
+    <li>An OpenAPI spec the agent can test</li>
+    <li>Stripe Agent Toolkit integration for instant purchase</li>
+  </ul>
+
+  <p>You have a beautiful marketing website with "Book a demo" as the only CTA.</p>
+
+  <p>The agent picks your competitor. Not because their product is better — because the agent could <em>understand</em> them. Your demo form isn't a CTA to an agent. It's a dead end.</p>
+
+  <p>Now multiply this by every AI agent making purchasing decisions. Every ChatGPT query that leads to "I found this tool for you." Every Claude recommendation. Every Perplexity comparison. The volume of agent-driven discovery is doubling every quarter. Each one is a sales conversation you're either part of — or invisible to.</p>
+
+  <h2>What to do right now</h2>
+
+  <p>You don't need to integrate Stripe's Agent Toolkit today (though you should consider it). You need to ensure agents can <strong>find you first</strong>. Here's the priority stack:</p>
+
+  <ul class="checklist">
+    <li>
+      <span style="color: var(--red); font-weight: 700;">1</span>
+      <div>
+        <strong>Check your AEO score</strong> — Scan your site to see what agents can and can't see. Most businesses score below 30/110. <a href="/">Try it free →</a>
+      </div>
+    </li>
+    <li>
+      <span style="color: var(--orange); font-weight: 700;">2</span>
+      <div>
+        <strong>Unblock AI bots</strong> — Add explicit <code>Allow</code> rules for GPTBot, ClaudeBot, PerplexityBot in robots.txt. <a href="/blog-robots-txt-ai-agents.html">Full guide →</a>
+      </div>
+    </li>
+    <li>
+      <span style="color: var(--yellow); font-weight: 700;">3</span>
+      <div>
+        <strong>Create llms.txt</strong> — Plain text file at domain root. Product description, key pages, pricing, differentiators. <a href="/blog-how-to-create-llms-txt.html">How to create llms.txt →</a>
+      </div>
+    </li>
+    <li>
+      <span style="color: var(--green); font-weight: 700;">4</span>
+      <div>
+        <strong>Add structured data</strong> — JSON-LD with Product, FAQPage, Organization schemas. Machine-readable pricing is critical for agent commerce.
+      </div>
+    </li>
+    <li>
+      <span style="color: var(--accent); font-weight: 700;">5</span>
+      <div>
+        <strong>Publish your API</strong> — OpenAPI spec + <code>ai-plugin.json</code>. If you have Stripe, consider their Agent Toolkit for direct agent-to-payment integration.
+      </div>
+    </li>
+  </ul>
+
+  <div class="cta-section">
+    <h2>Are you ready for agent commerce?</h2>
+    <p style="color: var(--text-dim); max-width: 480px; margin: 0.5rem auto 0;">
+      AEO Checker scans your site for the 7 signals AI agents use to discover and evaluate businesses. Free. Instant. No signup.
+    </p>
+    <a href="/" class="cta-btn">Check Your AEO Score →</a>
+  </div>
+
+  <h2>The window is closing</h2>
+
+  <p>When Stripe built Stripe Checkout in 2011, early adopters got a massive conversion advantage. When Google launched mobile-first indexing, mobile-ready sites dominated. Every infrastructure shift creates a window where early movers compound their advantage.</p>
+
+  <p>Agent commerce is that shift. Stripe built the payment layer. The discovery layer — AEO — is where the competitive advantage lives right now. The businesses that make themselves agent-readable today will be the ones agents recommend, evaluate, and transact with tomorrow.</p>
+
+  <p>The question isn't whether agent commerce is real. Stripe, NVIDIA, Cloudflare, and Sentry already answered that. The question is whether <em>your</em> business is ready for it.</p>
+
+  <h3>Related reads</h3>
+  <ul style="padding-left: 1.5rem;">
+    <li><a href="/blog-sentry-optimizes-for-agents.html">Case Study: How Sentry Optimized for AI Agents (82/110 AEO Score)</a></li>
+    <li><a href="/blog-cloudflare-markdown-agents.html">Cloudflare's Markdown for Agents: CDN-Level AEO</a></li>
+    <li><a href="/blog-what-is-aeo.html">What is AEO? The SEO for AI Agents Explained</a></li>
+    <li><a href="/blog-website-invisible-to-ai.html">Why Your Website Is Invisible to AI Agents</a></li>
+    <li><a href="/blog-llms-txt-new-robots-txt.html">llms.txt Is the New robots.txt</a></li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>AEO Checker — AI Discoverability Scanner</p>
+  <p style="margin-top: 0.5rem;">
+    <a href="/">Home</a> · <a href="/pricing.html">Pricing</a> · <a href="/blog.html">Blog</a>
+  </p>
+</footer>
+
+<script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

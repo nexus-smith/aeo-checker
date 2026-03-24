@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>How to Write an AI-Optimized FAQ Page (With Schema Examples)</title>
+  <meta name="description" content="FAQPage schema is the easiest AEO win. Learn how to write FAQ content that AI agents can parse, with before/after JSON-LD examples and common mistakes to avoid." />
+  <meta name="keywords" content="faq schema, faqpage schema, ai optimized faq, structured data faq, json-ld faq, aeo faq page, faq for ai agents, schema markup faq" />
+  <meta property="og:title" content="How to Write an AI-Optimized FAQ Page (With Schema Examples)" />
+  <meta property="og:description" content="FAQPage schema is the easiest way to get your content into AI answers. Here's exactly how to do it, with copy-paste JSON-LD." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-ai-optimized-faq-page.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-ai-optimized-faq-page.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Write an AI-Optimized FAQ Page",
+    "description": "Step-by-step guide to creating FAQ pages that AI agents can parse and use in their answers.",
+    "step": [
+      {"@type": "HowToStep", "name": "Write questions in natural language", "text": "Use the exact phrasing people type into AI assistants. 'How do I...' and 'What is...' formats."},
+      {"@type": "HowToStep", "name": "Write self-contained answers", "text": "Each answer should make sense on its own without needing context from the question above or below it."},
+      {"@type": "HowToStep", "name": "Add FAQPage JSON-LD schema", "text": "Wrap your Q&A pairs in FAQPage structured data so AI agents can parse them programmatically."},
+      {"@type": "HowToStep", "name": "Match visible content to schema", "text": "The questions and answers in your JSON-LD must match what's visible on the page. Google penalizes mismatches."},
+      {"@type": "HowToStep", "name": "Test with AEO Checker", "text": "Run your page through an AEO scanner to verify the schema is valid and detectable by AI agents."}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Write an AI-Optimized FAQ Page (With Schema Examples)",
+    "description": "FAQPage schema is the easiest AEO win. Learn how to write FAQ content that AI agents can parse, with JSON-LD examples.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-check.netlify.app"},
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-ai-optimized-faq-page.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is FAQPage schema?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FAQPage schema is a type of structured data markup (JSON-LD) that tells search engines and AI agents that your page contains a list of questions and answers. When implemented correctly, it helps AI systems extract your Q&A content directly, making it more likely to appear in AI-generated answers and Google's rich results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does FAQPage schema help with AI agents like ChatGPT and Claude?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AI agents parse structured data to understand page content. FAQPage schema gives them a clear, machine-readable format for Q&A pairs. Instead of guessing which text on your page is a question and which is an answer, agents can read the schema directly. This increases the chances of your content being cited in AI-generated responses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many FAQs should I put on one page?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google doesn't set a strict limit, but 5-10 questions per page is the sweet spot. Fewer than 5 makes the page feel thin. More than 15-20 dilutes the focus and makes it harder for AI agents to identify the most relevant answers. If you have more questions, split them into topic-specific FAQ pages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use FAQPage schema on any page or only dedicated FAQ pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can use FAQPage schema on any page that contains genuinely useful Q&A content — product pages, blog posts, landing pages, documentation. It doesn't have to be a page titled 'FAQ'. Google's guidelines only require that the questions and answers are visible on the page and genuinely helpful to users."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    .article-meta { margin-bottom: 32px; color: var(--text-muted); font-size: 14px; }
+    .article-meta time { color: var(--text-dim); }
+    h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 700; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 48px; line-height: 1.6; }
+    h2 { font-size: 24px; font-weight: 600; margin: 48px 0 16px; letter-spacing: -0.01em; }
+    h3 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; }
+    p { margin-bottom: 20px; }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .tldr { background: rgba(99, 102, 241, 0.08); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+    .tldr strong { color: var(--accent2); }
+    .callout { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout-title { font-weight: 600; margin-bottom: 8px; }
+    .callout-warn { background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.15); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout-warn .callout-title { color: var(--amber); }
+    .callout-green { background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.15); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout-green .callout-title { color: var(--green); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--text-muted); }
+    code { font-family: 'JetBrains Mono', monospace; background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 24px 0; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: var(--text); }
+    pre code { background: none; padding: 0; font-size: inherit; }
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .before-after > div { padding: 16px; border-radius: 8px; }
+    .before { background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.15); }
+    .after { background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.15); }
+    .before .label { color: var(--red); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .after .label { color: var(--green); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .cta-section { background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05)); border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+    .cta-section h3 { margin-top: 0; }
+    .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 12px; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer { margin-top: 64px; padding: 32px 0; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 13px; text-align: center; }
+    footer a { color: var(--text-muted); }
+    .related-posts { margin: 48px 0; }
+    .related-posts h3 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .related-link { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); text-decoration: none; font-weight: 500; }
+    .related-link:hover { color: var(--accent2); }
+    .related-link span { color: var(--text-dim); font-size: 13px; font-weight: 400; display: block; margin-top: 4px; }
+    @media (max-width: 600px) {
+      pre { font-size: 12px; padding: 16px; }
+      .before-after { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <div><a href="/blog.html">Blog</a> &nbsp;·&nbsp; <a href="/">← Tool</a></div>
+  </div></nav>
+
+  <article class="container">
+    <div class="article-meta">
+      <time datetime="2026-03-22">March 22, 2026</time> · 8 min read
+    </div>
+
+    <h1>How to Write an AI-Optimized FAQ Page (With Schema Examples)</h1>
+    <p class="subtitle">FAQPage schema is the single easiest AEO win. One snippet of JSON-LD can make your answers quotable by ChatGPT, Claude, and Perplexity. Here's exactly how to do it.</p>
+
+    <div class="tldr">
+      <strong>TL;DR:</strong> Add FAQPage JSON-LD to any page with Q&A content. Write questions in the exact words people type into AI assistants. Write answers that stand alone — each one should make sense without context. Match the schema to visible content. Test with an AEO scanner. Total time: 20 minutes for 5-10 questions.
+    </div>
+
+    <h2>Why FAQs Are an AEO Goldmine</h2>
+
+    <p>When someone asks ChatGPT "what is AEO?", the model scans its training data and the web for clear, concise answers. FAQ pages are <em>perfectly structured</em> for this — they're literally questions matched with answers. The format is exactly what AI agents are looking for.</p>
+
+    <p>But there's a catch: most FAQ pages are invisible to AI agents because they're just HTML text. The agent has to guess which text is a question and which is an answer, navigate accordion components that hide content behind JavaScript, and figure out context from visual layout cues that don't exist in its text-only view of your page.</p>
+
+    <p>FAQPage schema solves this by giving the agent a machine-readable map: "here are the questions, here are the answers, each one is a pair." No guessing. No JavaScript. Just structured data that any agent can parse instantly.</p>
+
+    <h2>The Before & After</h2>
+
+    <p>Here's what a typical FAQ page looks like to an AI agent — and what it looks like with schema:</p>
+
+    <div class="before-after">
+      <div class="before">
+        <div class="label">❌ Without Schema</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">Agent sees: a block of text with some bold lines that might be questions, maybe answers below them, mixed in with navigation, footer links, and sidebar content. It has to guess structure from formatting.</p>
+      </div>
+      <div class="after">
+        <div class="label">✅ With FAQPage Schema</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">Agent sees: a structured array of Question objects, each with a named acceptedAnswer. Zero ambiguity. Machine-parseable in milliseconds. Directly quotable.</p>
+      </div>
+    </div>
+
+    <h2>Step 1: Write Questions Like Humans Ask Them</h2>
+
+    <p>This is where most FAQ pages fail. Companies write questions like internal documentation:</p>
+
+    <div class="before-after">
+      <div class="before">
+        <div class="label">❌ Company-speak</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">"Product Return Policy"<br>"Subscription Management"<br>"Data Processing Agreement"</p>
+      </div>
+      <div class="after">
+        <div class="label">✅ How people actually ask</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">"How do I return a product?"<br>"How do I cancel my subscription?"<br>"How does [product] handle my data?"</p>
+      </div>
+    </div>
+
+    <p>AI agents get questions in natural language. If someone asks Claude "how do I cancel my Acme subscription?", Claude looks for content that matches that phrasing. A FAQ entry titled "Subscription Management" is a weak match. "How do I cancel my subscription?" is a direct hit.</p>
+
+    <p><strong>Practical tip:</strong> Use Google Autocomplete to find real questions. Type your product name or category into Google and note the suggested questions. Those are what real users type — and what AI agents are trained on.</p>
+
+    <pre><code>// Free keyword research for FAQ questions:
+curl -s "https://suggestqueries.google.com/complete/search?\
+client=firefox&q=how+do+i+cancel" | python3 -c \
+"import sys,json; [print(s) for s in json.loads(sys.stdin.read())[1]]"</code></pre>
+
+    <h2>Step 2: Write Self-Contained Answers</h2>
+
+    <p>Every answer should make sense <em>completely on its own</em>. AI agents extract individual Q&A pairs — they don't read the whole page. If your answer says "as mentioned above" or "see our pricing page for details", the extracted answer is useless.</p>
+
+    <div class="before-after">
+      <div class="before">
+        <div class="label">❌ Context-dependent</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">"Yes, as described in the section above, you can do this through the dashboard."</p>
+      </div>
+      <div class="after">
+        <div class="label">✅ Self-contained</div>
+        <p style="font-size:13px;margin:0;color:var(--text-muted)">"Yes. Log into your dashboard at app.example.com, go to Settings → Billing, and click 'Cancel Subscription'. Your access continues until the end of the current billing period."</p>
+      </div>
+    </div>
+
+    <p>The right answer includes everything someone needs: what to do, where to do it, and what happens after. An AI agent can quote this verbatim and the user has a complete answer.</p>
+
+    <h2>Step 3: Add FAQPage JSON-LD</h2>
+
+    <p>Here's a complete, copy-paste template. Put this in a <code>&lt;script type="application/ld+json"&gt;</code> tag in your page's <code>&lt;head&gt;</code>:</p>
+
+    <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I cancel my subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Log into your dashboard at app.example.com, go to Settings → Billing, and click 'Cancel Subscription'. Your access continues until the end of the current billing period. No cancellation fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All plans include a 14-day free trial with full access to every feature. No credit card required to start. You can upgrade, downgrade, or cancel at any time during the trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept Visa, Mastercard, American Express, and PayPal. Annual plans can also be paid by bank transfer. All payments are processed securely through Stripe."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code></pre>
+
+    <div class="callout-green">
+      <div class="callout-title">✅ Key rules for the JSON-LD</div>
+      <p style="margin-bottom:0"><strong>1.</strong> Every question in the schema <strong>must</strong> be visible on the page (Google penalizes hidden schema).<br>
+      <strong>2.</strong> The <code>text</code> in the answer should match or closely paraphrase the visible answer.<br>
+      <strong>3.</strong> Don't include HTML in the <code>text</code> field — plain text only.<br>
+      <strong>4.</strong> No promotional content in answers (Google may revoke rich results).</p>
+    </div>
+
+    <h2>Step 4: Common Mistakes to Avoid</h2>
+
+    <h3>Mistake 1: Schema without visible content</h3>
+    <p>Adding FAQPage schema but hiding the actual Q&A content behind JavaScript accordions that don't render for crawlers. The schema says you have 10 questions, but the rendered page shows zero. Google calls this "structured data that doesn't match page content" and it can result in a manual action.</p>
+
+    <h3>Mistake 2: Too many questions</h3>
+    <p>Dumping 50 questions into a single FAQPage schema. This dilutes the signal — the agent doesn't know which answers are the most important. Aim for 5-10 focused questions per page. If you have more, create multiple topic-specific pages.</p>
+
+    <h3>Mistake 3: Marketing answers</h3>
+    <p>"Our industry-leading solution provides best-in-class..." — AI agents filter this noise. They want facts: what does it do, how much does it cost, how do I use it. Every answer that reads like ad copy is an answer that won't get quoted.</p>
+
+    <h3>Mistake 4: Forgetting to test</h3>
+    <p>JSON-LD syntax errors are silent — the page loads fine, but the schema is invisible to agents. Always validate your schema with <a href="https://validator.schema.org">Google's Schema Validator</a> or run your page through an <a href="/">AEO checker</a> that detects FAQPage schema.</p>
+
+    <h2>Where to Add FAQPage Schema</h2>
+
+    <p>You don't need a dedicated "/faq" page to use FAQPage schema. It works anywhere you have Q&A content:</p>
+
+    <ul>
+      <li><strong>Product pages:</strong> "How does [feature] work?", "What's included in the [plan] tier?"</li>
+      <li><strong>Blog posts:</strong> Add a "Frequently Asked Questions" section at the bottom with schema</li>
+      <li><strong>Landing pages:</strong> Address objections as FAQs — "Is my data secure?", "Can I cancel anytime?"</li>
+      <li><strong>Documentation:</strong> Turn troubleshooting sections into FAQ schema</li>
+      <li><strong>Pricing pages:</strong> "What happens when I exceed my plan limit?", "Do you offer refunds?"</li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-title">Pro tip: FAQ schema on blog posts</div>
+      <p style="margin-bottom:0">Adding 3-5 FAQs at the bottom of every blog post is one of the highest-ROI AEO moves. It turns each post into a potential source for AI-generated answers AND gives Google rich result eligibility. We do this on every post on this blog — <a href="/blog-aeo-vs-seo.html">check the source</a> of any article to see the pattern.</p>
+    </div>
+
+    <h2>Measuring the Impact</h2>
+
+    <p>How do you know if your FAQ schema is working?</p>
+
+    <ol>
+      <li><strong>Google Search Console:</strong> Check the "Enhancements" → "FAQs" report. It shows which pages have valid FAQ schema and any errors.</li>
+      <li><strong>Rich results:</strong> Search for your question in Google. If your FAQ schema is valid, Google may show your answer as an expandable result directly in search.</li>
+      <li><strong>AEO score:</strong> Run your page through <a href="/">AEO Check</a>. Our "Content Structure" check specifically detects FAQPage schema and scores it.</li>
+      <li><strong>AI citation test:</strong> Ask ChatGPT or Claude your FAQ questions and see if they cite your content. This isn't deterministic — training data lags — but over time, well-structured FAQ content gets cited more.</li>
+    </ol>
+
+    <div class="callout-warn">
+      <div class="callout-title">⚠️ Google's 2024 FAQ schema change</div>
+      <p style="margin-bottom:0">In August 2023, Google restricted FAQ rich results to "well-known, authoritative government and health websites." Most sites no longer get FAQ rich results in Google Search. <strong>But FAQPage schema still matters for AEO:</strong> AI agents (ChatGPT, Claude, Perplexity) still parse it, and Google's own AI features (SGE/AI Overviews) still use it as a structured data signal. The schema isn't for Google rich results anymore — it's for AI agent consumption.</p>
+    </div>
+
+    <h2>The Full Checklist</h2>
+
+    <ol>
+      <li>☐ Questions written in natural language (how people actually ask)</li>
+      <li>☐ Each answer is self-contained (no "see above")</li>
+      <li>☐ 5-10 questions per page (not 50)</li>
+      <li>☐ Answers are factual, not promotional</li>
+      <li>☐ FAQPage JSON-LD added to page <code>&lt;head&gt;</code></li>
+      <li>☐ Schema matches visible page content</li>
+      <li>☐ No HTML in answer <code>text</code> fields</li>
+      <li>☐ Validated with schema.org validator</li>
+      <li>☐ Tested with <a href="/">AEO Checker</a></li>
+    </ol>
+
+    <p>Total time: 20 minutes for a page with 5 questions. That's 20 minutes to make your content machine-parseable by every AI agent on the internet. Highest ROI you'll get this week.</p>
+
+    <div class="cta-section">
+      <h3>Does Your Site Have FAQ Schema?</h3>
+      <p>Our AEO scanner detects FAQPage, HowTo, and other structured data formats. See what AI agents can read on your site.</p>
+      <a href="/" class="cta-btn">Run Free AEO Scan →</a>
+    </div>
+
+    <div class="related-posts">
+      <h3>Related Reading</h3>
+      <a href="/blog-aeo-optimization-guide.html" class="related-link">
+        The Complete AEO Optimization Guide
+        <span>Step-by-step: make your site visible and useful to AI agents</span>
+      </a>
+      <a href="/blog-what-is-aeo.html" class="related-link">
+        What Is AEO? AI Engine Optimization Explained
+        <span>The fundamentals of optimizing for AI answer engines</span>
+      </a>
+      <a href="/blog-saas-ai-strategy-2026.html" class="related-link">
+        Why Every SaaS Needs an AI Strategy in 2026
+        <span>The five-layer framework for AI discoverability and integration</span>
+      </a>
+      <a href="/blog-how-to-create-llms-txt.html" class="related-link">
+        How to Create an llms.txt File
+        <span>Another 10-minute AEO win — tell agents what your site is about</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing.html">Pricing</a> · <a href="/blog.html">Blog</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

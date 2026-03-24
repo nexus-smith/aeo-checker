@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>MCP Servers Explained: How AI Agents Talk to Your Product</title>
+  <meta name="description" content="MCP (Model Context Protocol) is how AI agents interact with external tools and services. Here's what MCP servers are, how they work, and why your SaaS product should have one." />
+  <meta name="keywords" content="mcp server, model context protocol, ai agent integration, mcp explained, ai agent tools, mcp for saas, anthropic mcp, agent protocol" />
+  <meta property="og:title" content="MCP Servers Explained: How AI Agents Talk to Your Product" />
+  <meta property="og:description" content="MCP is the protocol that lets AI agents use tools. If your product doesn't have an MCP server, agents can't interact with it. Here's the full explainer." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-check.netlify.app/blog-mcp-servers-explained.html" />
+  <link rel="canonical" href="https://aeo-check.netlify.app/blog-mcp-servers-explained.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "MCP Servers Explained: How AI Agents Talk to Your Product",
+    "description": "MCP (Model Context Protocol) is the standard protocol for AI agents to interact with external tools and services. Here's what MCP servers are, how they work, and why your product should have one.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-check.netlify.app"},
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": "https://aeo-check.netlify.app/blog-mcp-servers-explained.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is MCP (Model Context Protocol)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MCP (Model Context Protocol) is an open standard created by Anthropic that defines how AI agents communicate with external tools, services, and data sources. It provides a universal interface so that any AI agent — whether powered by Claude, GPT, or another model — can discover what your tool does and interact with it programmatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an MCP server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An MCP server is a lightweight service that exposes your product's capabilities to AI agents using the Model Context Protocol. It declares the tools (actions) available, what parameters they accept, and what they return. Think of it as an API specifically designed for AI agents to discover and use, rather than human developers reading documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is MCP different from a regular API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Regular APIs require developers to read documentation, understand authentication, and write integration code. MCP servers are self-describing: the agent discovers what tools are available, understands the parameters from the schema, and uses them autonomously. An API is designed for developers to build integrations. An MCP server is designed for agents to use your product directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI platforms support MCP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As of March 2026, MCP is supported by Claude (Anthropic), Cursor, Windsurf, Cline, Zed, and many other AI tools. Google added MCP support to Chrome DevTools in M136. OpenAI has announced MCP support for ChatGPT. The protocol is open-source and adopted broadly across the AI agent ecosystem."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an MCP server if I already have an API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Having an API is a good start, but MCP adds the discovery and self-description layer that agents need. Without MCP, an agent has to be specifically programmed to use your API. With MCP, any agent that supports the protocol can discover and use your tools automatically. Think of it as the difference between having a phone number (API) and being listed in a directory with a description of your services (MCP)."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    .article-meta {
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .article-meta time { color: var(--text-dim); }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text); }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .tldr {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin: 32px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .tldr strong { color: var(--accent2); }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title { font-weight: 600; margin-bottom: 8px; }
+    .callout-warn {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-warn .callout-title { color: var(--amber); }
+    .callout-green {
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-green .callout-title { color: var(--green); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--text-muted); }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-section h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+    .related-posts { margin: 48px 0; }
+    .related-posts h3 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .related-link {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .related-link:hover { color: var(--accent2); }
+    .related-link span { color: var(--text-dim); font-size: 13px; font-weight: 400; display: block; margin-top: 4px; }
+    blockquote {
+      border-left: 3px solid var(--text-dim);
+      padding: 12px 20px;
+      margin: 24px 0;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 24px;
+      margin: 32px 0;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-muted);
+    }
+    .diagram .arrow { color: var(--accent2); }
+    .diagram .label { color: var(--text); font-weight: 600; }
+    @media (max-width: 600px) {
+      pre { font-size: 12px; padding: 16px; }
+      .diagram { font-size: 12px; padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <a href="/blog.html">Blog</a> · <a href="/">Tool</a>
+  </div></nav>
+
+  <article class="container">
+    <div class="article-meta">
+      <time datetime="2026-03-22">March 22, 2026</time> · 10 min read
+    </div>
+
+    <h1>MCP Servers Explained: How AI Agents Talk to Your Product</h1>
+    <p class="subtitle">AI agents can read your website. But can they <em>use</em> your product? MCP (Model Context Protocol) is the bridge — and it's becoming the standard faster than most teams realize.</p>
+
+    <div class="tldr">
+      <strong>TL;DR:</strong> MCP is an open protocol (created by Anthropic) that lets AI agents discover and use external tools programmatically. An MCP server exposes your product's capabilities — create project, send invoice, run query — so any AI agent can use them without custom integration code. Google, Stripe, Sentry, and Cloudflare all have MCP servers. If your product doesn't, agents will use your competitor's instead.
+    </div>
+
+    <h2>What Problem Does MCP Solve?</h2>
+
+    <p>Imagine you're building an AI agent that helps users manage their projects. The user says: "Create a new project called Q2 Launch and add three tasks." Your agent needs to talk to the user's project management tool.</p>
+
+    <p>Without MCP, here's what you have to do:</p>
+
+    <ol>
+      <li>Find the tool's API documentation</li>
+      <li>Figure out authentication (OAuth? API keys? Session tokens?)</li>
+      <li>Write custom integration code for each endpoint you need</li>
+      <li>Handle errors, rate limits, pagination</li>
+      <li>Maintain this integration when the API changes</li>
+    </ol>
+
+    <p>Now multiply that by every tool your agent needs to support. Calendar. Email. CRM. File storage. Payments. Each one requires bespoke integration code. This is why most AI agents can only do a handful of things — the integration burden scales linearly with every new tool.</p>
+
+    <p>MCP solves this by providing a <strong>universal protocol</strong>. Instead of every agent needing custom code for every tool, the tool exposes an MCP server that any agent can discover and use.</p>
+
+    <div class="diagram">
+      <span class="label">Without MCP</span><br>
+      Agent <span class="arrow">→</span> Custom code <span class="arrow">→</span> Tool A API<br>
+      Agent <span class="arrow">→</span> Custom code <span class="arrow">→</span> Tool B API<br>
+      Agent <span class="arrow">→</span> Custom code <span class="arrow">→</span> Tool C API<br>
+      <em>(N tools = N integrations)</em><br><br>
+      <span class="label">With MCP</span><br>
+      Agent <span class="arrow">→</span> MCP Protocol <span class="arrow">→</span> Tool A MCP Server<br>
+      Agent <span class="arrow">→</span> MCP Protocol <span class="arrow">→</span> Tool B MCP Server<br>
+      Agent <span class="arrow">→</span> MCP Protocol <span class="arrow">→</span> Tool C MCP Server<br>
+      <em>(1 protocol = universal access)</em>
+    </div>
+
+    <p>It's the same shift that happened with USB. Before USB, every device needed its own connector and driver. USB standardized the interface — plug anything into anything. MCP is USB for AI agents.</p>
+
+    <h2>How MCP Actually Works</h2>
+
+    <p>An MCP server has three core concepts:</p>
+
+    <h3>1. Tools</h3>
+    <p>Tools are the actions your product can perform. Each tool has a name, a description (so the agent knows when to use it), and a schema defining its inputs and outputs.</p>
+
+    <pre><code>{
+  "name": "create_project",
+  "description": "Create a new project with a name and optional description",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Project name"
+      },
+      "description": {
+        "type": "string",
+        "description": "Optional project description"
+      }
+    },
+    "required": ["name"]
+  }
+}</code></pre>
+
+    <p>When an agent connects to your MCP server, it receives this list of available tools. The agent's language model reads the descriptions and decides which tools to call based on what the user wants to do. No documentation lookup required — the tool declaration is the documentation.</p>
+
+    <h3>2. Resources</h3>
+    <p>Resources are data your MCP server can provide. Think of them as read endpoints — the agent can request information without performing actions. Examples: a list of recent projects, user profile data, analytics summaries.</p>
+
+    <pre><code>{
+  "uri": "projects://recent",
+  "name": "Recent Projects",
+  "description": "List of the user's 10 most recently modified projects",
+  "mimeType": "application/json"
+}</code></pre>
+
+    <p>Resources give agents context about the user's data without requiring tool calls. The agent can read recent projects before deciding whether to create a new one or modify an existing one.</p>
+
+    <h3>3. Prompts</h3>
+    <p>Prompts are pre-written templates that help agents use your tools effectively. They're optional but powerful — they encode domain expertise about how to use your product well.</p>
+
+    <pre><code>{
+  "name": "project_setup",
+  "description": "Guide for setting up a new project with tasks and timeline",
+  "arguments": [
+    {
+      "name": "project_type",
+      "description": "Type of project (engineering, marketing, operations)",
+      "required": true
+    }
+  ]
+}</code></pre>
+
+    <p>When an agent uses a prompt, it gets a structured template that includes the right sequence of tool calls, best practices, and domain-specific guidance. It's like giving the agent an expert user's workflow instead of just raw API access.</p>
+
+    <h2>What an MCP Server Looks Like in Practice</h2>
+
+    <p>Here's a minimal MCP server in TypeScript that exposes a single tool:</p>
+
+    <pre><code>import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  name: "my-saas",
+  version: "1.0.0"
+});
+
+// Expose a tool
+server.tool(
+  "check_aeo_score",
+  "Check the AEO (AI Engine Optimization) score for any URL",
+  { url: z.string().url().describe("The URL to analyze") },
+  async ({ url }) => {
+    const result = await runAeoCheck(url);
+    return {
+      content: [{
+        type: "text",
+        text: `AEO Score: ${result.score}/110 (${result.grade})\n` +
+              `Checks: ${result.checks.map(c =>
+                `${c.name}: ${c.passed ? '✅' : '❌'}`
+              ).join('\n')}`
+      }]
+    };
+  }
+);
+
+// Connect via stdio
+const transport = new StdioServerTransport();
+await server.connect(transport);</code></pre>
+
+    <p>That's it. About 25 lines of code. An agent connecting to this server immediately knows it can check AEO scores, what parameter it needs (a URL), and what format the result comes in. No API docs to read. No authentication dance. The tool describes itself.</p>
+
+    <div class="callout">
+      <div class="callout-title">Transport options</div>
+      <p style="margin-bottom:0">MCP servers can communicate over different transports. <strong>stdio</strong> is for local tools (the agent runs the server as a subprocess). <strong>SSE (Server-Sent Events)</strong> is for remote servers accessible over HTTP. Most SaaS products will use SSE so agents can connect over the internet. The Streamable HTTP transport (replacing SSE) is the recommended approach for production remote servers.</p>
+    </div>
+
+    <h2>Who Already Has MCP Servers?</h2>
+
+    <p>The adoption curve is steep. Here's a partial list of products with MCP servers as of March 2026:</p>
+
+    <ul>
+      <li><strong>Stripe</strong> — Process payments, manage subscriptions, handle invoices. Their Agent Toolkit wraps the MCP server with additional guardrails for financial operations.</li>
+      <li><strong>Sentry</strong> — Query issues, analyze errors, manage projects. Their MCP server is what they <a href="/blog-sentry-optimizes-for-agents.html">redirect agents to</a> when they hit the web UI.</li>
+      <li><strong>GitHub</strong> — Create repos, manage issues, review PRs, search code. One of the most-used MCP servers in the ecosystem.</li>
+      <li><strong>Google Chrome DevTools</strong> — <a href="/blog-google-mcp-devtools-agents.html">Debug live browser sessions</a>, inspect elements, read console logs. Google adopting MCP was the "this is real" moment for many teams.</li>
+      <li><strong>Cloudflare</strong> — Manage Workers, KV stores, R2 buckets, DNS records. Full infrastructure management via agents.</li>
+      <li><strong>PostgreSQL/SQLite</strong> — Query databases directly. The agent writes and executes SQL based on natural language requests.</li>
+      <li><strong>Slack</strong> — Read channels, send messages, manage workflows. Agents can participate in team conversations.</li>
+    </ul>
+
+    <p>The pattern is clear: every major SaaS platform is building MCP support. The question isn't whether to build one — it's whether you'll do it before your competitors do.</p>
+
+    <h2>Why This Matters for AI Discoverability</h2>
+
+    <p>MCP servers aren't just about functionality — they're about discovery. When an agent supports MCP, it can discover your product's capabilities without any prior knowledge. The server's tool declarations ARE the discovery mechanism.</p>
+
+    <p>This connects directly to <a href="/blog-saas-ai-strategy-2026.html">the five layers of AI strategy</a>:</p>
+
+    <ul>
+      <li><strong>Layer 1 (AEO)</strong> makes agents aware your product exists</li>
+      <li><strong>Layer 2 (Readability)</strong> lets agents understand what you do</li>
+      <li><strong>Layer 3 (Integration via MCP)</strong> lets agents actually use your product</li>
+    </ul>
+
+    <p>Without Layer 3, agents know about you but can't do anything with you. It's like having a great listing in the phone book but no phone number. MCP is the phone number.</p>
+
+    <div class="callout-warn">
+      <div class="callout-title">⚠️ The recommendation flywheel</div>
+      <p style="margin-bottom:0">When an agent successfully uses your MCP server to help a user, that positive experience feeds back into the agent's behavior. The agent learns that your tool works reliably and starts recommending it more often. Products with working MCP servers get a compounding advantage: usage → positive outcomes → more recommendations → more usage. Products without MCP servers are excluded from this flywheel entirely.</p>
+    </div>
+
+    <h2>Building Your First MCP Server</h2>
+
+    <p>Here's a practical roadmap for adding MCP to your SaaS product:</p>
+
+    <h3>Step 1: Identify your top 5 actions</h3>
+    <p>What are the 5 things users do most in your product? These become your first MCP tools. Don't try to expose everything — start with the actions that agents will use most. For a project management tool: create project, add task, update status, list projects, get project details.</p>
+
+    <h3>Step 2: Write clear tool descriptions</h3>
+    <p>This is the most important step. The agent's language model uses your tool descriptions to decide when and how to call your tools. Bad descriptions = misused tools. Good descriptions include:</p>
+    <ul>
+      <li>What the tool does (one sentence)</li>
+      <li>When to use it vs. when not to (disambiguation)</li>
+      <li>What each parameter means and what values are valid</li>
+      <li>What the response looks like</li>
+    </ul>
+
+    <h3>Step 3: Use the SDK</h3>
+    <p>Anthropic maintains official SDKs for TypeScript and Python. Don't roll your own protocol implementation — the SDK handles transport negotiation, message framing, and error handling.</p>
+
+    <pre><code># Python
+pip install mcp
+
+# TypeScript
+npm install @modelcontextprotocol/sdk</code></pre>
+
+    <h3>Step 4: Add authentication</h3>
+    <p>For remote MCP servers (SSE/HTTP transport), you need auth. The MCP spec supports OAuth 2.0 flows. The agent handles the auth dance — your server just validates the token on each request. This means users authorize the agent to act on their behalf, the same way they'd authorize any OAuth app.</p>
+
+    <h3>Step 5: Test with real agents</h3>
+    <p>Connect your MCP server to Claude Desktop, Cursor, or any MCP-compatible agent. Give it natural language instructions that should trigger your tools. Does the agent pick the right tool? Does it pass the right parameters? Does the response make sense? This is where good tool descriptions pay off.</p>
+
+    <div class="callout-green">
+      <div class="callout-title">✅ Start simple, ship fast</div>
+      <p style="margin-bottom:0">A working MCP server with 3 tools beats a planned MCP server with 50 tools. Ship the first version with your most-used actions, get real agent usage data, then iterate. Most successful MCP servers started with fewer than 10 tools.</p>
+    </div>
+
+    <h2>Common Mistakes</h2>
+
+    <h3>1. Exposing your REST API as-is</h3>
+    <p>MCP tools should map to user intentions, not API endpoints. Users say "create a project" — not "POST /api/v2/projects with body {...}". Your tool descriptions should use natural language that matches how users think, not how your API is structured.</p>
+
+    <h3>2. Too many tools</h3>
+    <p>When an agent connects and receives 200 tool declarations, its language model has to reason over all of them for every user request. This slows down response time and increases the chance of picking the wrong tool. Group related actions into fewer, smarter tools. "manage_project" with an action parameter is often better than separate create/update/delete/archive tools.</p>
+
+    <h3>3. Missing error context</h3>
+    <p>When a tool call fails, the error message should tell the agent what to do differently. "Error 403" is useless. "The user hasn't connected their Jira workspace yet. They need to visit settings.example.com/integrations to connect Jira" gives the agent a path forward.</p>
+
+    <h3>4. No rate limiting</h3>
+    <p>Agents can be aggressive. A loop that calls your tool 100 times per second will happen. Your MCP server needs rate limiting, and the rate limit response should include a retry-after hint so the agent backs off gracefully.</p>
+
+    <h2>MCP vs. Other Approaches</h2>
+
+    <p>MCP isn't the only way agents can interact with your product. Here's how it compares:</p>
+
+    <ul>
+      <li><strong>REST API + Documentation:</strong> Works, but requires the agent to have been trained on your specific API docs. No standard discovery mechanism. Each integration is bespoke.</li>
+      <li><strong>OpenAPI/Swagger:</strong> Machine-readable API specs, but designed for developer tooling (code generation, testing) not agent interaction. Missing the "when should I use this?" context that agents need.</li>
+      <li><strong>ai-plugin.json (ChatGPT plugins):</strong> OpenAI's plugin spec was an early attempt but limited to ChatGPT's ecosystem. MCP is model-agnostic and more flexible.</li>
+      <li><strong>Function calling:</strong> The model's built-in tool-use capability. This is what MCP plugs into — MCP declares the tools, function calling is how the model invokes them.</li>
+    </ul>
+
+    <p>MCP's advantage is that it's an <strong>open standard with broad adoption</strong>. Building for MCP means your product works with Claude, ChatGPT (announced support), Cursor, Windsurf, Cline, and any future agent that implements the protocol.</p>
+
+    <h2>The AEO Connection</h2>
+
+    <p>MCP servers and AEO (AI Engine Optimization) are two sides of the same coin:</p>
+
+    <ul>
+      <li><strong>AEO</strong> makes your product discoverable by agents (they find you and understand what you do)</li>
+      <li><strong>MCP</strong> makes your product usable by agents (they can interact with you programmatically)</li>
+    </ul>
+
+    <p>A product with good AEO but no MCP server is like a restaurant with great reviews but no way to make a reservation. The agent knows you're good, but it can't help the user do anything about it.</p>
+
+    <p>The winning combination: optimize your site so agents discover you (<a href="/blog-aeo-optimization-guide.html">AEO guide</a>), then provide an MCP server so agents can use you. Discovery + action = the full loop.</p>
+
+    <div class="cta-section">
+      <h3>Is Your Site Agent-Ready?</h3>
+      <p>Before building an MCP server, make sure agents can find you. A free AEO scan checks your discoverability across 7 key dimensions — structured data, robots.txt, llms.txt, and more.</p>
+      <a href="/" class="cta-btn">Run Free AEO Check →</a>
+    </div>
+
+    <h2>What's Next for MCP</h2>
+
+    <p>The protocol is evolving fast. Key developments to watch:</p>
+
+    <ul>
+      <li><strong>Streamable HTTP transport</strong> replacing SSE — more reliable for production deployments</li>
+      <li><strong>OAuth 2.0 standardization</strong> — unified auth flows across all MCP servers</li>
+      <li><strong>Tool composition</strong> — agents chaining multiple MCP servers together for complex workflows</li>
+      <li><strong>MCP registries</strong> — centralized directories where agents discover available MCP servers (like npm for agent tools)</li>
+    </ul>
+
+    <p>The trajectory is clear: MCP is becoming the default way agents interact with the world. The products that build MCP servers now will be the ones agents know how to use when agent adoption hits mainstream. The products that wait will be retrofitting while their competitors compound their advantage.</p>
+
+    <p>Start with 3 tools. Ship this week. Iterate from there.</p>
+
+    <div class="related-posts">
+      <h3>Related Reading</h3>
+      <a href="/blog-google-mcp-devtools-agents.html" class="related-link">
+        Google Just Made MCP Official in Chrome
+        <span>Chrome DevTools MCP lets AI agents debug live browser sessions — Google's biggest agent infrastructure bet</span>
+      </a>
+      <a href="/blog-saas-ai-strategy-2026.html" class="related-link">
+        Why Every SaaS Needs an AI Strategy in 2026
+        <span>AI features aren't a strategy. Being discoverable BY AI is. The five layers framework.</span>
+      </a>
+      <a href="/blog-sentry-optimizes-for-agents.html" class="related-link">
+        Sentry Already Optimizes for AI Agents
+        <span>How Sentry serves different content to agents and redirects them to their MCP server</span>
+      </a>
+      <a href="/blog-aeo-optimization-guide.html" class="related-link">
+        The Complete AEO Optimization Guide
+        <span>Make your site visible and useful to AI agents — the foundation before MCP</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing.html">Pricing</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

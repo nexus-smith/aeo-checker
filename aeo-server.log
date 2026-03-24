@@ -1,3 +1,22 @@
 [2026-03-22 23:50:39] INFO Loaded 9 scans from history file
 [2026-03-22 23:50:40] INFO AEO Checker started port=8787 pid=23425 dir=/Users/jarvis/.openclaw/workspace/projects/aeo-checker/deploy-static history=9
 [2026-03-23 06:13:55] INFO HTTP 127.0.0.1 "HEAD / HTTP/1.1" 200 -
+[2026-03-23 06:52:47] INFO HTTP 127.0.0.1 "GET /api/history HTTP/1.1" 200 -
+[2026-03-23 06:52:49] INFO HTTP 127.0.0.1 code 404, message File not found
+[2026-03-23 06:52:49] INFO HTTP 127.0.0.1 "GET /favicon.ico HTTP/1.1" 404 -
+[2026-03-23 07:25:55] INFO SCAN ip=127.0.0.1 url=https://example.com grade=Critical score=0/110 ms=787
+[2026-03-23 07:25:55] INFO HTTP 127.0.0.1 "POST /api/check HTTP/1.1" 200 -
+[2026-03-23 07:25:55] INFO HTTP 127.0.0.1 code 404, message File not found
+[2026-03-23 07:25:55] INFO HTTP 127.0.0.1 "GET /api/badge/example.com HTTP/1.1" 404 -
+[2026-03-23 07:25:55] INFO HTTP 127.0.0.1 "GET /api/history HTTP/1.1" 200 -
+[2026-03-23 07:26:07] INFO HTTP 127.0.0.1 "GET /api/badge/80 HTTP/1.1" 200 -
+[2026-03-23 08:11:11] INFO HTTP 127.0.0.1 "GET /api/history HTTP/1.1" 200 -
+[2026-03-23 08:11:11] INFO HTTP 127.0.0.1 code 404, message File not found
+[2026-03-23 08:11:11] INFO HTTP 127.0.0.1 "GET /favicon.ico HTTP/1.1" 404 -
+[2026-03-23 08:12:38] INFO HTTP 127.0.0.1 "GET /api/history HTTP/1.1" 200 -
+[2026-03-23 08:12:54] INFO SCAN ip=127.0.0.1 url=www.beesapps.com grade=Poor score=23/110 ms=1558
+[2026-03-23 08:12:54] INFO HTTP 127.0.0.1 "POST /api/check HTTP/1.1" 200 -
+[2026-03-23 08:12:54] INFO HTTP 127.0.0.1 "GET /api/badge/23 HTTP/1.1" 200 -
+[2026-03-23 08:12:54] INFO HTTP 127.0.0.1 "GET /api/history HTTP/1.1" 200 -
+[2026-03-23 10:04:58] INFO HTTP 127.0.0.1 code 404, message File not found
+[2026-03-23 10:04:58] INFO HTTP 127.0.0.1 "GET /blog-sentry-aeo-case-study.html HTTP/1.1" 404 -

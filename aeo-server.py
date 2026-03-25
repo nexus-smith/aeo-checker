@@ -38,6 +38,16 @@ UA = "AEOChecker/1.0 (AI Discoverability Scanner)"
 TIMEOUT = 8
 CHECK_POOL = ThreadPoolExecutor(max_workers=7)  # one per check
 
+# ── Paywall Configuration ─────────────────────────────────────────────────────
+# Set to True to enable freemium gating (score free, details gated)
+PAYWALL_ENABLED = False
+PRO_FEATURES = {
+    "detailed_recommendations": "Actionable fix recommendations for each check",
+    "pdf_export": "Downloadable PDF audit report",
+    "scan_history": "Personal scan history & progress tracking",
+    "priority_support": "Priority email support from the AEO team",
+}
+
 # ── Scan History (persisted to disk) ──────────────────────────────────────────
 HISTORY_MAX = 20
 HISTORY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scan-history.json")
@@ -511,6 +521,15 @@ class AEOHandler(SimpleHTTPRequestHandler):
                 ms = int((time.time() - t0) * 1000)
                 log.info("SCAN ip=%s url=%s grade=%s score=%d/%d ms=%d", client_ip, url, result['grade'], result['totalScore'], result['maxScore'], ms)
                 _history_add(result)
+                # Paywall gating: when enabled, redact detailed recommendations
+                if PAYWALL_ENABLED:
+                    result["tier"] = "free"
+                    result["proFeatures"] = PRO_FEATURES
+                    for check in result.get("checks", []):
+                        if check.get("recommendations"):
+                            check["recommendationsGated"] = True
+                            check["recommendationCount"] = len(check["recommendations"])
+                            check["recommendations"] = [check["recommendations"][0]] if check["recommendations"] else []
                 self._json(200, result)
             except Exception as e:
                 log.error("SCAN_ERROR ip=%s url=%s error=%s", client_ip, url, e)

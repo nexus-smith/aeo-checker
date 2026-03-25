@@ -550,6 +550,83 @@
     }
     .pdf-btn:active { transform: translateY(0); }
 
+    /* ── Paywall Gating ── */
+    .pro-gated {
+      position: relative;
+      overflow: hidden;
+    }
+    .pro-gated .gated-content {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+    }
+    .pro-cta-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(2px);
+      border-radius: var(--radius-sm);
+      z-index: 2;
+    }
+    .pro-cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .pro-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .pro-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    .pro-cta-text {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .pro-inline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
     .badge-section {
       margin-top: 20px;
       background: var(--surface);
@@ -884,6 +961,9 @@
       requestAnimationFrame(update);
     }
 
+    // ── Paywall state ────────────────────────────────────────────────────────
+    let isPaywalled = false;
+
     // ── Render checks ─────────────────────────────────────────────────────────
     function renderChecks(checks) {
       checksGrid.innerHTML = '';
@@ -894,11 +974,35 @@
         card.className = 'check-card';
         card.style.animationDelay = `${idx * 80}ms`;
 
-        const recoHtml = check.recommendations && check.recommendations.length
-          ? `<ul class="reco-list">${check.recommendations.map(r =>
-              `<li class="reco-item">${escHtml(r)}</li>`
-            ).join('')}</ul>`
-          : `<p style="font-size:12px;color:var(--text-dim)">No issues found.</p>`;
+        const isGated = isPaywalled && check.recommendationsGated;
+
+        let recoHtml;
+        if (isGated) {
+          // Show first recommendation + gated overlay for the rest
+          const firstReco = check.recommendations && check.recommendations.length
+            ? `<li class="reco-item">${escHtml(check.recommendations[0])}</li>` : '';
+          const remainingCount = (check.recommendationCount || 0) - (check.recommendations ? check.recommendations.length : 0);
+          recoHtml = `
+            <ul class="reco-list">${firstReco}</ul>
+            ${remainingCount > 0 ? `
+            <div class="pro-gated" style="min-height:60px;margin-top:8px">
+              <div class="gated-content">
+                <ul class="reco-list">
+                  ${Array(Math.min(remainingCount, 3)).fill('<li class="reco-item">Detailed recommendation with actionable steps...</li>').join('')}
+                </ul>
+              </div>
+              <div class="pro-cta-overlay">
+                <span class="pro-cta-badge">🔒 PRO</span>
+                <a href="pricing.html" class="pro-cta-btn">Unlock ${remainingCount} more recommendation${remainingCount > 1 ? 's' : ''}</a>
+              </div>
+            </div>` : ''}`;
+        } else {
+          recoHtml = check.recommendations && check.recommendations.length
+            ? `<ul class="reco-list">${check.recommendations.map(r =>
+                `<li class="reco-item">${escHtml(r)}</li>`
+              ).join('')}</ul>`
+            : `<p style="font-size:12px;color:var(--text-dim)">No issues found.</p>`;
+        }
 
         card.innerHTML = `
           <div class="check-header" role="button" tabindex="0" aria-expanded="false">
@@ -985,6 +1089,7 @@
     // ── Render results ────────────────────────────────────────────────────────
     function renderResults(data) {
       lastScanData = data; // Store for PDF export
+      isPaywalled = data.tier === 'free';
       const pct = data.totalScore / data.maxScore;
       const color = scoreColor(pct);
 
@@ -1044,6 +1149,30 @@
           }, 2000);
         });
       }, { once: true });
+
+      // Paywall: gate PDF section when tier is 'free'
+      const pdfSection = document.getElementById('pdfSection');
+      if (isPaywalled) {
+        pdfSection.innerHTML = `
+          <div class="pro-gated" style="min-height:50px">
+            <div class="gated-content">
+              <button class="pdf-btn" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF Report
+              </button>
+            </div>
+            <div class="pro-cta-overlay">
+              <span class="pro-cta-badge">🔒 PRO</span>
+              <a href="pricing.html" class="pro-cta-btn">Unlock PDF Reports — $299/site</a>
+            </div>
+          </div>`;
+      } else {
+        pdfSection.innerHTML = `
+          <button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF Report
+          </button>`;
+      }
 
       // Show results
       scanProgress.style.display = 'none';

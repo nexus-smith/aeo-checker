@@ -434,6 +434,15 @@ def run_check(url):
 
 class AEOHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
+        # Pro features endpoint: /api/pro-features
+        if self.path == "/api/pro-features":
+            self._json(200, {
+                "paywall_enabled": PAYWALL_ENABLED,
+                "features": PRO_FEATURES,
+                "pricing": {"pro_audit": "$299/site", "agency_api": "$99/mo"},
+                "cta_url": "/pricing.html",
+            })
+            return
         # History endpoint: /api/history
         if self.path == "/api/history":
             self._json(200, {"scans": _history_get()})

@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://extensions-tags-administered-fighter.trycloudflare.com",
+      "url": "https://aeo-checker-0tao.onrender.com",
       "description": "Production"
     }
   ],

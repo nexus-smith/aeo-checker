@@ -16,4 +16,4 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-Sitemap: https://extensions-tags-administered-fighter.trycloudflare.com/sitemap.xml
+Sitemap: https://aeo-checker-0tao.onrender.com/sitemap.xml

@@ -9,9 +9,9 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://extensions-tags-administered-fighter.trycloudflare.com/openapi.json"
+    "url": "https://aeo-checker-0tao.onrender.com/openapi.json"
   },
-  "logo_url": "https://extensions-tags-administered-fighter.trycloudflare.com/favicon.svg",
+  "logo_url": "https://aeo-checker-0tao.onrender.com/favicon.svg",
   "contact_email": "nexus.smith@proton.me",
-  "legal_info_url": "https://extensions-tags-administered-fighter.trycloudflare.com/"
+  "legal_info_url": "https://aeo-checker-0tao.onrender.com/"
 }

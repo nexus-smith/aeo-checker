@@ -4,13 +4,14 @@
     <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/" />
   <title>AEO Checker — Free AI Engine Optimization Score Tool 2026</title>
   <meta name="description" content="Free AEO Checker tool. Get your AEO Score — measure how well AI agents can discover and recommend your site. 7 checks including Markdown for Agents. Actionable optimization tips." />
   <meta name="keywords" content="aeo checker, aeo score checker, aeo optimization tool, ai engine optimization, seo for ai agents, aeo vs seo, ai discoverability score, aeo checker free" />
   <meta property="og:title" content="AEO Checker — Free AI Engine Optimization Score Tool" />
   <meta property="og:description" content="Get your AEO Score. 7 checks measuring how well AI agents can discover and recommend your site. Free, instant, actionable." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aeo-check.netlify.app/" />
+  <meta property="og:url" content="https://aeo-checker-0tao.onrender.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -27,7 +28,7 @@
       --border: rgba(255,255,255,0.07);
       --border-glow: rgba(99, 102, 241, 0.3);
       --text: #e8e8f0;
-      --text-muted: #6b6b8a;
+      --text-muted: #8585a3;
       --text-dim: #4a4a6a;
       --accent: #6366f1;
       --accent2: #818cf8;
@@ -525,6 +526,108 @@
     }
 
     /* ── Badge section ── */
+    .pdf-section {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pdf-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    .pdf-btn:active { transform: translateY(0); }
+
+    /* ── Paywall Gating ── */
+    .pro-gated {
+      position: relative;
+      overflow: hidden;
+    }
+    .pro-gated .gated-content {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+    }
+    .pro-cta-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(2px);
+      border-radius: var(--radius-sm);
+      z-index: 2;
+    }
+    .pro-cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .pro-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .pro-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    .pro-cta-text {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .pro-inline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
     .badge-section {
       margin-top: 20px;
       background: var(--surface);
@@ -583,100 +686,6 @@
     .copy-btn:hover { border-color: var(--accent); color: var(--accent2); }
     .copy-btn.copied { color: var(--green); border-color: var(--green); }
 
-    /* ── Email Report ── */
-    .email-report-section {
-      margin-top: 24px;
-    }
-    .email-report-card {
-      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(129,140,248,0.04));
-      border: 1px solid rgba(99,102,241,0.2);
-      border-radius: 12px;
-      padding: 28px 24px;
-      text-align: center;
-    }
-    .email-report-icon { font-size: 28px; margin-bottom: 8px; }
-    .email-report-title {
-      font-family: var(--mono);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .email-report-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-    .email-report-input-group {
-      display: flex;
-      gap: 8px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .email-report-input {
-      flex: 1;
-      padding: 10px 14px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .email-report-input:focus {
-      border-color: var(--accent);
-    }
-    .email-report-input::placeholder {
-      color: var(--text-dim);
-    }
-    .email-report-btn {
-      padding: 10px 20px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .email-report-btn:hover {
-      background: var(--accent2);
-    }
-    .email-report-note {
-      font-size: 11px;
-      color: var(--text-dim);
-      margin-top: 10px;
-    }
-    .email-report-success {
-      color: var(--green);
-      font-size: 14px;
-      font-weight: 500;
-      margin-top: 12px;
-    }
-    .email-success-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      background: var(--green);
-      color: var(--bg);
-      border-radius: 50%;
-      font-size: 12px;
-      margin-right: 6px;
-    }
-    @media (max-width: 480px) {
-      .email-report-input-group {
-        flex-direction: column;
-      }
-    }
-
     /* ── Error ── */
     .error-box {
       background: rgba(239,68,68,0.08);
@@ -712,9 +721,51 @@
     /* ── Utility ── */
     .hidden { display: none !important; }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ── Recent Scans ── */
+    .recent-scans {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .scan-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.65rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      transition: border-color 0.2s;
+    }
+    .scan-pill:hover {
+      border-color: rgba(255,255,255,0.15);
+    }
+    .scan-pill .grade-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .scan-pill .domain {
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .scan-pill .score {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+    }
   </style>
 </head>
 <body>
+  <main>
   <div class="container">
     <!-- Header -->
     <header class="header">
@@ -801,40 +852,33 @@
         </button>
       </div>
 
-      <!-- Email Report CTA -->
-      <div class="email-report-section" id="emailReportSection">
-        <div class="email-report-card">
-          <div class="email-report-icon">📧</div>
-          <h3 class="email-report-title">Get Your Full Report</h3>
-          <p class="email-report-desc">Receive a detailed breakdown with fix-by-fix instructions — plus a monthly re-scan to track your progress.</p>
-          <form class="email-report-form" id="emailReportForm" action="https://formsubmit.co/nexus.smiths@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="AEO Report Request">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://aeo-check.netlify.app/?report=sent">
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="scanned_url" id="reportUrl" value="">
-            <input type="hidden" name="aeo_score" id="reportScore" value="">
-            <input type="hidden" name="aeo_grade" id="reportGrade" value="">
-            <div class="email-report-input-group">
-              <input type="email" name="email" placeholder="your@email.com" required class="email-report-input" id="reportEmail">
-              <button type="submit" class="email-report-btn">Send Report →</button>
-            </div>
-          </form>
-          <p class="email-report-note">Free. No spam. Unsubscribe anytime.</p>
-          <div class="email-report-success" id="emailReportSuccess" style="display:none;">
-            <span class="email-success-icon">✓</span> Report requested! Check your inbox.
-          </div>
-        </div>
+      <!-- PDF Export -->
+      <div class="pdf-section" id="pdfSection">
+        <button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF Report
+        </button>
       </div>
 
     </div>
 
+    <!-- Recent Scans (social proof) -->
+    <div id="recentScans" class="recent-scans" style="display:none;">
+      <h2 style="font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;font-weight:500;">🔍 Recent Scans</h2>
+      <div id="recentList" style="display:flex;flex-wrap:wrap;gap:0.5rem;"></div>
+    </div>
+
     <footer class="footer">
-      <a href="/" style="color:var(--text-dim);text-decoration:none;">AEO Checker</a> · <a href="/pricing.html" style="color:var(--text-dim);text-decoration:none;">Pricing</a> · <a href="/blog.html" style="color:var(--text-dim);text-decoration:none;">Blog</a> · <a href="https://dang.ai" style="color:var(--text-dim);text-decoration:none;" rel="dofollow">Listed on Dang.ai</a>
+      <a href="/" style="color:var(--text-dim);text-decoration:none;">AEO Checker</a> · <a href="/pricing.html" style="color:var(--text-dim);text-decoration:none;">Pricing</a> · <a href="/blog-what-is-aeo.html" style="color:var(--text-dim);text-decoration:none;">Blog</a> · <a href="https://dang.ai" style="color:var(--text-dim);text-decoration:none;" rel="dofollow">Listed on Dang.ai</a>
+      <div style="margin-top:12px;"><a href="https://www.toolpilot.ai/" target="_blank" rel="dofollow" title="Featured on ToolPilot.ai"><img src="https://www.toolpilot.ai/cdn/shop/files/f-w_690x151_crop_center.png" alt="Featured on ToolPilot.ai" style="height:28px;opacity:0.7;" loading="lazy"></a></div>
     </footer>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
   <script>
+    // ── Scan data store (for PDF export) ──────────────────────────────────────
+    let lastScanData = null;
+
     // ── DOM refs ──────────────────────────────────────────────────────────────
     const form = document.getElementById('scanForm');
     const urlInput = document.getElementById('urlInput');
@@ -919,6 +963,9 @@
       requestAnimationFrame(update);
     }
 
+    // ── Paywall state ────────────────────────────────────────────────────────
+    let isPaywalled = false;
+
     // ── Render checks ─────────────────────────────────────────────────────────
     function renderChecks(checks) {
       checksGrid.innerHTML = '';
@@ -929,11 +976,35 @@
         card.className = 'check-card';
         card.style.animationDelay = `${idx * 80}ms`;
 
-        const recoHtml = check.recommendations && check.recommendations.length
-          ? `<ul class="reco-list">${check.recommendations.map(r =>
-              `<li class="reco-item">${escHtml(r)}</li>`
-            ).join('')}</ul>`
-          : `<p style="font-size:12px;color:var(--text-dim)">No issues found.</p>`;
+        const isGated = isPaywalled && check.recommendationsGated;
+
+        let recoHtml;
+        if (isGated) {
+          // Show first recommendation + gated overlay for the rest
+          const firstReco = check.recommendations && check.recommendations.length
+            ? `<li class="reco-item">${escHtml(check.recommendations[0])}</li>` : '';
+          const remainingCount = (check.recommendationCount || 0) - (check.recommendations ? check.recommendations.length : 0);
+          recoHtml = `
+            <ul class="reco-list">${firstReco}</ul>
+            ${remainingCount > 0 ? `
+            <div class="pro-gated" style="min-height:60px;margin-top:8px">
+              <div class="gated-content">
+                <ul class="reco-list">
+                  ${Array(Math.min(remainingCount, 3)).fill('<li class="reco-item">Detailed recommendation with actionable steps...</li>').join('')}
+                </ul>
+              </div>
+              <div class="pro-cta-overlay">
+                <span class="pro-cta-badge">🔒 PRO</span>
+                <a href="pricing.html" class="pro-cta-btn">Unlock ${remainingCount} more recommendation${remainingCount > 1 ? 's' : ''}</a>
+              </div>
+            </div>` : ''}`;
+        } else {
+          recoHtml = check.recommendations && check.recommendations.length
+            ? `<ul class="reco-list">${check.recommendations.map(r =>
+                `<li class="reco-item">${escHtml(r)}</li>`
+              ).join('')}</ul>`
+            : `<p style="font-size:12px;color:var(--text-dim)">No issues found.</p>`;
+        }
 
         card.innerHTML = `
           <div class="check-header" role="button" tabindex="0" aria-expanded="false">
@@ -1009,7 +1080,7 @@
 
       } catch (err) {
         scanProgress.style.display = 'none';
-        errorBox.textContent = `Error: ${err.message}`;
+        errorBox.innerHTML = '⚠️ The AEO Checker is temporarily in maintenance. <br>Browse our <a href="#blog" style="color: var(--accent2)">blog articles</a> for AEO optimization tips.';
         errorBox.style.display = 'block';
       } finally {
         scanBtn.disabled = false;
@@ -1019,6 +1090,8 @@
 
     // ── Render results ────────────────────────────────────────────────────────
     function renderResults(data) {
+      lastScanData = data; // Store for PDF export
+      isPaywalled = data.tier === 'free';
       const pct = data.totalScore / data.maxScore;
       const color = scoreColor(pct);
 
@@ -1079,55 +1152,237 @@
         });
       }, { once: true });
 
-      // Populate email report hidden fields
-      document.getElementById('reportUrl').value = data.url;
-      document.getElementById('reportScore').value = `${data.totalScore}/${data.maxScore}`;
-      document.getElementById('reportGrade').value = data.grade;
+      // Paywall: gate PDF section when tier is 'free'
+      const pdfSection = document.getElementById('pdfSection');
+      if (isPaywalled) {
+        pdfSection.innerHTML = `
+          <div class="pro-gated" style="min-height:50px">
+            <div class="gated-content">
+              <button class="pdf-btn" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF Report
+              </button>
+            </div>
+            <div class="pro-cta-overlay">
+              <span class="pro-cta-badge">🔒 PRO</span>
+              <a href="pricing.html" class="pro-cta-btn">Unlock PDF Reports — $299/site</a>
+            </div>
+          </div>`;
+      } else {
+        pdfSection.innerHTML = `
+          <button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF Report
+          </button>`;
+      }
 
       // Show results
       scanProgress.style.display = 'none';
       results.style.display = 'block';
+
+      // Refresh recent scans after each scan
+      loadRecentScans();
     }
 
-    // Email report form — intercept for AJAX submit
-    const emailReportForm = document.getElementById('emailReportForm');
-    if (emailReportForm) {
-      emailReportForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        fetch(this.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        }).then(res => {
-          if (res.ok) {
-            this.style.display = 'none';
-            document.querySelector('.email-report-desc').style.display = 'none';
-            document.querySelector('.email-report-note').style.display = 'none';
-            document.getElementById('emailReportSuccess').style.display = 'block';
-          }
-        }).catch(() => {
-          // Fallback: just submit normally
-          this.submit();
+    // ── Recent Scans ─────────────────────────────────────────────────────────
+    async function loadRecentScans() {
+      try {
+        const resp = await fetch('/api/history');
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const scans = data.scans || [];
+        if (scans.length === 0) return;
+        const container = document.getElementById('recentScans');
+        const list = document.getElementById('recentList');
+        list.innerHTML = '';
+        scans.forEach(s => {
+          const pill = document.createElement('div');
+          pill.className = 'scan-pill';
+          const ago = timeAgo(s.scannedAt);
+          pill.innerHTML = `<span class="grade-dot" style="background:${s.gradeColor}"></span><span class="domain">${escHtml(s.domain)}</span><span class="score">${s.score}/${s.maxScore}</span>`;
+          pill.title = `${s.grade} · ${ago}`;
+          list.appendChild(pill);
         });
-      });
+        container.style.display = 'block';
+      } catch(e) { /* silent */ }
     }
 
-    // Check if returning from report submission
-    if (window.location.search.includes('report=sent')) {
-      // Could show a toast, but the AJAX flow handles it inline
+    function timeAgo(iso) {
+      const diff = Date.now() - new Date(iso).getTime();
+      const mins = Math.floor(diff / 60000);
+      if (mins < 1) return 'just now';
+      if (mins < 60) return mins + 'm ago';
+      const hrs = Math.floor(mins / 60);
+      if (hrs < 24) return hrs + 'h ago';
+      return Math.floor(hrs / 24) + 'd ago';
     }
+
+    function escHtml(s) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    // ── PDF Export ────────────────────────────────────────────────────────────
+    function downloadPDF() {
+      if (!lastScanData) return;
+      const d = lastScanData;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const w = doc.internal.pageSize.getWidth();
+      let y = 0;
+
+      // Colors
+      const accent = [99, 102, 241];
+      const darkBg = [15, 15, 26];
+      const white = [232, 232, 240];
+      const muted = [107, 107, 138];
+
+      function gradeColor(grade) {
+        const map = { Excellent: [34,197,94], Good: [132,204,22], Fair: [234,179,8], Poor: [249,115,22], Critical: [239,68,68] };
+        return map[grade] || muted;
+      }
+
+      // Header bar
+      doc.setFillColor(...darkBg);
+      doc.rect(0, 0, w, 38, 'F');
+      doc.setFillColor(...accent);
+      doc.rect(0, 36, w, 2, 'F');
+      doc.setTextColor(...white);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(20);
+      doc.text('AEO Audit Report', 14, 18);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...muted);
+      doc.text('AI Engine Optimization Score', 14, 28);
+      doc.text(new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }), w - 14, 28, { align: 'right' });
+      y = 48;
+
+      // URL + Score summary
+      doc.setTextColor(50, 50, 50);
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Scanned URL', 14, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(80, 80, 80);
+      doc.text(d.url || '—', 14, y + 7);
+      y += 20;
+
+      // Score box
+      const gc = gradeColor(d.grade);
+      doc.setFillColor(gc[0], gc[1], gc[2]);
+      doc.roundedRect(14, y, 50, 28, 3, 3, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(24);
+      doc.setFont('helvetica', 'bold');
+      doc.text(`${d.totalScore}`, 24, y + 14);
+      doc.setFontSize(12);
+      doc.text(`/ ${d.maxScore}`, 24, y + 23);
+
+      doc.setTextColor(50, 50, 50);
+      doc.setFontSize(18);
+      doc.setFont('helvetica', 'bold');
+      doc.text(d.grade, 74, y + 14);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(100, 100, 100);
+      const descText = gradeDescription(d.grade);
+      const descLines = doc.splitTextToSize(descText, w - 88);
+      doc.text(descLines, 74, y + 22);
+      y += 38;
+
+      // Separator
+      doc.setDrawColor(220, 220, 230);
+      doc.line(14, y, w - 14, y);
+      y += 10;
+
+      // Checks detail
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(50, 50, 50);
+      doc.text('Check Results', 14, y);
+      y += 10;
+
+      (d.checks || []).forEach(check => {
+        if (y > 260) { doc.addPage(); y = 20; }
+        const pct = check.max > 0 ? check.score / check.max : 0;
+        const cc = pct >= 0.8 ? [34,197,94] : pct >= 0.6 ? [132,204,22] : pct >= 0.4 ? [234,179,8] : pct >= 0.2 ? [249,115,22] : [239,68,68];
+
+        // Check name + score
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(50, 50, 50);
+        doc.text(`${check.icon || '•'} ${check.name}`, 14, y);
+        doc.setFillColor(cc[0], cc[1], cc[2]);
+        doc.roundedRect(w - 40, y - 4, 26, 7, 1.5, 1.5, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(9);
+        doc.text(`${check.score}/${check.max}`, w - 38, y + 1);
+        y += 7;
+
+        // Details
+        if (check.details) {
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(100, 100, 100);
+          doc.setFontSize(9);
+          const detLines = doc.splitTextToSize(check.details, w - 32);
+          doc.text(detLines, 18, y);
+          y += detLines.length * 4.5;
+        }
+
+        // Recommendations
+        if (check.recommendations && check.recommendations.length) {
+          doc.setTextColor(200, 100, 50);
+          doc.setFontSize(9);
+          check.recommendations.forEach(r => {
+            if (y > 270) { doc.addPage(); y = 20; }
+            const rLines = doc.splitTextToSize(`→ ${r}`, w - 36);
+            doc.text(rLines, 20, y);
+            y += rLines.length * 4.5;
+          });
+        }
+        y += 6;
+      });
+
+      // Footer
+      if (y > 260) { doc.addPage(); y = 20; }
+      y += 10;
+      doc.setDrawColor(220, 220, 230);
+      doc.line(14, y, w - 14, y);
+      y += 8;
+      doc.setFontSize(8);
+      doc.setTextColor(...muted);
+      doc.text('Generated by AEO Checker — aeo-checker-0tao.onrender.com', 14, y);
+      doc.text('AI Engine Optimization scoring tool', w - 14, y, { align: 'right' });
+
+      // Save
+      const domain = (d.url || 'site').replace(/https?:\/\//,'').replace(/[\/\?#].*/,'').replace(/[^a-zA-Z0-9.-]/g,'_');
+      const dateStr = new Date().toISOString().slice(0,10);
+      doc.save(`aeo-report-${domain}-${dateStr}.pdf`);
+    }
+
+    // Load on page init
+    loadRecentScans();
   </script>
 <!-- Blog links -->
 <div style="max-width:700px;margin:48px auto 0;padding:0 20px 48px;">
   <h2 style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#fff;margin-bottom:16px;letter-spacing:-0.5px;">Learn more about AEO</h2>
   <div style="display:flex;flex-direction:column;gap:8px;">
+    <a href="/blog-top20-aeo-scores-2026.html" style="display:block;padding:16px 20px;background:linear-gradient(135deg,#1a1a2e,#1e1b4b);border:1px solid rgba(129,140,248,0.2);border-radius:8px;text-decoration:none;color:#c7d2fe;font-weight:600;font-size:15px;transition:border-color 0.2s;">🔥 NEW: We Scanned 20 Tech Giants — OpenAI Scores 23/110 on AI-Readiness →</a>
+    <a href="/blog-aeo-scores-top-tech-companies.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">We Scanned Stripe, OpenAI, Cloudflare & Shopify — See Their AEO Scores →</a>
     <a href="/blog-what-is-aeo.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">What is AEO? The SEO for AI Agents Explained →</a>
     <a href="/blog-aeo-optimization-guide.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">How to Optimize Your Site for AI Agents →</a>
     <a href="/blog-aeo-vs-seo.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">AEO vs SEO: What's the Difference? →</a>
     <a href="/blog-how-to-create-llms-txt.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">How to Create llms.txt — Complete Guide →</a>
     <a href="/blog-robots-txt-ai-agents.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">robots.txt for AI Agents — GPTBot, ClaudeBot & More →</a>
-    <a href="/blog.html" style="display:block;padding:16px 20px;background:transparent;border:1px solid rgba(99,102,241,0.3);border-radius:8px;text-decoration:none;color:#6366f1;font-weight:600;font-size:15px;text-align:center;transition:background 0.2s;">View All 14 Blog Posts →</a>
+    <a href="/blog-llms-txt-new-robots-txt.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">llms.txt: The New robots.txt — Why AI Agents Need a Different Kind of Sitemap →</a>
+    <a href="/blog-google-mcp-devtools-agents.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">Google Just Made MCP Official in Chrome — Here's What It Means →</a>
+    <a href="/blog-sentry-optimizes-for-agents.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">Sentry Already Optimizes for AI Agents — Does Your Site? →</a>
+    <a href="/blog-cloudflare-markdown-agents.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">Cloudflare's "Markdown for Agents": Is Your Site Ready? →</a>
+    <a href="/blog-geo-vs-aeo.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">GEO vs AEO: What's the Difference? →</a>
+    <a href="/blog-geoark-vs-aeo-checker.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">GeoArk vs AEO Check: Which Tool Do You Need? →</a>
+    <a href="/blog-aeo-case-studies-10-sites.html" style="display:block;padding:16px 20px;background:#1a1a2e;border:1px solid rgba(255,255,255,0.07);border-radius:8px;text-decoration:none;color:#818cf8;font-weight:500;font-size:15px;transition:border-color 0.2s;">We Checked 10 Popular Sites for AEO — Here's What We Found →</a>
   </div>
 </div>
 
@@ -1137,7 +1392,7 @@
   "@type": "WebApplication",
   "name": "AEO Checker",
   "description": "Free AEO Score tool. Analyze any URL for AI agent discoverability. Get your score out of 100 with actionable recommendations.",
-  "url": "https://aeo-check.netlify.app/",
+  "url": "https://aeo-checker-0tao.onrender.com/",
   "applicationCategory": "SEO Tool",
   "operatingSystem": "Web",
   "offers": {
@@ -1179,6 +1434,7 @@
   ]
 }
 </script>
+  </main>
 <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

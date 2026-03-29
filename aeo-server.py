@@ -98,6 +98,23 @@ def _history_get():
 # ── Rate Limiting ─────────────────────────────────────────────────────────────
 RATE_LIMIT = 10          # max scans per window
 RATE_WINDOW = 60         # seconds
+
+# ── Error Codes ───────────────────────────────────────────────────────────────
+class AEOError:
+    """Structured error response builder."""
+    RATE_LIMITED = "RATE_LIMITED"
+    INVALID_JSON = "INVALID_JSON"
+    MISSING_URL = "MISSING_URL"
+    INVALID_URL = "INVALID_URL"
+    SCAN_FAILED = "SCAN_FAILED"
+    NOT_FOUND = "NOT_FOUND"
+
+    @staticmethod
+    def response(status, code, message, details=None):
+        body = {"error": message, "code": code, "status": status}
+        if details:
+            body["details"] = details
+        return status, body
 _rate_lock = threading.Lock()
 _rate_buckets = defaultdict(list)  # ip -> [timestamps]
 
@@ -510,7 +527,10 @@ class AEOHandler(SimpleHTTPRequestHandler):
         if self.path == "/api/check":
             client_ip = self.client_address[0]
             if not _rate_check(client_ip):
-                self._json(429, {"error": "Rate limit exceeded. Max 10 scans per minute."})
+                s, b = AEOError.response(429, AEOError.RATE_LIMITED,
+                    "Rate limit exceeded. Max 10 scans per minute.",
+                    {"limit": RATE_LIMIT, "windowSeconds": RATE_WINDOW})
+                self._json(s, b)
                 log.warning("RATE_LIMITED ip=%s", client_ip)
                 return
             length = int(self.headers.get("Content-Length", 0))
@@ -519,10 +539,24 @@ class AEOHandler(SimpleHTTPRequestHandler):
                 data = json.loads(body)
                 url = data.get("url", "").strip()
             except:
-                self._json(400, {"error": "Invalid JSON"})
+                s, b = AEOError.response(400, AEOError.INVALID_JSON,
+                    "Request body must be valid JSON.",
+                    {"expected": '{"url": "https://example.com"}'})
+                self._json(s, b)
                 return
             if not url:
-                self._json(400, {"error": "url is required"})
+                s, b = AEOError.response(400, AEOError.MISSING_URL,
+                    "The 'url' field is required.",
+                    {"expected": '{"url": "https://example.com"}'})
+                self._json(s, b)
+                return
+            # Validate URL format
+            parsed = urlparse(url if "://" in url else f"https://{url}")
+            if not parsed.scheme in ("http", "https") or not parsed.netloc:
+                s, b = AEOError.response(400, AEOError.INVALID_URL,
+                    f"Invalid URL: '{url}'. Must be a valid HTTP/HTTPS URL.",
+                    {"provided": url, "example": "https://example.com"})
+                self._json(s, b)
                 return
             try:
                 t0 = time.time()
@@ -542,9 +576,15 @@ class AEOHandler(SimpleHTTPRequestHandler):
                 self._json(200, result)
             except Exception as e:
                 log.error("SCAN_ERROR ip=%s url=%s error=%s", client_ip, url, e)
-                self._json(500, {"error": str(e)})
+                s, b = AEOError.response(500, AEOError.SCAN_FAILED,
+                    "Scan failed unexpectedly.",
+                    {"url": url, "reason": str(e)})
+                self._json(s, b)
         else:
-            self._json(404, {"error": "Not found"})
+            s, b = AEOError.response(404, AEOError.NOT_FOUND,
+                f"Endpoint '{self.path}' not found.",
+                {"availableEndpoints": ["/api/check", "/api/history", "/api/health"]})
+            self._json(s, b)
 
     def do_OPTIONS(self):
         self.send_response(204)

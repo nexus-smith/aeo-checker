@@ -464,6 +464,15 @@ class AEOHandler(SimpleHTTPRequestHandler):
         if self.path == "/api/history":
             self._json(200, {"scans": _history_get()})
             return
+        # Per-domain history: /api/history/<domain>
+        m_hist = re.match(r"^/api/history/(.+)$", self.path)
+        if m_hist:
+            from urllib.parse import unquote
+            target_domain = unquote(m_hist.group(1)).lower().strip()
+            with _history_lock:
+                domain_scans = [s for s in _scan_history if s.get("domain", "").lower() == target_domain]
+            self._json(200, {"domain": target_domain, "scans": domain_scans})
+            return
         # Badge endpoint: /api/badge/<score>
         m = re.match(r"^/api/badge/(\d+)$", self.path)
         if m:

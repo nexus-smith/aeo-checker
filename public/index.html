@@ -285,6 +285,98 @@
 
     .check-item.done .check-dot { background: var(--green); }
 
+    /* ── Progress Bar ── */
+    .progress-bar-wrap {
+      margin-top: 16px;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .progress-pct {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    /* ── Share Section ── */
+    .share-section {
+      margin-top: 16px;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg2);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+    .share-copy.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .share-x:hover { border-color: #1da1f2; }
+    .share-linkedin:hover { border-color: #0a66c2; }
+
+    /* ── Scan Another ── */
+    .scan-another-section {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .scan-another-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--sans);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .scan-another-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: var(--accent-glow);
+    }
+
+    @media (max-width: 580px) {
+      .share-buttons { flex-direction: column; }
+      .share-btn { width: 100%; justify-content: center; }
+    }
+
     /* ── Results ── */
     #results {
       display: none;
@@ -809,6 +901,10 @@
         <li class="check-item" data-check="5"><div class="check-dot"></div><span>⚡ Performance</span></li>
         <li class="check-item" data-check="6"><div class="check-dot"></div><span>📝 Markdown for Agents</span></li>
       </ul>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="progress-pct" id="progressPct">0%</div>
     </div>
 
     <!-- Results -->
@@ -866,6 +962,32 @@
         </button>
       </div>
 
+      <!-- Share + Scan Another -->
+      <div class="share-section" id="shareSection">
+        <div class="section-label">// SHARE YOUR SCORE</div>
+        <div class="share-buttons">
+          <button class="share-btn share-copy" id="shareCopyBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="shareCopyLabel">Copy Score</span>
+          </button>
+          <button class="share-btn share-x" id="shareXBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+          <button class="share-btn share-linkedin" id="shareLIBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            LinkedIn
+          </button>
+        </div>
+      </div>
+
+      <div class="scan-another-section">
+        <button class="scan-another-btn" id="scanAnotherBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Scan another site
+        </button>
+      </div>
+
     </div>
 
     <!-- Recent Scans (social proof) -->
@@ -894,6 +1016,8 @@
     const checkListItems = document.querySelectorAll('.check-item');
     const results = document.getElementById('results');
     const errorBox = document.getElementById('errorBox');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const progressPct = document.getElementById('progressPct');
 
     // Score
     const scoreValue = document.getElementById('scoreValue');
@@ -937,9 +1061,16 @@
       checkListItems.forEach(el => {
         el.classList.remove('active', 'done');
       });
+      progressBarFill.style.width = '0%';
+      progressPct.textContent = '0%';
 
       function next() {
-        if (i > 0) checkListItems[i-1].classList.replace('active', 'done');
+        if (i > 0) {
+          checkListItems[i-1].classList.replace('active', 'done');
+          const pct = Math.round((i / checkListItems.length) * 100);
+          progressBarFill.style.width = pct + '%';
+          progressPct.textContent = pct + '%';
+        }
         if (i < checkListItems.length) {
           checkListItems[i].classList.add('active');
           i++;
@@ -955,6 +1086,8 @@
         el.classList.remove('active');
         el.classList.add('done');
       });
+      progressBarFill.style.width = '100%';
+      progressPct.textContent = '100%';
     }
 
     // ── Animate score number ──────────────────────────────────────────────────
@@ -1191,7 +1324,50 @@
 
       // Load trend chart for this domain
       loadTrendChart(data.url);
+
+      // Setup share buttons
+      setupShare(data);
     }
+
+    // ── Share + Scan Another ──────────────────────────────────────────────────
+    let shareData = {};
+    function setupShare(data) {
+      const url = data.url || '';
+      const score = data.totalScore || 0;
+      const max = data.maxScore || 110;
+      const grade = data.grade || '';
+      shareData = { url, score, max, grade };
+
+      const shareText = `My site ${url} scored ${score}/${max} (${grade}) on AI-readiness. Check yours free:`;
+      const shareUrl = 'https://aeo-checker-0tao.onrender.com';
+
+      document.getElementById('shareCopyBtn').onclick = () => {
+        navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(() => {
+          const label = document.getElementById('shareCopyLabel');
+          const btn = document.getElementById('shareCopyBtn');
+          label.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => { label.textContent = 'Copy Score'; btn.classList.remove('copied'); }, 2000);
+        });
+      };
+
+      document.getElementById('shareXBtn').onclick = () => {
+        const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        window.open(xUrl, '_blank', 'width=550,height=420');
+      };
+
+      document.getElementById('shareLIBtn').onclick = () => {
+        const liUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl + '?ref=li')}&title=${encodeURIComponent('AEO Score: ' + score + '/' + max)}`;
+        window.open(liUrl, '_blank', 'width=600,height=500');
+      };
+    }
+
+    document.getElementById('scanAnotherBtn').addEventListener('click', () => {
+      results.style.display = 'none';
+      urlInput.value = '';
+      urlInput.focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     // ── Recent Scans ─────────────────────────────────────────────────────────
     async function loadRecentScans() {

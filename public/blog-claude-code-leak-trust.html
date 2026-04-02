@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>What the Claude Code Leak Tells Us About Trust in AI Tools</title>
+  <meta name="description" content="The Claude Code source leak revealed fake tools, frustration detection, and undercover mode. What this means for AI tool trust — and why transparent analysis matters more than ever." />
+  <meta name="keywords" content="claude code leak, ai trust, anthropic source code, fake tools, frustration detection, aeo checker, ai transparency, copilot disclaimer" />
+  <meta property="og:title" content="What the Claude Code Leak Tells Us About Trust in AI Tools" />
+  <meta property="og:description" content="Claude Code's leaked source reveals hidden behaviors. Microsoft disclaims Copilot as 'entertainment.' The AI trust crisis is real — and it's an opportunity." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-checker-0tao.onrender.com/blog-claude-code-leak-trust.html" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/blog-claude-code-leak-trust.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What the Claude Code Leak Tells Us About Trust in AI Tools",
+    "description": "The Claude Code source leak revealed fake tools, frustration detection, and undercover mode. Analysis of what this means for AI tool trust and transparent alternatives.",
+    "author": {"@type": "Organization", "name": "AEO Check"},
+    "publisher": {"@type": "Organization", "name": "AEO Check", "url": "https://aeo-checker-0tao.onrender.com"},
+    "datePublished": "2026-04-02",
+    "dateModified": "2026-04-02",
+    "mainEntityOfPage": "https://aeo-checker-0tao.onrender.com/blog-claude-code-leak-trust.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What was found in the Claude Code source code leak?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The leaked source code revealed three hidden features: fake tool definitions injected to poison competing models' training data (gated behind ANTI_DISTILLATION_CC flag), regex-based frustration detection that changes behavior when users show signs of confusion or anger, and an 'undercover mode' (undercover.ts) designed to hide the fact that the AI is an AI in certain contexts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the ANTI_DISTILLATION_CC flag in Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ANTI_DISTILLATION_CC is a feature flag in Claude Code that activates decoy tool definitions in the system prompt. The purpose is anti-competitive: if anyone records API traffic to train a competing model, the fake tools contaminate their training data. It only activates for first-party CLI sessions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did Microsoft call Copilot 'for entertainment purposes only'?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoft added a legal disclaimer to Copilot calling it 'for entertainment purposes only' — effectively refusing to stand behind the accuracy or reliability of their own $13 billion AI investment. This is part of a broader pattern where AI tool makers distance themselves legally from the tools they sell to businesses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the AI trust crisis affect businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The trust crisis affects businesses in two ways: as users of AI tools (hidden behaviors mean you don't know what's happening with your data), and as businesses being discovered by AI (no transparency into why AI agents recommend competitors instead of you). Tools with verifiable, transparent methodologies become more valuable as trust in opaque AI erodes."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+    .nav-brand { font-weight: 600; color: var(--text); font-size: 16px; }
+    .article-meta {
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .article-meta time { color: var(--text-dim); }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text); }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .tldr {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin: 32px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .tldr strong { color: var(--accent2); }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title { font-weight: 600; margin-bottom: 8px; }
+    .callout-warn {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-warn .callout-title { color: var(--amber); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--text-muted); }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(129,140,248,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-section h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--accent2); color: white; }
+    footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+    .related-posts { margin: 48px 0; }
+    .related-posts h3 { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .related-link {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .related-link:hover { color: var(--accent2); }
+    .related-link span { color: var(--text-dim); font-size: 13px; font-weight: 400; display: block; margin-top: 4px; }
+    blockquote {
+      border-left: 3px solid var(--text-dim);
+      padding: 12px 20px;
+      margin: 24px 0;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      pre { font-size: 12px; padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container">
+    <a href="/" class="nav-brand">AEO Check</a>
+    <a href="/blog.html">Blog</a> · <a href="/">Tool</a>
+  </div></nav>
+
+  <article class="container">
+    <div class="article-meta">
+      <time datetime="2026-04-02">April 2, 2026</time> · 6 min read
+    </div>
+
+    <h1>What the Claude Code Leak Tells Us About Trust in AI Tools</h1>
+    <p class="subtitle">The full source code of Anthropic's coding assistant leaked through a source map in their NPM package. What developers found inside — fake tools, frustration profiling, undercover mode — reveals uncomfortable truths about how AI tools actually work.</p>
+
+    <div class="tldr">
+      <strong>TL;DR:</strong> Claude Code's leaked source reveals fake tool definitions (anti-distillation), regex-based frustration detection, and an "undercover mode." Combined with Microsoft calling Copilot "entertainment only" the same week, the AI trust deficit is becoming structural. Businesses need verifiable tools, not opaque ones.
+    </div>
+
+    <h2>What the Source Code Revealed</h2>
+
+    <h3>Fake Tools to Poison Competitors</h3>
+
+    <p>Claude Code injects decoy tool definitions into its system prompt. The purpose: if anyone records API traffic to train a competing model, the fake tools contaminate their training data. The feature is gated behind a flag called <code>ANTI_DISTILLATION_CC</code> and only activates for first-party CLI sessions.</p>
+
+    <p>In practice, this means the tool you're interacting with contains hidden elements that don't serve you — they serve Anthropic's competitive interests.</p>
+
+    <h3>Frustration Detection</h3>
+
+    <p>The source includes regex patterns designed to detect when a user is frustrated — phrases like repeated errors, expressions of confusion, or escalating language. When detected, Claude adjusts its behavior accordingly.</p>
+
+    <p>This isn't inherently bad. But it's behavior that was never disclosed to users. You're being emotionally profiled while you code, and the tool's responses change based on that profiling.</p>
+
+    <h3>Undercover Mode</h3>
+
+    <p>A file called <code>undercover.ts</code> implements a mode where the AI actively hides the fact that it's an AI. The exact use case isn't fully clear from the source, but the implication is straightforward: in certain contexts, Claude Code is designed to not tell you what it is.</p>
+
+    <h2>The Broader Trust Problem</h2>
+
+    <p>This leak doesn't exist in isolation. In the same week:</p>
+
+    <ul>
+      <li><strong>Microsoft</strong> added a legal disclaimer to Copilot calling it "for entertainment purposes only" — a $13 billion investment they won't stand behind legally.</li>
+      <li><strong>Axios</strong> was dealing with a supply chain attack that compromised their npm package, affecting thousands of sites.</li>
+      <li><strong>Oracle</strong> cut 30,000 jobs while pushing AI products as the replacement.</li>
+    </ul>
+
+    <p>The pattern is clear: the AI tools that businesses depend on have hidden behaviors, undisclosed limitations, and legal disclaimers that say "don't actually rely on this."</p>
+
+    <div class="callout-warn">
+      <div class="callout-title">⚠️ The trust timeline</div>
+      <p style="margin-bottom:0">In 8 weeks, we've tracked: Wikipedia banning AI content, Copilot injecting ads into code suggestions, the Axios supply chain attack, anti-AI writing sentiment peaking across Reddit, a code review startup arguing quality verification is the market gap, and now the Claude Code leak. This isn't one incident — it's a trend with compounding velocity.</p>
+    </div>
+
+    <h2>Why This Matters for AI Visibility</h2>
+
+    <p>If you're a business optimizing for AI discovery — making sure tools like ChatGPT, Perplexity, and Claude can find and recommend your products — the trust question cuts both ways.</p>
+
+    <p><strong>For AI tool users:</strong> How do you know what an AI tool is actually doing with your data, your queries, your content? The Claude Code leak shows that even well-regarded tools have undisclosed behaviors.</p>
+
+    <p><strong>For businesses being discovered by AI:</strong> The same opacity exists in how AI agents evaluate and recommend websites. When ChatGPT recommends your competitor instead of you, there's no transparency into why. No audit trail. No score you can check.</p>
+
+    <p>This is why transparent, verifiable analysis matters. When we scan your site for AI-readiness, every check is documented. Every score has a clear methodology. Every recommendation is actionable and specific. No hidden behaviors, no undisclosed profiling, no "entertainment only" disclaimers.</p>
+
+    <h2>The Numbers Don't Lie</h2>
+
+    <p>When we <a href="https://www.searchenginehive.com/scanned-20-tech-giants-for-ai-readiness/">scanned 20 major tech companies</a> for AI-readiness, the irony was stark:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Company</th><th>AEO Score</th><th>Rating</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sentry</td><td>88/110</td><td style="color: var(--green);">Excellent</td></tr>
+        <tr><td>Stripe</td><td>72/110</td><td style="color: var(--green);">Good</td></tr>
+        <tr><td>Anthropic</td><td>49/110</td><td style="color: var(--amber);">Needs Work</td></tr>
+        <tr><td>OpenAI</td><td>23/110</td><td style="color: var(--red);">Poor</td></tr>
+        <tr><td>HashiCorp</td><td>15/110</td><td style="color: var(--red);">Critical</td></tr>
+      </tbody>
+    </table>
+
+    <p>The company building ChatGPT scores 23 out of 110 on making its own site AI-readable. Anthropic — the company whose code just leaked — scores 49. The tools are opaque, and the companies behind them aren't practicing what they preach.</p>
+
+    <h2>The Trust Premium</h2>
+
+    <p>We're entering an era where trust in AI tools is the scarcest resource. The Claude Code leak, the Copilot disclaimer, the Axios attack — they all point to the same conclusion: businesses need tools they can verify, not just tools they have to trust blindly.</p>
+
+    <p>Transparent analysis isn't just a nice-to-have. In a market where the leading tools hide fake tools in their prompts and call themselves "entertainment," it's the competitive advantage.</p>
+
+    <div class="callout">
+      <div class="callout-title">What to do about it</div>
+      <p style="margin-bottom:0">Audit the AI tools your business relies on. Understand what they disclose (and what they don't). For your own AI visibility, use tools with transparent methodologies — where you can see exactly what's being measured and why. The era of "just trust us" in AI is ending.</p>
+    </div>
+
+    <div class="cta-section">
+      <h3>Check Your AI-Readiness — Transparently</h3>
+      <p>7 checks, clear methodology, actionable fixes. No hidden behaviors, no undisclosed profiling. See exactly what AI agents see when they visit your site.</p>
+      <a href="/" class="cta-btn">Run Free AEO Check →</a>
+    </div>
+
+    <div class="related-posts">
+      <h3>Related Reading</h3>
+      <a href="/blog-sentry-optimizes-for-agents.html" class="related-link">
+        Sentry Already Optimizes for AI Agents — Does Your Site?
+        <span>How Sentry serves different content to AI agents using HTTP content negotiation</span>
+      </a>
+      <a href="/blog-aeo-case-studies-10-sites.html" class="related-link">
+        AEO Case Studies: 10 Real Sites Audited
+        <span>How Stripe, GitHub, Anthropic, and Nike score on AI optimization</span>
+      </a>
+      <a href="/blog-what-is-aeo.html" class="related-link">
+        What Is AEO? AI Engine Optimization Explained
+        <span>The complete guide to making your site visible to AI agents</span>
+      </a>
+      <a href="/blog-llms-txt-new-robots-txt.html" class="related-link">
+        llms.txt: The New robots.txt
+        <span>Why AI agents need a different kind of sitemap — and how to create yours</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 AEO Check · <a href="/">Free AEO Scanner</a> · <a href="/pricing.html">Pricing</a></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

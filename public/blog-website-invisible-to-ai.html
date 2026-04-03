@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your Website Is Invisible to AI Agents (Fix It in 30 Min)</title>
+  <meta name="description" content="Most websites are invisible to AI agents like ChatGPT, Claude, and Perplexity. Here are the 5 reasons why — and exactly how to fix each one in under 30 minutes." />
+  <meta property="og:title" content="Why Your Website Is Invisible to AI Agents" />
+  <meta property="og:description" content="AI agents can't find most websites. 5 concrete reasons why, and a 30-minute fix for each. No fluff, just what works." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/blog-website-invisible-to-ai.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Why Your Website Is Invisible to AI Agents (And How to Fix It in 30 Minutes)",
+        "description": "Most websites are invisible to AI agents like ChatGPT, Claude, and Perplexity. Here are the 5 reasons why and how to fix each one.",
+        "datePublished": "2026-03-19",
+        "author": { "@type": "Organization", "name": "AEO Checker" },
+        "publisher": { "@type": "Organization", "name": "AEO Checker" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Make Your Website Visible to AI Agents",
+        "description": "5 steps to make AI agents discover and recommend your website.",
+        "totalTime": "PT30M",
+        "step": [
+          { "@type": "HowToStep", "name": "Fix robots.txt", "text": "Allow AI bots (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) in your robots.txt file." },
+          { "@type": "HowToStep", "name": "Add structured data", "text": "Add JSON-LD Schema.org markup to your pages so AI agents understand your content type and structure." },
+          { "@type": "HowToStep", "name": "Create llms.txt", "text": "Create a /llms.txt file at your domain root explaining what your site does in plain language for AI agents." },
+          { "@type": "HowToStep", "name": "Structure content clearly", "text": "Use one H1, multiple H2/H3, and add FAQPage schema. Clear hierarchy helps AI parse your content." },
+          { "@type": "HowToStep", "name": "Describe your API", "text": "If you have an API, publish an OpenAPI spec and ai-plugin.json manifest so AI agents can use your tool." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why can't AI agents find my website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI agents like ChatGPT, Claude, and Perplexity use different discovery methods than Google. They look for structured data, llms.txt files, robots.txt permissions, and clean content hierarchy. Most websites only optimize for traditional search engines and miss these signals entirely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need llms.txt if I already have good SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SEO targets Google's crawler and ranking algorithm. llms.txt is a separate file specifically for AI agents — it tells them what your site does, what's important, and how to use your content. Good SEO helps but doesn't replace the AI-specific signals that agents look for."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I check if AI agents can see my website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use an AEO (Agent Engine Optimization) checker to scan your site for the 7 key signals AI agents look for: structured data, robots.txt bot permissions, llms.txt, content structure, API/tool descriptions, performance, and markdown accessibility. AEO Checker at aeo-checker.com scans all 7 for free."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is robots.txt for AI agents?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "robots.txt controls which bots can crawl your site. AI agents have their own crawlers — GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot, and Google-Extended. If your robots.txt blocks these or uses a blanket 'Disallow: /', AI agents literally cannot access your content."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --surface-2: #1a1a28;
+      --text: #e2e2e8; --text-dim: #8888a0; --text-muted: #555570;
+      --accent: #6366f1; --accent-glow: rgba(99,102,241,0.15);
+      --green: #22c55e; --yellow: #eab308; --red: #ef4444; --orange: #f97316;
+      --border: rgba(255,255,255,0.06); --radius: 12px;
+      --font: 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+    .article-container { max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-dim); text-decoration: none; font-size: 14px; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+
+    .article-meta { color: var(--text-dim); font-size: 14px; margin-bottom: 0.5rem; }
+
+    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--text), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .lead { font-size: 1.15rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; border-left: 3px solid var(--accent); padding-left: 1.25rem; }
+
+    h2 { font-size: 1.5rem; font-weight: 600; margin: 3rem 0 1rem; color: var(--text); }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--text); }
+
+    p { margin-bottom: 1.25rem; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .invisible-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+    }
+    .invisible-card .number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--accent-glow); color: var(--accent);
+      font-weight: 700; font-size: 14px; margin-bottom: 1rem;
+    }
+    .invisible-card h3 { margin-top: 0; }
+
+    .fix-box {
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.15);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+    .fix-box .fix-label {
+      font-weight: 600; font-size: 13px; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--green); margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem; overflow-x: auto;
+      font-family: var(--mono); font-size: 14px; line-height: 1.6;
+      margin: 1rem 0 1.5rem; color: var(--text);
+    }
+    code { font-family: var(--mono); font-size: 0.9em; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; }
+
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; text-align: center;
+    }
+    .stat-card .stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .stat-card .stat-label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(99,102,241,0.03));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius); padding: 2.5rem; text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-section h2 { margin-top: 0; }
+    .cta-btn {
+      display: inline-flex; padding: 14px 32px; background: var(--accent);
+      color: white; border-radius: 8px; font-weight: 600; font-size: 16px;
+      text-decoration: none; margin-top: 1rem; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.3); text-decoration: none; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+      display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { color: var(--green); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    .time-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      background: var(--accent-glow); padding: 3px 10px; border-radius: 20px;
+    }
+
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem 0; }
+    .toc h3 { margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
+    .toc ol { padding-left: 1.25rem; margin: 0.75rem 0 0; }
+    .toc li { margin: 0.5rem 0; }
+    .toc a { color: var(--text); font-size: 15px; }
+    .toc a:hover { color: var(--accent); }
+
+    footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 3rem; }
+
+    @media (max-width: 600px) {
+      .article-container { padding: 2rem 1rem 4rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="article-container">
+
+  <a href="/" class="back-link">← Back to AEO Checker</a>
+
+  <div class="article-meta">March 19, 2026 · 8 min read</div>
+
+  <h1>Why Your Website Is Invisible to AI Agents (And How to Fix It in 30 Minutes)</h1>
+
+  <p class="lead">
+    ChatGPT, Claude, Perplexity, and Google's AI Overview are becoming the front door to the internet. When someone asks "What's the best project management tool?", these agents synthesize an answer — and your website is either part of that answer, or it doesn't exist. Here's why most sites are invisible, and exactly how to fix it.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">68%</div>
+      <div class="stat-label">of websites block at least one AI bot</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">&lt;3%</div>
+      <div class="stat-label">of sites have an llms.txt file</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">0</div>
+      <div class="stat-label">ranking signals shared between SEO & AEO</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h3>What you'll fix today</h3>
+    <ol>
+      <li><a href="#reason-1">Your robots.txt is blocking AI bots</a></li>
+      <li><a href="#reason-2">You have no structured data</a></li>
+      <li><a href="#reason-3">There's no llms.txt file</a></li>
+      <li><a href="#reason-4">Your content has no hierarchy</a></li>
+      <li><a href="#reason-5">Your API has no description</a></li>
+    </ol>
+  </div>
+
+  <h2>The shift nobody's talking about</h2>
+
+  <p>For 25 years, websites optimized for one thing: Google's crawler. Keywords, backlinks, page speed, meta tags. An entire industry — SEO — exists to win at this game.</p>
+
+  <p>But something fundamental changed. AI agents don't use Google's index. They crawl the web themselves, parse your content, and decide whether to recommend you — all based on signals that have <strong>nothing to do with traditional SEO</strong>.</p>
+
+  <p>Think about what happens when someone asks ChatGPT "What accounting software should I use for my freelance business?" If your accounting SaaS isn't legible to GPTBot — structured data, clear content hierarchy, explicit permissions — you're not in the conversation. Period.</p>
+
+  <p>This isn't theoretical. Companies that optimize for AI agents are already seeing measurable traffic from ChatGPT referrals, Perplexity citations, and Claude recommendations. The ones that don't? They're becoming invisible to a growing share of internet discovery.</p>
+
+  <h2>The 5 reasons your site is invisible</h2>
+
+  <div class="invisible-card" id="reason-1">
+    <div class="number">1</div>
+    <h3>Your robots.txt is actively blocking AI bots</h3>
+    <p>This is the most common — and most fixable — problem. AI agents have their own crawlers:</p>
+    <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-dim);">
+      <li><strong>GPTBot</strong> — OpenAI (ChatGPT)</li>
+      <li><strong>ClaudeBot</strong> — Anthropic (Claude)</li>
+      <li><strong>PerplexityBot</strong> — Perplexity AI</li>
+      <li><strong>Google-Extended</strong> — Google Gemini & AI Overview</li>
+    </ul>
+    <p>If your <code>robots.txt</code> has a blanket <code>Disallow: /</code> under <code>User-agent: *</code>, you're blocking all of them. Many CMS defaults and security plugins do this.</p>
+
+    <div class="fix-box">
+      <div class="fix-label">⚡ Fix — 5 minutes</div>
+      <p style="margin-bottom: 0.5rem;">Add explicit allow rules for AI bots:</p>
+      <pre>User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /</pre>
+      <p style="margin: 0; font-size: 14px; color: var(--text-dim);">Even if you allow <code>*</code>, explicitly listing AI bots signals intent. Agents notice.</p>
+    </div>
+  </div>
+
+  <div class="invisible-card" id="reason-2">
+    <div class="number">2</div>
+    <h3>You have no structured data (or the wrong kind)</h3>
+    <p>AI agents don't "read" your page like a human. They look for machine-readable context: <strong>JSON-LD structured data</strong> using Schema.org vocabularies.</p>
+    <p>Without it, your page is a wall of text. With it, an AI agent instantly knows: "This is a SaaS product, it costs $29/mo, it handles invoicing, and here are 47 FAQs about it."</p>
+    <p>The most impactful schema types for AI discoverability:</p>
+    <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-dim);">
+      <li><strong>FAQPage</strong> — Gets directly pulled into AI answers</li>
+      <li><strong>HowTo</strong> — Step-by-step instructions agents can synthesize</li>
+      <li><strong>Product</strong> — Pricing, features, availability</li>
+      <li><strong>Article</strong> — Date, author, publisher context</li>
+      <li><strong>Organization</strong> — Brand identity</li>
+    </ul>
+
+    <div class="fix-box">
+      <div class="fix-label">⚡ Fix — 10 minutes</div>
+      <p style="margin-bottom: 0.5rem;">Add a JSON-LD block to your page's <code>&lt;head&gt;</code>:</p>
+      <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What does [your product] do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A clear, concise answer..."
+    }
+  }]
+}
+&lt;/script&gt;</pre>
+      <p style="margin: 0; font-size: 14px; color: var(--text-dim);">Start with FAQPage — it has the highest impact-to-effort ratio for AI discoverability.</p>
+    </div>
+  </div>
+
+  <div class="invisible-card" id="reason-3">
+    <div class="number">3</div>
+    <h3>There's no llms.txt file telling agents who you are</h3>
+    <p><code>robots.txt</code> tells bots what they <em>can</em> access. <code>llms.txt</code> tells them what they <em>should know</em>.</p>
+    <p>It's a plain text file at <code>/llms.txt</code> on your domain — a briefing document for AI agents. Think of it as your elevator pitch, but for machines. What does your product do? Who is it for? What makes it different? What are the key pages an agent should understand?</p>
+    <p>Less than 3% of websites have one. The ones that do get a significant edge in how accurately AI agents describe them.</p>
+
+    <div class="fix-box">
+      <div class="fix-label">⚡ Fix — 5 minutes</div>
+      <p style="margin-bottom: 0.5rem;">Create <code>/llms.txt</code> at your domain root:</p>
+      <pre># Your Product Name
+
+> One-sentence description of what you do.
+
+## What We Do
+Clear explanation of your product/service.
+Target audience. Key differentiators.
+
+## Key Pages
+- /pricing — Plans and pricing
+- /features — Full feature list
+- /docs — API documentation
+- /blog — Industry insights
+
+## FAQ
+- Q: Most common question?
+  A: Clear answer.
+
+## Contact
+support@yourcompany.com</pre>
+      <p style="margin: 0; font-size: 14px; color: var(--text-dim);">Keep it under 2000 words. Plain language. No marketing fluff — agents see right through it.</p>
+    </div>
+  </div>
+
+  <div class="invisible-card" id="reason-4">
+    <div class="number">4</div>
+    <h3>Your content has no clear hierarchy</h3>
+    <p>AI agents parse heading structure to understand what a page is about. They need:</p>
+    <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-dim);">
+      <li><strong>Exactly one H1</strong> — the page's main topic</li>
+      <li><strong>Logical H2/H3 hierarchy</strong> — subtopics and sections</li>
+      <li><strong>Concise paragraphs</strong> — agents process structured chunks, not walls of text</li>
+    </ul>
+    <p>Many modern websites — especially SPAs and heavily-designed marketing pages — break heading hierarchy. Three H1s, no H2s, headings used for styling instead of structure. Google is forgiving about this. AI agents are not.</p>
+
+    <div class="fix-box">
+      <div class="fix-label">⚡ Fix — 5 minutes</div>
+      <p style="margin-bottom: 0.5rem;">Audit your heading structure:</p>
+      <pre>✅ Good:
+H1: Your Product — Main Headline
+  H2: Features
+    H3: Feature 1
+    H3: Feature 2
+  H2: Pricing
+  H2: FAQ
+
+❌ Bad:
+H1: Welcome
+H1: Features (second H1!)
+H4: Some random heading
+H2: Contact us</pre>
+      <p style="margin: 0; font-size: 14px; color: var(--text-dim);">Use your browser's dev tools: <code>document.querySelectorAll('h1,h2,h3').forEach(h => console.log(h.tagName, h.textContent))</code></p>
+    </div>
+  </div>
+
+  <div class="invisible-card" id="reason-5">
+    <div class="number">5</div>
+    <h3>Your API exists but agents can't discover it</h3>
+    <p>This one applies to SaaS products and developer tools. If you have an API, AI agents should be able to find and understand it — so they can recommend it as a tool, not just a website.</p>
+    <p>Two standards matter:</p>
+    <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-dim);">
+      <li><strong><code>/.well-known/ai-plugin.json</code></strong> — The manifest file that describes your tool to AI agents (originally from ChatGPT plugins, now a de facto standard)</li>
+      <li><strong><code>/openapi.json</code></strong> — Your API specification, so agents know what endpoints exist and how to call them</li>
+    </ul>
+    <p>With MCP (Model Context Protocol) gaining adoption, having a machine-readable API description is becoming table stakes for any tool that wants AI agents as a distribution channel.</p>
+
+    <div class="fix-box">
+      <div class="fix-label">⚡ Fix — 10 minutes (if you have an API)</div>
+      <p style="margin-bottom: 0.5rem;">Create <code>/.well-known/ai-plugin.json</code>:</p>
+      <pre>{
+  "schema_version": "v1",
+  "name_for_human": "Your Product",
+  "name_for_model": "your_product",
+  "description_for_human": "What users see.",
+  "description_for_model": "Detailed description for AI.",
+  "api": {
+    "type": "openapi",
+    "url": "https://yourdomain.com/openapi.json"
+  },
+  "logo_url": "https://yourdomain.com/logo.png",
+  "contact_email": "support@yourdomain.com"
+}</pre>
+    </div>
+  </div>
+
+  <h2>The 30-minute AEO checklist</h2>
+
+  <p>Here's everything in order. Bookmark this.</p>
+
+  <ul class="checklist">
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>robots.txt</strong> — Allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended
+        <span class="time-badge">⏱ 5 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>JSON-LD structured data</strong> — At minimum: FAQPage + Article or Product
+        <span class="time-badge">⏱ 10 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>llms.txt</strong> — Plain text briefing at domain root, 500-2000 words
+        <span class="time-badge">⏱ 5 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>Heading hierarchy</strong> — One H1, logical H2/H3, no styling headings
+        <span class="time-badge">⏱ 5 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>OpenGraph tags</strong> — og:title, og:description, og:image on every page
+        <span class="time-badge">⏱ 5 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>Meta description</strong> — 120-160 chars, clear and specific
+        <span class="time-badge">⏱ 2 min</span>
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">☐</span>
+      <div>
+        <strong>Performance</strong> — Page loads in under 2 seconds (AI bots timeout fast)
+        <span class="time-badge">⏱ check</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="cta-section">
+    <h2>Check your AEO score in 10 seconds</h2>
+    <p style="color: var(--text-dim); max-width: 480px; margin: 0.5rem auto 0;">
+      AEO Checker scans all 7 factors and gives you a concrete score with actionable recommendations. Free. No signup.
+    </p>
+    <a href="/" class="cta-btn">Check Your Site →</a>
+  </div>
+
+  <h2>Why this matters now (not later)</h2>
+
+  <p>Traditional search isn't dying overnight. But the share of discovery that happens through AI agents is growing fast — and the window to establish yourself is <strong>right now</strong>.</p>
+
+  <p>Here's the thing about AI recommendations: they compound. When an AI agent successfully recommends your product and the user has a good experience, that signal feeds back. Early movers in AEO get a compounding advantage, just like early movers in SEO did in 2005.</p>
+
+  <p>The difference? AEO is still wide open. Your competitors probably haven't heard of it yet. The 30 minutes you spend today could define whether AI agents recommend you or your competitor for the next decade.</p>
+
+  <h3>Related reads</h3>
+  <ul style="padding-left: 1.5rem;">
+    <li><a href="/blog-what-is-aeo.html">What is AEO? The SEO for AI Agents Explained</a></li>
+    <li><a href="/blog-aeo-vs-seo.html">AEO vs SEO: What's the Difference?</a></li>
+    <li><a href="/blog-how-to-create-llms-txt.html">How to Create llms.txt for Your Website</a></li>
+    <li><a href="/blog-robots-txt-ai-agents.html">robots.txt for AI Agents: The Complete Guide</a></li>
+    <li><a href="/blog-llms-txt-new-robots-txt.html">llms.txt Is the New robots.txt</a></li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>AEO Checker — AI Discoverability Scanner</p>
+  <p style="margin-top: 0.5rem;">
+    <a href="/">Home</a> · <a href="/pricing.html">Pricing</a> · <a href="/blog-what-is-aeo.html">Blog</a>
+  </p>
+</footer>
+
+<script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/blog-aeo-scores-top-tech-companies.html" />
+  <title>We Scanned Top Tech Companies for AI-Readiness — The Results Are Surprising</title>
+  <meta name="description" content="We used our AEO Checker to scan Stripe, OpenAI, Cloudflare, and Shopify for AI agent discoverability. OpenAI scored 23/110. Here's what every site gets wrong." />
+  <meta property="og:title" content="We Scanned Top Tech Companies for AI-Readiness" />
+  <meta property="og:description" content="OpenAI scores 23/110 on AI-readiness. Stripe leads at 68/110. We break down what matters for AI agent discoverability." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a1a; color: #e2e8f0; line-height: 1.75; }
+    .article { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+    .back { display: inline-block; color: #818cf8; text-decoration: none; font-size: 14px; margin-bottom: 32px; }
+    .back:hover { text-decoration: underline; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(24px, 5vw, 36px); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; letter-spacing: -1px; }
+    .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 40px; }
+    .date { color: #64748b; font-size: 13px; margin-bottom: 8px; }
+    h2 { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: #fff; margin: 48px 0 16px; letter-spacing: -0.5px; }
+    h3 { font-size: 17px; color: #c7d2fe; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; color: #cbd5e1; font-size: 16px; }
+    a { color: #818cf8; }
+    strong { color: #fff; }
+    em { color: #94a3b8; }
+
+    .score-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .score-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .score-site { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #fff; }
+    .score-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .grade-good { background: rgba(132,204,22,0.15); color: #84cc16; }
+    .grade-fair { background: rgba(234,179,8,0.15); color: #eab308; }
+    .grade-poor { background: rgba(249,115,22,0.15); color: #f97316; }
+    .score-number { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; }
+    .score-max { color: #64748b; font-size: 16px; }
+    .score-bar { height: 6px; background: #1e293b; border-radius: 3px; margin: 12px 0; overflow: hidden; }
+    .score-fill { height: 100%; border-radius: 3px; }
+    .check-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .check-row:last-child { border-bottom: none; }
+    .check-score { font-family: 'JetBrains Mono', monospace; color: #e2e8f0; }
+
+    .insight-box {
+      background: rgba(129,140,248,0.08);
+      border-left: 3px solid #818cf8;
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 15px;
+    }
+
+    .leaderboard {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .leaderboard th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .leaderboard td {
+      padding: 12px;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .leaderboard tr:first-child td { color: #84cc16; }
+
+    .cta-box {
+      background: linear-gradient(135deg, #1e1b4b 0%, #1a1a2e 100%);
+      border: 1px solid rgba(129,140,248,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .cta-box h3 { color: #fff; margin: 0 0 8px; }
+    .cta-box p { color: #94a3b8; margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: #818cf8;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .cta-btn:hover { background: #6366f1; }
+
+    ul { margin: 12px 0 16px 20px; }
+    li { margin-bottom: 8px; color: #cbd5e1; font-size: 15px; }
+    li strong { color: #e2e8f0; }
+
+    @media (max-width: 480px) {
+      .score-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+<div class="article">
+  <a href="/" class="back">&larr; Back to AEO Checker</a>
+  <p class="date">March 18, 2026 · 5 min read</p>
+  <h1>We Scanned Top Tech Companies for AI-Readiness — The Results Are Surprising</h1>
+  <p class="subtitle">OpenAI builds AI but scores 23/110 on AI discoverability. Stripe leads at 68/110. Here's what the data reveals about the state of AEO.</p>
+
+  <h2>The Experiment</h2>
+  <p>We used our <a href="/">AEO Checker</a> to scan four of the biggest names in tech — Stripe, Shopify, Cloudflare, and OpenAI — across 7 dimensions of AI agent discoverability. Each site gets a score out of 110.</p>
+  <p>The question: <strong>are the companies building AI actually optimized for AI?</strong></p>
+  <p>The answer might surprise you.</p>
+
+  <h2>The Leaderboard</h2>
+  <table class="leaderboard">
+    <tr><th>Site</th><th>Score</th><th>Grade</th></tr>
+    <tr><td><strong>shopify.com</strong></td><td>71/110</td><td>Good</td></tr>
+    <tr><td><strong>stripe.com</strong></td><td>68/110</td><td>Good</td></tr>
+    <tr><td><strong>cloudflare.com</strong></td><td>54/110</td><td>Fair</td></tr>
+    <tr><td><strong>openai.com</strong></td><td>23/110</td><td>Poor</td></tr>
+  </table>
+
+  <div class="insight-box">
+    <strong>The irony:</strong> OpenAI — the company whose models power most AI agents — has the worst AEO score. Their site is nearly invisible to the very agents they build.
+  </div>
+
+  <h2>Detailed Breakdowns</h2>
+
+  <!-- Shopify -->
+  <div class="score-card">
+    <div class="score-header">
+      <span class="score-site">shopify.com</span>
+      <span class="score-badge grade-good">Good</span>
+    </div>
+    <span class="score-number">71</span><span class="score-max">/110</span>
+    <div class="score-bar"><div class="score-fill" style="width:65%;background:#84cc16;"></div></div>
+    <div class="check-row"><span>🧱 Structured Data</span><span class="check-score">20/20</span></div>
+    <div class="check-row"><span>🤖 robots.txt AI Bots</span><span class="check-score">8/15</span></div>
+    <div class="check-row"><span>📄 llms.txt</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>🏗️ Content Structure</span><span class="check-score">10/20</span></div>
+    <div class="check-row"><span>🔌 Tool/API Description</span><span class="check-score">3/15</span></div>
+    <div class="check-row"><span>⚡ Performance</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>📝 Markdown for Agents</span><span class="check-score">0/10</span></div>
+  </div>
+  <p><strong>The winner.</strong> Shopify nails the fundamentals: perfect structured data, a comprehensive llms.txt, and blazing performance. Where it falls short: no markdown content negotiation and incomplete robots.txt rules for AI bots. Their llms.txt file is the gold standard — detailed, structured, and clearly designed for LLM consumption.</p>
+
+  <!-- Stripe -->
+  <div class="score-card">
+    <div class="score-header">
+      <span class="score-site">stripe.com</span>
+      <span class="score-badge grade-good">Good</span>
+    </div>
+    <span class="score-number">68</span><span class="score-max">/110</span>
+    <div class="score-bar"><div class="score-fill" style="width:62%;background:#84cc16;"></div></div>
+    <div class="check-row"><span>🧱 Structured Data</span><span class="check-score">20/20</span></div>
+    <div class="check-row"><span>🤖 robots.txt AI Bots</span><span class="check-score">8/15</span></div>
+    <div class="check-row"><span>📄 llms.txt</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>🏗️ Content Structure</span><span class="check-score">7/20</span></div>
+    <div class="check-row"><span>🔌 Tool/API Description</span><span class="check-score">3/15</span></div>
+    <div class="check-row"><span>⚡ Performance</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>📝 Markdown for Agents</span><span class="check-score">0/10</span></div>
+  </div>
+  <p><strong>Close second.</strong> Stripe's developer-first DNA shows: perfect structured data, a solid llms.txt, and fast responses. The gap vs. Shopify comes from content structure — Stripe's homepage is more visual and less heading-rich. Notable: despite having one of the most AI-integrated APIs in the world, no ai-plugin.json or OpenAPI spec is discoverable from the homepage.</p>
+
+  <!-- Cloudflare -->
+  <div class="score-card">
+    <div class="score-header">
+      <span class="score-site">cloudflare.com</span>
+      <span class="score-badge grade-fair">Fair</span>
+    </div>
+    <span class="score-number">54</span><span class="score-max">/110</span>
+    <div class="score-bar"><div class="score-fill" style="width:49%;background:#eab308;"></div></div>
+    <div class="check-row"><span>🧱 Structured Data</span><span class="check-score">10/20</span></div>
+    <div class="check-row"><span>🤖 robots.txt AI Bots</span><span class="check-score">8/15</span></div>
+    <div class="check-row"><span>📄 llms.txt</span><span class="check-score">0/15</span></div>
+    <div class="check-row"><span>🏗️ Content Structure</span><span class="check-score">10/20</span></div>
+    <div class="check-row"><span>🔌 Tool/API Description</span><span class="check-score">3/15</span></div>
+    <div class="check-row"><span>⚡ Performance</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>📝 Markdown for Agents</span><span class="check-score">8/10</span></div>
+  </div>
+  <p><strong>Interesting split.</strong> Cloudflare is the only site that scores on "Markdown for Agents" — they pioneered the <code>Accept: text/markdown</code> content negotiation that lets AI agents get clean markdown instead of HTML. But they don't have a llms.txt file, which is ironic since their blog <a href="/blog-cloudflare-markdown-agents.html">literally wrote the playbook on it</a>. Cloudflare walks the walk on the engineering side but hasn't adopted the community standards yet.</p>
+
+  <!-- OpenAI -->
+  <div class="score-card">
+    <div class="score-header">
+      <span class="score-site">openai.com</span>
+      <span class="score-badge grade-poor">Poor</span>
+    </div>
+    <span class="score-number">23</span><span class="score-max">/110</span>
+    <div class="score-bar"><div class="score-fill" style="width:21%;background:#f97316;"></div></div>
+    <div class="check-row"><span>🧱 Structured Data</span><span class="check-score">0/20</span></div>
+    <div class="check-row"><span>🤖 robots.txt AI Bots</span><span class="check-score">8/15</span></div>
+    <div class="check-row"><span>📄 llms.txt</span><span class="check-score">0/15</span></div>
+    <div class="check-row"><span>🏗️ Content Structure</span><span class="check-score">0/20</span></div>
+    <div class="check-row"><span>🔌 Tool/API Description</span><span class="check-score">0/15</span></div>
+    <div class="check-row"><span>⚡ Performance</span><span class="check-score">15/15</span></div>
+    <div class="check-row"><span>📝 Markdown for Agents</span><span class="check-score">0/10</span></div>
+  </div>
+  <p><strong>The shocker.</strong> OpenAI — the company that started the AI agent revolution — scores 23/110. Zero structured data. Zero llms.txt. Zero content structure. Their homepage is essentially a sleek marketing splash page with minimal semantic markup. The only points come from performance (fast) and a partial robots.txt (GPTBot is mentioned, but other bots aren't explicitly allowed).</p>
+
+  <div class="insight-box">
+    OpenAI optimizes for humans reading their marketing page, not for AI agents discovering their capabilities. In a world where ChatGPT is recommending tools to millions of users, that's a missed opportunity.
+  </div>
+
+  <h2>What We Learned</h2>
+
+  <h3>1. llms.txt is the new differentiator</h3>
+  <p>The 2 sites that scored "Good" (Shopify, Stripe) both have comprehensive llms.txt files. The 2 that didn't score well don't. A single file — 500+ characters of structured context about your product — is worth up to 15 points. It's the highest-ROI AEO action you can take.</p>
+
+  <h3>2. Structured data still matters most</h3>
+  <p>JSON-LD schemas, OpenGraph tags, and meta descriptions account for 20 of 110 points. Shopify and Stripe both score perfect 20/20. OpenAI scores 0. When an AI agent processes your page, structured data is the first thing it extracts.</p>
+
+  <h3>3. Nobody is ready for markdown content negotiation</h3>
+  <p>Only Cloudflare supports <code>Accept: text/markdown</code> — the emerging pattern where AI crawlers request markdown instead of HTML. This is still early, but Cloudflare's blog posts demonstrate a 40% improvement in AI comprehension when serving markdown. The others don't support it at all.</p>
+
+  <h3>4. robots.txt is universally incomplete</h3>
+  <p>All four sites score only 8/15 on robots.txt. They mention some AI bots but don't explicitly allow all major crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended). In a world where new AI crawlers appear monthly, explicit allowlisting beats hoping for the best.</p>
+
+  <h3>5. Tool discoverability is almost non-existent</h3>
+  <p>Despite Stripe having one of the most powerful APIs in fintech, there's no discoverable ai-plugin.json or OpenAPI spec from their homepage. Same for all four sites. AI agents can't use tools they can't find. If you have an API, <code>/.well-known/ai-plugin.json</code> should exist.</p>
+
+  <h2>The Takeaway</h2>
+  <p>AEO (Agent Engine Optimization) is where SEO was in 2005: almost nobody is doing it, the standards are still forming, and early movers will have an enormous advantage.</p>
+  <p>The companies building AI aren't optimizing for AI. That gap is your opportunity.</p>
+  <p><strong>Three things you can do today:</strong></p>
+  <ul>
+    <li><strong>Create /llms.txt</strong> — 500+ chars of structured product context</li>
+    <li><strong>Add explicit AI bot rules</strong> in robots.txt — allow GPTBot, ClaudeBot, PerplexityBot</li>
+    <li><strong>Check your score</strong> — use our free scanner below</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>What's your AEO score?</h3>
+    <p>Scan your site for free. 7 checks, 110 points, actionable recommendations.</p>
+    <a href="/" class="cta-btn">Scan Your Site →</a>
+  </div>
+
+  <p style="font-size:13px; color:#64748b; margin-top:40px;"><em>Methodology: All scans performed on March 18, 2026 using the AEO Checker tool (7 checks, 110 max points). Scores reflect homepage-level checks only. These companies may have better AEO on subpages (especially docs).</em></p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "We Scanned Top Tech Companies for AI-Readiness — The Results Are Surprising",
+  "description": "We used our AEO Checker to scan Stripe, OpenAI, Cloudflare, and Shopify for AI agent discoverability. OpenAI scored 23/110. Here's what every site gets wrong.",
+  "datePublished": "2026-03-18",
+  "dateModified": "2026-03-18",
+  "author": {
+    "@type": "Organization",
+    "name": "AEO Checker",
+    "url": "https://aeo-checker-0tao.onrender.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AEO Checker"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage"
+  }
+}
+</script>
+</body>
+</html>

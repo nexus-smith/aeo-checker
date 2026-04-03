@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEO Audit Checklist: 20 Things to Check Before AI Agents Visit Your Site</title>
+  <meta name="description" content="Complete AEO audit checklist — 20 yes/no items to make your website AI-agent ready. Check structured data, llms.txt, robots.txt, content structure, API docs, and more." />
+  <meta name="keywords" content="aeo audit checklist, aeo checklist, ai agent readiness checklist, aeo optimization checklist, website ai audit, llms.txt checklist, ai seo checklist 2026" />
+  <meta property="og:title" content="AEO Audit Checklist: 20 Things to Check" />
+  <meta property="og:description" content="20 yes/no items to make your website discoverable by AI agents. Print it, bookmark it, share it." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/blog-aeo-audit-checklist.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "AEO Audit Checklist: 20 Things to Check Before AI Agents Visit Your Site",
+        "description": "A complete yes/no checklist for auditing your website's AI agent readiness across 7 categories.",
+        "datePublished": "2026-03-21",
+        "author": { "@type": "Organization", "name": "AEO Checker" },
+        "publisher": { "@type": "Organization", "name": "AEO Checker" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Audit Your Website for AEO Readiness",
+        "description": "Follow this 20-item checklist to assess and improve your website's visibility to AI agents.",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Check Structured Data", "text": "Verify JSON-LD Organization/Product schema, OpenGraph tags, meta description, and Twitter Card markup are present." },
+          { "@type": "HowToStep", "position": 2, "name": "Check robots.txt", "text": "Verify robots.txt exists, doesn't block AI crawlers (GPTBot, ClaudeBot, PerplexityBot), and includes a sitemap reference." },
+          { "@type": "HowToStep", "position": 3, "name": "Check llms.txt", "text": "Create llms.txt and optionally llms-full.txt at your domain root with company info, products, and key URLs." },
+          { "@type": "HowToStep", "position": 4, "name": "Check Content Structure", "text": "Ensure proper H1-H6 hierarchy, FAQ/HowTo schema markup, and clear section organization." },
+          { "@type": "HowToStep", "position": 5, "name": "Check Tool/API Documentation", "text": "Add ai-plugin.json and OpenAPI spec if you have an API. Add MCP hints if relevant." },
+          { "@type": "HowToStep", "position": 6, "name": "Check Performance", "text": "Verify sub-2-second response times. AI agents timeout faster than browsers." },
+          { "@type": "HowToStep", "position": 7, "name": "Check Markdown Support", "text": "Implement content negotiation for text/markdown, add a /crawl endpoint, or create llms-full.txt." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How often should I run an AEO audit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Run a full AEO audit quarterly, and a quick check after any major site update (redesign, CMS migration, robots.txt change). Most AEO improvements are one-time setups, so ongoing audits are mainly to catch regressions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's a good AEO score?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On the AEO Checker scale (0-110): 80+ is Excellent, 60-79 is Good, 40-59 is Fair, 20-39 is Poor, below 20 is Critical. The average across 20 top tech companies is 57/110. Scoring above 70 puts you ahead of most competitors."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which checklist items have the biggest impact?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The three highest-impact items are: (1) JSON-LD structured data — gives agents explicit machine-readable info, (2) llms.txt — the dedicated AI agent context file, and (3) not blocking AI crawlers in robots.txt. These three alone can move a site from Poor to Good."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --surface-2: #1a1a28;
+      --text: #e2e2e8; --text-dim: #8888a0; --text-muted: #555570;
+      --accent: #6366f1; --accent-glow: rgba(99,102,241,0.15);
+      --green: #22c55e; --lime: #84cc16; --yellow: #eab308; --orange: #f97316; --red: #ef4444;
+      --border: rgba(255,255,255,0.06); --radius: 12px;
+      --font: 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-dim); font-size: 0.85rem; margin-bottom: 2rem; }
+    .back:hover { color: var(--text); text-decoration: none; }
+
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.03em; }
+    .subtitle { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; }
+    .meta { display: flex; gap: 1rem; color: var(--text-muted); font-size: 0.8rem; margin-bottom: 2.5rem; }
+
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 1rem; letter-spacing: -0.02em; }
+    p { margin-bottom: 1rem; }
+
+    .category-section {
+      margin: 2rem 0;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-bottom: none;
+    }
+    .category-icon {
+      font-size: 1.3rem;
+    }
+    .category-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .category-points {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+    .checklist-item:last-child {
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--text-muted);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-content {
+      flex: 1;
+    }
+    .check-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    .check-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+    .check-impact {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    .impact-high { background: rgba(34,197,94,0.15); color: var(--green); }
+    .impact-medium { background: rgba(234,179,8,0.15); color: var(--yellow); }
+    .impact-low { background: rgba(136,136,160,0.15); color: var(--text-dim); }
+
+    .score-guide {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) {
+      .score-guide { grid-template-columns: repeat(3, 1fr); }
+    }
+    .score-item {
+      text-align: center;
+      padding: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .score-range { font-family: var(--mono); font-weight: 600; font-size: 0.85rem; }
+    .score-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(99,102,241,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    .cta-box h3 { margin-top: 0; margin-bottom: 0.5rem; }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+      text-decoration: none;
+    }
+
+    .internal-links {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .internal-links h3 { margin-top: 0; }
+    .internal-links ul { list-style: none; padding: 0; margin: 0; }
+    .internal-links li { margin-bottom: 0.5rem; }
+    .internal-links .arrow { color: var(--text-muted); margin-right: 0.5rem; }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: var(--surface-2);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 3rem 0 2rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+
+    @media print {
+      body { background: white; color: #111; }
+      .back, footer, .cta-box, .internal-links { display: none; }
+      .check-box { border-color: #333; }
+      .category-header, .checklist-item, .score-item { background: #f5f5f5; border-color: #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="blog.html" class="back">← Back to blog</a>
+
+    <h1>AEO Audit Checklist: 20 Things to Check Before AI Agents Visit Your Site</h1>
+    <p class="subtitle">A printable, actionable checklist for making your website discoverable by ChatGPT, Claude, Perplexity, and other AI agents. Each item is a yes/no check — no ambiguity, no guesswork.</p>
+    <div class="meta">
+      <span>March 21, 2026</span>
+      <span>·</span>
+      <span>7 min read</span>
+    </div>
+
+    <p>We've audited <a href="blog-top20-aeo-scores-2026.html">20 tech giants</a> and <a href="blog-aeo-case-studies-10-sites.html">10 popular websites</a> for AI-readiness. Here's everything we check, distilled into 20 yes/no items you can run through in under an hour.</p>
+
+    <p>Each item maps to one of the 7 categories in the <a href="/">AEO Checker</a> scoring system. We've marked the impact level so you can prioritize: <span class="check-impact impact-high">HIGH</span> items move your score the most.</p>
+
+    <h2>Score Guide</h2>
+    <div class="score-guide">
+      <div class="score-item">
+        <div class="score-range" style="color: var(--green);">80–110</div>
+        <div class="score-label">Excellent</div>
+      </div>
+      <div class="score-item">
+        <div class="score-range" style="color: var(--lime);">60–79</div>
+        <div class="score-label">Good</div>
+      </div>
+      <div class="score-item">
+        <div class="score-range" style="color: var(--yellow);">40–59</div>
+        <div class="score-label">Fair</div>
+      </div>
+      <div class="score-item">
+        <div class="score-range" style="color: var(--orange);">20–39</div>
+        <div class="score-label">Poor</div>
+      </div>
+      <div class="score-item">
+        <div class="score-range" style="color: var(--red);">0–19</div>
+        <div class="score-label">Critical</div>
+      </div>
+    </div>
+
+    <!-- Category 1: Structured Data -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">📊</span>
+        <span class="category-name">Structured Data</span>
+        <span class="category-points">0–20 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">JSON-LD Organization or Product schema <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Does your homepage include a <code>&lt;script type="application/ld+json"&gt;</code> block with an Organization, Product, or SoftwareApplication schema? This is the single most impactful AEO factor — it gives agents explicit, structured information about your business.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">OpenGraph meta tags <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Are <code>og:title</code>, <code>og:description</code>, and <code>og:type</code> present? AI agents use these as quick summaries when parsing pages. They're also critical for social sharing and link previews.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Meta description <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">Is there a <code>&lt;meta name="description"&gt;</code> tag with a clear, concise summary (120-160 characters)? This is often the first thing agents read to decide if a page is relevant.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Twitter Card markup <span class="check-impact impact-low">LOW</span></div>
+            <div class="check-desc">Does the page have <code>twitter:card</code> and <code>twitter:title</code> meta tags? Not high-impact for agents directly, but contributes to a complete metadata profile that signals a well-maintained site.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 2: robots.txt -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">🤖</span>
+        <span class="category-name">robots.txt & AI Crawlers</span>
+        <span class="category-points">0–15 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">robots.txt exists and is accessible <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Can agents find <code>/robots.txt</code> at your domain root? A missing or 404 robots.txt leaves agents uncertain about access permissions. <a href="blog-robots-txt-ai-agents.html">See our robots.txt guide →</a></div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">AI crawlers not blocked <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Verify that GPTBot, ClaudeBot, anthropic-ai, PerplexityBot, and CCBot are NOT in a <code>Disallow</code> rule. A blanket <code>User-agent: * / Disallow: /</code> blocks everything — including all AI agents.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Sitemap referenced in robots.txt <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">Does your robots.txt include a <code>Sitemap: https://yourdomain.com/sitemap.xml</code> directive? This helps AI crawlers discover all your pages efficiently.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 3: llms.txt -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">📄</span>
+        <span class="category-name">llms.txt</span>
+        <span class="category-points">0–15 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">llms.txt exists at domain root <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Is <code>/llms.txt</code> accessible and returning valid content? This is the emerging standard for AI agent context — a plain-text file that tells agents what your business does, your products, and key URLs. <a href="blog-how-to-create-llms-txt.html">Full creation guide →</a></div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">llms-full.txt for comprehensive context <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">For complex businesses: does <code>/llms-full.txt</code> exist with detailed documentation? The full version supplements llms.txt with complete product descriptions, API documentation, and use cases.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 4: Content Structure -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">🏗️</span>
+        <span class="category-name">Content Structure</span>
+        <span class="category-points">0–20 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Clear H1 tag on every page <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Does each page have exactly one <code>&lt;h1&gt;</code> that clearly describes the page content? Agents use H1 as the primary signal for page topic identification.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Logical heading hierarchy (H1→H2→H3) <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">Are headings nested properly? Skipping levels (H1→H4) or using headings for styling instead of structure confuses agents trying to understand page organization.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">FAQPage schema markup <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">If you have FAQ content, is it marked up with <code>FAQPage</code> JSON-LD schema? This is gold for AI agents — structured question-answer pairs they can directly use in responses.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">HowTo schema for tutorials/guides <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">If you publish how-to content, is it marked up with <code>HowTo</code> schema? Agents can extract and present step-by-step instructions directly from structured data.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 5: Tool/API -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">🔧</span>
+        <span class="category-name">Tool & API Description</span>
+        <span class="category-points">0–15 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">ai-plugin.json manifest <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">If you have an API or tool: does <code>/.well-known/ai-plugin.json</code> exist? This OpenAI-originated standard tells agents your tool name, description, auth method, and API location.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">OpenAPI specification <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">Is your API documented with an <code>openapi.json</code> or <code>openapi.yaml</code> spec? Agents can read OpenAPI specs to understand how to interact with your service programmatically.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 6: Performance -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">⚡</span>
+        <span class="category-name">Performance</span>
+        <span class="category-points">0–15 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Response time under 2 seconds <span class="check-impact impact-high">HIGH</span></div>
+            <div class="check-desc">Does your homepage respond in under 2 seconds? AI agents have aggressive timeouts — much shorter than browsers. A slow site gets skipped. Sub-1-second is ideal.</div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">No JavaScript-required content <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">Is your key content available in the initial HTML response, not rendered by JavaScript? Most AI crawlers don't execute JS. If your content only appears after React/Vue hydration, agents see an empty page.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Category 7: Markdown -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">📝</span>
+        <span class="category-name">Markdown for Agents</span>
+        <span class="category-points">0–10 pts</span>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Content negotiation for text/markdown <span class="check-impact impact-medium">MED</span></div>
+            <div class="check-desc">When an agent requests <code>Accept: text/markdown</code>, does your server return clean markdown instead of HTML? <a href="blog-cloudflare-markdown-agents.html">Cloudflare recently added this for all customers →</a></div>
+          </div>
+        </li>
+        <li class="checklist-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">/crawl endpoint <span class="check-impact impact-low">LOW</span></div>
+            <div class="check-desc">Does <code>/crawl</code> return a markdown-formatted version of your site content? This is an emerging pattern — a dedicated endpoint for agents that returns clean, parseable text. Not standard yet, but early adopters score higher.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Quick wins (30 minutes or less):</strong> Items #1, #5, #6, #8, and #11 can typically be implemented in under 30 minutes each and together account for 50+ points of your AEO score. Start there.</p>
+    </div>
+
+    <h2>How to Use This Checklist</h2>
+
+    <p><strong>Step 1:</strong> Run a <a href="/">free AEO scan</a> on your site to get your current score. This gives you a baseline and highlights which categories need work.</p>
+
+    <p><strong>Step 2:</strong> Go through the checklist above, starting with <span class="check-impact impact-high">HIGH</span> impact items. Check each item against your live site.</p>
+
+    <p><strong>Step 3:</strong> Fix the gaps. Most items are one-time changes — add a JSON-LD block, create an llms.txt file, update robots.txt. No ongoing maintenance required.</p>
+
+    <p><strong>Step 4:</strong> Re-scan to verify. Your score should improve immediately for technical items (structured data, robots.txt, llms.txt). Content structure improvements may take a rescan to fully reflect.</p>
+
+    <div class="highlight-box">
+      <p><strong>Benchmark:</strong> The average score across the <a href="blog-top20-aeo-scores-2026.html">20 top tech companies we scanned</a> is 57/110. Only Sentry (88/110) scored Excellent. Getting to 70+ puts you ahead of Shopify, Atlassian, HubSpot, and even OpenAI.</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>Get Your Score in 60 Seconds</h3>
+      <p>Free AEO scan — all 7 categories, score out of 110, specific fix recommendations.</p>
+      <a href="/" class="cta-button">Run Free AEO Scan →</a>
+    </div>
+
+    <div class="internal-links">
+      <h3>Deep-Dive Guides</h3>
+      <ul>
+        <li><span class="arrow">→</span> <a href="blog-how-to-create-llms-txt.html">How to Create an llms.txt File (Step-by-Step)</a></li>
+        <li><span class="arrow">→</span> <a href="blog-robots-txt-ai-agents.html">robots.txt for AI Agents — Complete Guide</a></li>
+        <li><span class="arrow">→</span> <a href="blog-aeo-optimization-guide.html">Full AEO Optimization Guide</a></li>
+        <li><span class="arrow">→</span> <a href="blog-aeo-vs-seo.html">AEO vs SEO — What's the Difference?</a></li>
+        <li><span class="arrow">→</span> <a href="blog-agent-economy-5-things-business.html">The Agent Economy — 5 Things Every Business Must Do</a></li>
+        <li><span class="arrow">→</span> <a href="blog-what-is-aeo.html">What Is AEO? Complete Guide</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>AEO Checker — Free AI-readiness audits for any website</p>
+    <p><a href="/">Run a scan</a> · <a href="blog.html">Blog</a></p>
+  </footer>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

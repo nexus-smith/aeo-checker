@@ -630,7 +630,7 @@ class ThreadingAEOServer(ThreadingMixIn, HTTPServer):
 
 if __name__ == "__main__":
     _history_load()
-    static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "deploy-static")
+    static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public")
     os.chdir(static_dir)
     server = ThreadingAEOServer(("", PORT), AEOHandler)
     log.info("AEO Checker started port=%d pid=%d dir=%s history=%d", PORT, os.getpid(), static_dir, len(_scan_history))

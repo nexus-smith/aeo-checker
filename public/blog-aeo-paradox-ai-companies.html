@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="wDICABdJE1LP6WGbzZB_NGky2LHrN8jUFwAELQsmOZc" />
+  <title>The AEO Paradox: AI Companies Are Just as Invisible to AI as Everyone Else</title>
+  <meta name="description" content="We scanned 36 YC S25 startups. AI-focused companies scored 43.9/110. Non-AI companies scored 44.2. Building AI doesn't mean being visible to AI." />
+  <meta name="keywords" content="aeo paradox, ai companies seo, yc s25 aeo scores, ai visibility, agent engine optimization, llms.txt adoption, ai readiness, ai startups invisible" />
+  <meta property="og:title" content="The AEO Paradox: AI Companies Are Just as Invisible to AI" />
+  <meta property="og:description" content="We scanned 36 YC S25 startups. AI companies score identically to non-AI companies on AI-readiness. Original data inside." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aeo-checker-0tao.onrender.com/blog-aeo-paradox-ai-companies.html" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/blog-aeo-paradox-ai-companies.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The AEO Paradox: AI Companies Are Just as Invisible to AI as Everyone Else",
+    "description": "Original data from scanning 36 YC S25 startups shows AI-focused companies score identically to non-AI companies on AI-readiness metrics.",
+    "author": {"@type": "Organization", "name": "AEO Checker"},
+    "publisher": {"@type": "Organization", "name": "AEO Checker", "url": "https://aeo-checker-0tao.onrender.com"},
+    "datePublished": "2026-04-04",
+    "dateModified": "2026-04-04",
+    "mainEntityOfPage": "https://aeo-checker-0tao.onrender.com/blog-aeo-paradox-ai-companies.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do AI companies have better AEO scores than non-AI companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Our scan of 36 YC S25 startups shows AI-focused companies average 43.9/110 while non-AI companies average 44.2/110. The 0.3-point difference is statistically meaningless. Building AI products doesn't translate to AI visibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the AEO Paradox?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The AEO Paradox is the counterintuitive finding that companies building AI products are no more visible to AI agents than companies in completely unrelated industries. Expertise in AI technology doesn't automatically transfer to AI discoverability optimization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AEO score do YC S25 startups average?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YC S25 startups average 44/110 on our AEO scoring system. 50% scored Poor or Critical. Only one company (Lilac, a hiring platform) scored Excellent at 95/110."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to fix a low AEO score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AEO improvements take under 30 minutes. Adding JSON-LD structured data, creating an llms.txt file, updating robots.txt for AI bots, and fixing content hierarchy are straightforward technical tasks. The gap between a score of 28 and 95 is awareness, not engineering effort."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a2e;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-muted: #6b6b8a;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav a:hover { color: var(--accent2); }
+    .logo { font-family: var(--mono); font-weight: 600; font-size: 1rem; color: var(--accent2); }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent2); }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 40px; }
+    h2 { font-size: 1.5rem; font-weight: 600; margin: 48px 0 16px; color: var(--text); }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+    p { margin-bottom: 16px; color: #c8c8e0; }
+    a { color: var(--accent2); }
+    ul, ol { margin: 0 0 16px 24px; color: #c8c8e0; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 0.9rem; }
+    .comparison-table th, .comparison-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .comparison-table th { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .comparison-table td { color: #c8c8e0; }
+    .comparison-table tr:hover td { background: rgba(99,102,241,0.04); }
+    .score-excellent { color: var(--green); font-weight: 600; }
+    .score-good { color: var(--accent2); font-weight: 600; }
+    .score-fair { color: var(--yellow); font-weight: 600; }
+    .score-poor { color: #f97316; font-weight: 600; }
+    .score-critical { color: var(--red); font-weight: 600; }
+    .stat-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    @media (max-width: 500px) { .stat-box { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-family: var(--mono);
+      font-size: 2.2rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-card .label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .callout {
+      background: rgba(99,102,241,0.06);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .faq-item { margin: 24px 0; }
+    .faq-item h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(129,140,248,0.08));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .cta-box h3 { margin-top: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.3); }
+    .related { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .related h3 { margin-top: 0; }
+    .related ul { list-style: none; margin-left: 0; }
+    .related li { margin-bottom: 8px; }
+    .related a { text-decoration: none; }
+    .related a:hover { text-decoration: underline; }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+    footer p { color: var(--text-dim); font-size: 0.8rem; }
+    footer a { color: var(--text-muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">AEO Checker</a>
+      <a href="/">← Back to Scanner</a>
+    </nav>
+
+    <article>
+      <div class="breadcrumb"><a href="/">Home</a> / <a href="/blog-what-is-aeo.html">Blog</a> / AEO Paradox</div>
+
+      <h1>The AEO Paradox: AI Companies Are Just as Invisible to AI as Everyone Else</h1>
+      <p class="meta">April 4, 2026 · Original data from scanning 36 YC S25 startups · 5 min read</p>
+
+      <p>There's a reasonable assumption floating around the AI industry: companies building AI tools must be optimized for AI discovery. They understand the technology. They know how agents parse content. They should be ahead of the curve.</p>
+
+      <p>We tested that assumption. It's wrong.</p>
+
+      <h2>The Experiment</h2>
+
+      <p>We scanned all 36 companies in Y Combinator's Summer 2025 batch — their newest cohort — using our <a href="/">AEO Checker</a>. The tool measures seven dimensions of AI-readiness: structured data, robots.txt AI directives, llms.txt, content structure, tool descriptions, performance, and markdown-for-agents support.</p>
+
+      <p>Then we split the batch in half: 18 companies with "AI" explicitly in their product (AI governance, voice models, agent platforms, ML infrastructure) and 18 without (real estate, collaboration tools, fintech, developer tools).</p>
+
+      <h2>The Result</h2>
+
+      <div class="stat-box">
+        <div class="stat-card">
+          <span class="number score-poor">43.9</span>
+          <span class="label">AI Companies (avg /110)</span>
+        </div>
+        <div class="stat-card">
+          <span class="number score-poor">44.2</span>
+          <span class="label">Non-AI Companies (avg /110)</span>
+        </div>
+      </div>
+
+      <p>The difference is <strong>0.3 points</strong>. Statistically meaningless. Companies whose entire business is artificial intelligence are exactly as invisible to AI agents as companies selling rental brokerage services.</p>
+
+      <h2>The Leaderboard Doesn't Help Either</h2>
+
+      <p>The top scorer in the entire batch? <strong>Lilac, at 95/110</strong> — a hiring platform. Not an AI infrastructure company. Not a model training startup.</p>
+
+      <p>Meanwhile, at the bottom:</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Company</th><th>Product</th><th>Score</th><th>Rating</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Lilac</strong></td><td>Hiring platform</td><td class="score-excellent">95/110</td><td>Excellent</td></tr>
+          <tr><td colspan="4" style="padding:4px; border:none;">...</td></tr>
+          <tr><td><strong>truthsystems</strong></td><td>AI trust verification</td><td class="score-critical">16/110</td><td>Critical</td></tr>
+          <tr><td><strong>Nuntius</strong></td><td>AI communications</td><td class="score-critical">7/110</td><td>Critical</td></tr>
+        </tbody>
+      </table>
+
+      <p>An AI trust verification platform that AI agents can't verify exists. An AI communications company that can't communicate with AI. The irony writes itself.</p>
+
+      <h2>Why This Happens</h2>
+
+      <p>Building AI products and optimizing for AI discovery are completely different skills. Knowing how GPT-4 works doesn't automatically mean your website tells GPTBot what your company does. It's the same reason backend engineers often have terrible personal websites — proximity to the technology doesn't transfer to applying it to yourself.</p>
+
+      <p>The specific gaps tell the story:</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr><th>What's Missing</th><th>% of YC S25 Startups</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Markdown for agents</td><td class="score-critical">89%</td></tr>
+          <tr><td>Tool/API descriptions</td><td class="score-poor">75%</td></tr>
+          <tr><td>llms.txt signals</td><td class="score-fair">64%</td></tr>
+          <tr><td>Content structure issues</td><td class="score-fair">57%</td></tr>
+          <tr><td>robots.txt AI directives</td><td class="score-good">47%</td></tr>
+        </tbody>
+      </table>
+
+      <p>89% have no markdown-for-agents representation. 75% have no tool or API descriptions that AI agents can parse. These aren't exotic requirements — they're the equivalent of meta descriptions for the AI era.</p>
+
+      <h2>The Broader Implication</h2>
+
+      <p>If YC's newest batch — small teams, deeply technical, immersed in AI discourse — isn't optimizing for AI discovery, enterprise companies certainly aren't either. Our <a href="/blog-llms-txt-adoption-study.html">broader industry scan</a> confirms this: fintech averages 33% llms.txt adoption, healthcare 20%, travel and consumer 0%.</p>
+
+      <div class="callout">
+        <p><strong>The takeaway:</strong> The companies that move first on AEO won't be the ones building AI. They'll be the ones paying attention to how AI discovers things — regardless of what they're building.</p>
+      </div>
+
+      <h2>One Bright Spot</h2>
+
+      <p>53% of YC S25 companies have an <code>llms.txt</code> file. That's significantly higher than the 38% average across the 61 major websites we scanned in our industry study. YC founders are reading about llms.txt on Hacker News and implementing it in minutes.</p>
+
+      <p>But llms.txt alone doesn't make you visible. Without structured data, without proper content hierarchy, without AI bot directives in robots.txt — the llms.txt file sits there unread. It's necessary but not sufficient.</p>
+
+      <h2>The 30-Minute Fix</h2>
+
+      <p>The good news: none of this is hard. Lilac's 95/110 isn't the result of months of SEO work. It's five things done right:</p>
+
+      <ol>
+        <li><strong>JSON-LD structured data</strong> describing what the product does</li>
+        <li><strong>llms.txt</strong> with clear content signals</li>
+        <li><strong>robots.txt</strong> explicitly allowing GPTBot, ClaudeBot, PerplexityBot</li>
+        <li><strong>Semantic HTML</strong> with proper heading hierarchy</li>
+        <li><strong>Clear, parseable product descriptions</strong></li>
+      </ol>
+
+      <p>That's a morning's work. The gap between 28/110 and 95/110 isn't talent or budget — it's <strong>awareness</strong>.</p>
+
+      <div class="cta-box">
+        <h3>Where Does Your Site Stand?</h3>
+        <p>Scan your website in 30 seconds. See exactly what AI agents see — and what they miss.</p>
+        <a href="/" class="cta-btn">Check Your AEO Score →</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Do AI companies have better AEO scores than non-AI companies?</h3>
+        <p>No. Our scan of 36 YC S25 startups shows AI-focused companies average 43.9/110 while non-AI companies average 44.2/110. The 0.3-point difference is statistically meaningless. Building AI products doesn't translate to AI visibility.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the AEO Paradox?</h3>
+        <p>The AEO Paradox is the counterintuitive finding that companies building AI products are no more visible to AI agents than companies in completely unrelated industries. Expertise in AI technology doesn't automatically transfer to AI discoverability optimization.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What AEO score do YC S25 startups average?</h3>
+        <p>YC S25 startups average 44/110 on our AEO scoring system. 50% scored Poor or Critical. Only one company (Lilac, a hiring platform) scored Excellent at 95/110.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does it take to fix a low AEO score?</h3>
+        <p>Most AEO improvements take under 30 minutes. Adding JSON-LD structured data, creating an <code>llms.txt</code> file, updating <code>robots.txt</code> for AI bots, and fixing content hierarchy are straightforward technical tasks. The gap between a score of 28 and 95 is awareness, not engineering effort.</p>
+      </div>
+
+      <div class="related">
+        <h3>Related Reading</h3>
+        <ul>
+          <li>→ <a href="/blog-aeo-scores-top-tech-companies.html">We Scanned 20 Tech Giants for AI-Readiness — Only 1 Scored "Excellent"</a></li>
+          <li>→ <a href="/blog-llms-txt-adoption-study.html">llms.txt Adoption Study: 61 Domains Across 7 Industries</a></li>
+          <li>→ <a href="/blog-what-is-aeo.html">What is AEO? Agent Engine Optimization Explained</a></li>
+          <li>→ <a href="/blog-aeo-audit-checklist.html">The Complete AEO Audit Checklist</a></li>
+          <li>→ <a href="/blog-how-to-create-llms-txt.html">How to Create llms.txt — Complete Guide</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <footer>
+      <p><a href="/">AEO Checker</a> · Free AI Agent Optimization Scanner</p>
+      <p style="margin-top:8px;">© 2026 AEO Checker. Built for the AI-first web.</p>
+    </footer>
+  </div>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

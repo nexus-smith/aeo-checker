@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://aeo-checker-0tao.onrender.com/llms-txt-checker.html" />
+  <title>llms.txt Checker — Free Validator for AI Agent Discovery Files</title>
+  <meta name="description" content="Free llms.txt checker and validator. Test if your website has a valid llms.txt file for AI agent discovery. Instant results with actionable fixes." />
+  <meta name="keywords" content="llms.txt checker, llms txt validator, llms.txt tester, llms txt checker online, check llms.txt file, llms.txt verifier, ai agent discovery" />
+  <meta property="og:title" content="llms.txt Checker — Free AI Agent Discovery File Validator" />
+  <meta property="og:description" content="Test if your website has a valid llms.txt file. Instant scan, actionable results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aeo-checker-0tao.onrender.com/llms-txt-checker.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "llms.txt Checker",
+    "description": "Free tool to check if your website has a valid llms.txt file for AI agent discovery. Validates format, content signals, and provides optimization recommendations.",
+    "url": "https://aeo-checker-0tao.onrender.com/llms-txt-checker.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "llms.txt is a proposed standard file placed at the root of a website (like robots.txt) that helps AI language models understand your site's content, structure, and purpose. It provides context that helps AI agents like ChatGPT, Claude, and Perplexity accurately describe and recommend your product."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I create an llms.txt file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Create a plain text file named llms.txt in your website root directory. Include: a title line starting with #, a brief description of your site, sections for key pages (## URLs), documentation links (## Docs), and optionally an llms-full.txt with detailed content. Use Markdown formatting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need llms.txt for SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "llms.txt doesn't directly affect traditional SEO (Google rankings). But it significantly improves your visibility in AI-powered search and recommendations — ChatGPT, Claude, Perplexity, and other AI assistants. As AI search grows, llms.txt becomes as important as robots.txt was for traditional search."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI agents use llms.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The llms.txt standard is recognized by major AI platforms including Anthropic (Claude), and is increasingly checked by AI crawlers. Sentry, Vercel, Supabase, Linear, and many developer-focused companies have already adopted it. Adoption is growing across industries."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #0f0f1a;
+      --bg3: #141428;
+      --surface: #1a1a2e;
+      --surface2: #1e1e35;
+      --border: rgba(255,255,255,0.07);
+      --border-glow: rgba(99, 102, 241, 0.3);
+      --text: #e8e8f0;
+      --text-muted: #8585a3;
+      --text-dim: #4a4a6a;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #22c55e;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --red: #ef4444;
+      --mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ── Header ── */
+    .header {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent2);
+      margin-bottom: 24px;
+    }
+
+    .header-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #e8e8f0 0%, #9090b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+
+    .header-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Scan form ── */
+    .scan-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .url-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .url-input:focus { border-color: var(--accent); }
+    .url-input::placeholder { color: var(--text-dim); }
+
+    .scan-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 14px 28px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .scan-btn:hover { background: #5558e6; transform: translateY(-1px); }
+    .scan-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Results ── */
+    .result-card {
+      display: none;
+      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .result-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .result-icon.pass { background: rgba(34,197,94,0.15); }
+    .result-icon.fail { background: rgba(239,68,68,0.15); }
+    .result-icon.partial { background: rgba(234,179,8,0.15); }
+
+    .result-title { font-size: 1.1rem; font-weight: 600; }
+    .result-url { font-family: var(--mono); font-size: 12px; color: var(--text-muted); }
+
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--bg2);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .check-status {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .check-status.pass { background: rgba(34,197,94,0.2); color: var(--green); }
+    .check-status.fail { background: rgba(239,68,68,0.2); color: var(--red); }
+
+    .check-label { font-size: 14px; }
+    .check-label strong { font-weight: 600; }
+    .check-label .detail { color: var(--text-muted); font-size: 13px; display: block; margin-top: 2px; }
+
+    .error-box {
+      display: none;
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-sm);
+      color: var(--red);
+      font-size: 13px;
+    }
+
+    .cta-full {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      padding: 14px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: var(--radius);
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .cta-full:hover { background: rgba(99,102,241,0.2); }
+
+    /* ── Content sections ── */
+    .section {
+      margin-top: 64px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 24px 0 8px;
+      color: var(--text);
+    }
+
+    .section p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .section p strong { color: var(--text); }
+
+    /* ── Stats grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent2);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ── Code block ── */
+    .code-block {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    .code-block code {
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .code-block .comment { color: var(--text-dim); }
+    .code-block .heading { color: var(--accent2); font-weight: 600; }
+    .code-block .url { color: var(--green); }
+
+    /* ── Steps ── */
+    .steps { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent2);
+    }
+
+    .step-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+    .step-text strong { color: var(--text); }
+
+    /* ── Adoption table ── */
+    .adoption-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    .adoption-table th,
+    .adoption-table td {
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .adoption-table th {
+      color: var(--text-dim);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .adoption-table td { color: var(--text-muted); }
+    .adoption-table td:last-child { font-family: var(--mono); color: var(--accent2); }
+
+    /* ── Blog links ── */
+    .related-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .related-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .related-link:hover { border-color: var(--accent); transform: translateX(4px); }
+    .related-link .arrow { color: var(--accent2); font-size: 18px; }
+    .related-link .label { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    .footer a { color: var(--accent2); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .scan-form { flex-direction: column; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .header { padding: 40px 0 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">llms.txt validator</div>
+      <h1>llms.txt Checker</h1>
+      <p class="header-sub">Check if your website has a valid llms.txt file. See exactly how AI agents like ChatGPT, Claude, and Perplexity discover your content.</p>
+
+      <form class="scan-form" id="scanForm">
+        <input type="url" class="url-input" id="urlInput" placeholder="https://yoursite.com" required />
+        <button type="submit" class="scan-btn" id="scanBtn">Check llms.txt</button>
+      </form>
+
+      <div class="error-box" id="errorBox"></div>
+    </header>
+
+    <!-- Results -->
+    <div class="result-card" id="resultCard">
+      <div class="result-header">
+        <div class="result-icon" id="resultIcon">📄</div>
+        <div>
+          <div class="result-title" id="resultTitle">llms.txt Status</div>
+          <div class="result-url" id="resultUrl"></div>
+        </div>
+      </div>
+
+      <ul class="check-list" id="checkList"></ul>
+
+      <a href="/" class="cta-full" id="fullScanCta">Run Full AEO Scan (7 checks, free) →</a>
+    </div>
+
+    <!-- What is llms.txt -->
+    <section class="section">
+      <h2>What is llms.txt?</h2>
+      <p><strong>llms.txt is the robots.txt for AI agents.</strong> While robots.txt tells search engine crawlers what to index, llms.txt tells AI language models what your website is about, what content matters, and where to find it.</p>
+      <p>Placed at your site's root (<code>yoursite.com/llms.txt</code>), it uses simple Markdown formatting to describe your product, link to key pages, and provide context that helps AI assistants accurately recommend your site to users.</p>
+      <p>The standard was proposed by Jeremy Howard and is being adopted across the industry. Major companies including Sentry, Vercel, Supabase, Linear, and GitHub have already implemented it.</p>
+    </section>
+
+    <!-- Adoption stats -->
+    <section class="section">
+      <h2>llms.txt adoption by industry</h2>
+      <p>We scanned 61 major websites across 7 industries. Here's the current state of adoption:</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">38%</div>
+          <div class="stat-label">Overall adoption</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">83%</div>
+          <div class="stat-label">Dev tools</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0%</div>
+          <div class="stat-label">Travel &amp; consumer</div>
+        </div>
+      </div>
+
+      <table class="adoption-table">
+        <thead>
+          <tr><th>Industry</th><th>Adoption Rate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Developer tools</td><td>83%</td></tr>
+          <tr><td>E-commerce / SaaS platforms</td><td>50%</td></tr>
+          <tr><td>Education</td><td>40%</td></tr>
+          <tr><td>Media / publishing</td><td>38%</td></tr>
+          <tr><td>Fintech</td><td>33%</td></tr>
+          <tr><td>Healthcare</td><td>20%</td></tr>
+          <tr><td>Travel / consumer</td><td>0%</td></tr>
+        </tbody>
+      </table>
+
+      <p>Adoption follows developer proximity — companies with engineering-heavy teams adopt first. If you're in a non-dev-tool industry, adding llms.txt puts you ahead of 60-100% of your competitors.</p>
+    </section>
+
+    <!-- How to create -->
+    <section class="section">
+      <h2>How to create an llms.txt file</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Create the file.</strong> Add a plain text file named <code>llms.txt</code> to your website's root directory (next to robots.txt).</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Add a title.</strong> First line: <code># Your Product Name</code> — a clear, one-line description of what your site does.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Describe your product.</strong> A short paragraph (2-3 sentences) explaining what your product is and who it's for.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Link key pages.</strong> Use <code>## URLs</code> sections to list your most important pages — pricing, docs, features, blog.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-text"><strong>Optionally create llms-full.txt.</strong> A detailed version with full content that AI agents can ingest for deeper understanding.</div>
+        </div>
+      </div>
+
+      <h3>Example llms.txt</h3>
+      <div class="code-block">
+        <code>
+<span class="heading"># Acme Analytics</span>
+
+<span class="comment">&gt; Real-time web analytics for developers.</span>
+<span class="comment">&gt; Privacy-first, no cookies, open source.</span>
+
+<span class="heading">## Docs</span>
+
+- <span class="url">[Getting Started](https://acme.dev/docs/start)</span>: Installation and setup guide
+- <span class="url">[API Reference](https://acme.dev/docs/api)</span>: Full REST API documentation
+
+<span class="heading">## Features</span>
+
+- <span class="url">[Real-time Dashboard](https://acme.dev/features/dashboard)</span>: Live visitor tracking
+- <span class="url">[Funnels](https://acme.dev/features/funnels)</span>: Conversion funnel analysis
+
+<span class="heading">## Optional</span>
+
+- <span class="url">[Blog](https://acme.dev/blog)</span>: Product updates and tutorials
+- <span class="url">[Changelog](https://acme.dev/changelog)</span>: Version history
+        </code>
+      </div>
+    </section>
+
+    <!-- Beyond llms.txt -->
+    <section class="section">
+      <h2>llms.txt alone isn't enough</h2>
+      <p>Our scan of 36 Y Combinator S25 companies found that <strong>53% already have llms.txt</strong> — higher than the industry average. But their average AEO score was still just 44/110.</p>
+      <p>That's because llms.txt is one signal out of seven that AI agents use to discover and understand your site. Without structured data (JSON-LD), proper robots.txt directives for AI bots, semantic HTML, and markdown-for-agents support, your llms.txt sits there unread.</p>
+      <p>Our <a href="/" style="color: var(--accent2)">full AEO Checker</a> tests all seven dimensions — giving you a complete picture of your AI visibility, not just one file.</p>
+    </section>
+
+    <!-- Related content -->
+    <section class="section">
+      <h2>Learn more</h2>
+      <div class="related-links">
+        <a href="/blog-llms-txt-new-robots-txt.html" class="related-link">
+          <span class="arrow">→</span>
+          <div>
+            <div>llms.txt is the New robots.txt</div>
+            <div class="label">Why every website needs an AI discovery file</div>
+          </div>
+        </a>
+        <a href="/blog-how-to-create-llms-txt.html" class="related-link">
+          <span class="arrow">→</span>
+          <div>
+            <div>How to Create an llms.txt File</div>
+            <div class="label">Step-by-step tutorial with examples</div>
+          </div>
+        </a>
+        <a href="/blog-llms-txt-adoption-industry-data.html" class="related-link">
+          <span class="arrow">→</span>
+          <div>
+            <div>llms.txt Adoption: 61 Websites Scanned</div>
+            <div class="label">Original data on adoption by industry</div>
+          </div>
+        </a>
+        <a href="/blog-aeo-paradox-ai-companies.html" class="related-link">
+          <span class="arrow">→</span>
+          <div>
+            <div>The AEO Paradox: AI Companies Invisible to AI</div>
+            <div class="label">YC S25 data — AI companies score the same as everyone else</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built by <a href="/">AEO Checker</a> · Free AI Engine Optimization tool</p>
+      <p style="margin-top: 8px;">llms.txt data from scans of 61+ websites, April 2026</p>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('scanForm');
+    const urlInput = document.getElementById('urlInput');
+    const scanBtn = document.getElementById('scanBtn');
+    const resultCard = document.getElementById('resultCard');
+    const resultIcon = document.getElementById('resultIcon');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultUrl = document.getElementById('resultUrl');
+    const checkList = document.getElementById('checkList');
+    const errorBox = document.getElementById('errorBox');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let url = urlInput.value.trim();
+      if (!url.startsWith('http')) url = 'https://' + url;
+
+      errorBox.style.display = 'none';
+      resultCard.style.display = 'none';
+      scanBtn.disabled = true;
+      scanBtn.textContent = 'Checking…';
+
+      try {
+        const res = await fetch('/api/check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+          throw new Error(err.error || `Server error ${res.status}`);
+        }
+
+        const data = await res.json();
+        renderLlmsResult(data, url);
+
+      } catch (err) {
+        errorBox.textContent = '⚠️ ' + err.message;
+        errorBox.style.display = 'block';
+      } finally {
+        scanBtn.disabled = false;
+        scanBtn.textContent = 'Check llms.txt';
+      }
+    });
+
+    function renderLlmsResult(data, url) {
+      resultUrl.textContent = url;
+
+      // Find the llms.txt check
+      const llmsCheck = data.checks.find(c =>
+        c.name.toLowerCase().includes('llms') ||
+        c.name.toLowerCase().includes('content signal')
+      );
+
+      // Find robots.txt AI directives check
+      const robotsCheck = data.checks.find(c =>
+        c.name.toLowerCase().includes('robots') ||
+        c.name.toLowerCase().includes('ai directive')
+      );
+
+      // Find structured data check
+      const structuredCheck = data.checks.find(c =>
+        c.name.toLowerCase().includes('structured')
+      );
+
+      // Find markdown check
+      const markdownCheck = data.checks.find(c =>
+        c.name.toLowerCase().includes('markdown')
+      );
+
+      const checks = [];
+      let hasLlms = false;
+
+      // llms.txt presence
+      if (llmsCheck) {
+        const score = llmsCheck.score || 0;
+        const max = llmsCheck.maxScore || 15;
+        hasLlms = score > 5;
+        checks.push({
+          pass: hasLlms,
+          label: 'llms.txt file',
+          detail: hasLlms
+            ? `Found and valid (${score}/${max} points)`
+            : `Not found or empty (${score}/${max} points)`
+        });
+      }
+
+      // robots.txt AI bots
+      if (robotsCheck) {
+        const pass = (robotsCheck.score || 0) > 5;
+        checks.push({
+          pass,
+          label: 'robots.txt AI directives',
+          detail: pass
+            ? `AI bots (GPTBot, ClaudeBot) are allowed`
+            : `Missing or blocking AI crawlers`
+        });
+      }
+
+      // Structured data
+      if (structuredCheck) {
+        const pass = (structuredCheck.score || 0) > 5;
+        checks.push({
+          pass,
+          label: 'Structured data (JSON-LD)',
+          detail: pass
+            ? `Schema.org markup found`
+            : `No structured data detected`
+        });
+      }
+
+      // Markdown for agents
+      if (markdownCheck) {
+        const pass = (markdownCheck.score || 0) > 0;
+        checks.push({
+          pass,
+          label: 'Markdown for agents',
+          detail: pass
+            ? `Content negotiation or markdown endpoint available`
+            : `No markdown representation for AI agents`
+        });
+      }
+
+      // Overall score
+      checks.push({
+        pass: data.totalScore > 55,
+        label: `Overall AEO Score: ${data.totalScore}/${data.maxScore}`,
+        detail: `Grade: ${data.grade}`
+      });
+
+      // Update header
+      if (hasLlms) {
+        resultIcon.textContent = '✅';
+        resultIcon.className = 'result-icon pass';
+        resultTitle.textContent = 'llms.txt found';
+      } else {
+        resultIcon.textContent = '❌';
+        resultIcon.className = 'result-icon fail';
+        resultTitle.textContent = 'llms.txt not found';
+      }
+
+      // Render checks
+      checkList.innerHTML = checks.map(c => `
+        <li class="check-item">
+          <div class="check-status ${c.pass ? 'pass' : 'fail'}">${c.pass ? '✓' : '✗'}</div>
+          <div class="check-label">
+            <strong>${c.label}</strong>
+            <span class="detail">${c.detail}</span>
+          </div>
+        </li>
+      `).join('');
+
+      // Update CTA
+      const cta = document.getElementById('fullScanCta');
+      cta.href = `/?url=${encodeURIComponent(url)}`;
+
+      resultCard.style.display = 'block';
+    }
+  </script>
+
+  <script data-goatcounter="https://nexussmith.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
